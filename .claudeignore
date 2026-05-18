@@ -1,0 +1,60 @@
+# =====================
+# Claude가 읽을 필요 없는 폴더 (대용량/바이너리)
+# =====================
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+.vs/
+.idea/
+
+# =====================
+# Unity 바이너리 에셋 (텍스트 아님)
+# =====================
+Assets/**/*.unity
+Assets/**/*.prefab
+Assets/**/*.asset
+Assets/**/*.mat
+Assets/**/*.anim
+Assets/**/*.controller
+Assets/**/*.fbx
+Assets/**/*.obj
+
+# =====================
+# 이미지 / 오디오
+# =====================
+Assets/**/*.png
+Assets/**/*.jpg
+Assets/**/*.jpeg
+Assets/**/*.tga
+Assets/**/*.tiff
+Assets/**/*.exr
+Assets/**/*.hdr
+Assets/**/*.psd
+Assets/**/*.wav
+Assets/**/*.mp3
+Assets/**/*.ogg
+
+# =====================
+# meta 파일 (GUID 추적용, 내용 단순)
+# =====================
+Assets/**/*.meta
+
+# =====================
+# 서드파티 에셋 (수정 안 함)
+# =====================
+Assets/JMO Assets/
+Assets/Samples/
+Assets/TextMesh Pro/
+Assets/VRTemplateAssets/
+Assets/XR/
+Assets/XRI/
+
+# =====================
+# StreamingAssets 오디오/이미지
+# =====================
+StreamingAssets/Songs/*/audio.*
+StreamingAssets/Songs/*/cover.*

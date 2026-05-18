@@ -1,0 +1,16 @@
+{
+  "songId": "song_001",
+  "title": "Sample Track",
+  "artist": "Artist Name",
+  "mapper": "YourName",
+  "bpm": 120,
+  "audioFile": "audio.ogg",
+  "coverFile": "cover.png",
+  "previewStart": 0.0,
+  "previewDuration": 10.0,
+  "songOffset": 0.0,
+  "difficulties": [
+    { "name": "Easy",   "chartFile": "chart_easy.json",   "level": 3 },
+    { "name": "Normal", "chartFile": "chart_normal.json", "level": 5 }
+  ]
+}

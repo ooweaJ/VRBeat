@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "noteSpeed": 8.0,
+  "notes": [
+    { "type": "normal", "beat": 2.0, "duration": 0, "lane": 1, "row": 1, "direction": "down", "color": "red"  },
+    { "type": "normal", "beat": 4.0, "duration": 0, "lane": 2, "row": 1, "direction": "down", "color": "blue" },
+    { "type": "normal", "beat": 6.0, "duration": 0, "lane": 1, "row": 1, "direction": "down", "color": "red"  },
+    { "type": "normal", "beat": 8.0, "duration": 0, "lane": 2, "row": 1, "direction": "down", "color": "blue" },
+    { "type": "long",   "beat": 10.0,"duration": 2, "lane": 1, "row": 1, "direction": "any",  "color": "red"  },
+    { "type": "normal", "beat": 13.0,"duration": 0, "lane": 1, "row": 1, "direction": "any",  "color": "red"  },
+    { "type": "normal", "beat": 15.0,"duration": 0, "lane": 2, "row": 1, "direction": "any",  "color": "blue" }
+  ]
+}
