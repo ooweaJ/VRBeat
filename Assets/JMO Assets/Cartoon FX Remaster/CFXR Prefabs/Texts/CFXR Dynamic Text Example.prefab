@@ -47,7 +47,6 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,7 +59,6 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1572,7 +1570,6 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
-    serializedVersion: 2
     enabled: 1
     mode: 1
     timeMode: 0
@@ -1690,7 +1687,7 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    rowMode: 1
+    randomRow: 1
     sprites:
     - sprite: {fileID: 21300000, guid: 92b6ff7c5fd1d854fa9c6920e16c829e, type: 3}
     flipU: 0
@@ -2501,61 +2498,8 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
-    serializedVersion: 2
     enabled: 0
-    multiplierCurve:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
+    multiplier: 1
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
@@ -4913,7 +4857,7 @@ GameObject:
   - component: {fileID: 5665720735710339205}
   - component: {fileID: 5665720735710339201}
   - component: {fileID: 5665720735710339202}
-  - component: {fileID: 73642442965841364}
+  - component: {fileID: 5665720735710339203}
   - component: {fileID: 5665720735710339204}
   m_Layer: 0
   m_Name: CFXR Dynamic Text Example
@@ -6386,7 +6330,6 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
-    serializedVersion: 2
     enabled: 0
     mode: 1
     timeMode: 0
@@ -6504,7 +6447,7 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    rowMode: 1
+    randomRow: 1
     sprites:
     - sprite: {fileID: 21300000, guid: 92b6ff7c5fd1d854fa9c6920e16c829e, type: 3}
     flipU: 0
@@ -7315,61 +7258,8 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
-    serializedVersion: 2
     enabled: 0
-    multiplierCurve:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
+    multiplier: 1
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
@@ -9731,7 +9621,6 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9744,7 +9633,6 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -9780,7 +9668,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &73642442965841364
+--- !u!114 &5665720735710339203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9789,24 +9677,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5665720735710339206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03c8102322ad0d04fa6ae3f17887e967, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d99526f62168ed4a8290554058d253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDynamic: 1
-  text: 
+  text: 256
   size: 1
   letterSpacing: 0.44
   backgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  color1: {r: 1, g: 0.25490198, b: 0, a: 1}
-  color2: {r: 1, g: 0.04705883, b: 0, a: 1}
+  color1: {r: 1, g: 0.25625005, b: 0, a: 1}
+  color2: {r: 1, g: 0.047946326, b: 0, a: 1}
   delay: 0.05
   cumulativeDelay: 1
-  compensateLifetime: 0
+  compensateLifetime: 1
   lifetimeMultiplier: 1
   rotation: -5
   sortingFudgeOffset: 0.1
   font: {fileID: 11400000, guid: 6107d49d5744fb24eb855f7abb997756, type: 2}
-  autoUpdateEditor: 1
 --- !u!114 &5665720735710339204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9819,5 +9705,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e88becf5ef298b4c91e3a4661f555a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 5665720735710339201}
-  dynamicParticleText: {fileID: 73642442965841364}
+  partSystem: {fileID: 5665720735710339201}
+  runtimeParticleText: {fileID: 5665720735710339203}

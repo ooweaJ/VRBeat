@@ -5,10 +5,18 @@ public class LongNote : NoteBase
     [SerializeField] Transform head;
     [SerializeField] Transform tail;
     [SerializeField] Transform body;
+    [SerializeField] NoteSliceHandler sliceHandler;
 
     bool isHeld;
     float holdTimer;
-    const float HoldScoreInterval = 0.1f; // score tick every 100ms
+    const float HoldScoreInterval = 0.1f;
+
+    void Awake()
+    {
+        // 루트에 큐브 메시가 있으면 Head 구체를 가리므로 숨김
+        var rootRenderer = GetComponent<MeshRenderer>();
+        if (rootRenderer != null) rootRenderer.enabled = false;
+    }
 
     public override void Initialize(NoteData d, float speed, float hz, GameConfig cfg)
     {
@@ -19,15 +27,55 @@ public class LongNote : NoteBase
         float lengthInSeconds = d.duration * Conductor.Instance.SecondsPerBeat;
         float lengthInMeters  = lengthInSeconds * speed;
 
+        // 루트 스케일(0.4)을 나눠서 로컬 길이로 환산
+        float rootScaleZ  = Mathf.Abs(transform.localScale.z);
+        float localLength = rootScaleZ > 0f ? lengthInMeters / rootScaleZ : lengthInMeters;
+
         if (body != null)
-            body.localScale = new Vector3(body.localScale.x, body.localScale.y, lengthInMeters);
+        {
+            // body 앞면이 Head(z=0)와 정렬되도록 center를 localLength/2 로 이동
+            body.localScale    = new Vector3(body.localScale.x, body.localScale.y, localLength);
+            body.localPosition = new Vector3(0f, 0f, localLength / 2f);
+        }
         if (tail != null)
-            tail.localPosition = new Vector3(0, 0, lengthInMeters);
+            tail.localPosition = new Vector3(0f, 0f, localLength);
+
+        ApplyVisuals();
+    }
+
+    void ApplyVisuals()
+    {
+        Material mat = LoadMaterial(data.color.ToLower());
+        if (mat == null) return;
+
+        ApplyMat(head, mat);
+        ApplyMat(body, mat);
+        ApplyMat(tail, mat);
+    }
+
+    static Material LoadMaterial(string colorName)
+    {
+#if UNITY_EDITOR
+        string path = colorName == "red" ? "Assets/Material/matR.mat" : "Assets/Material/matB.mat";
+        var mat = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(path);
+        if (mat != null) return mat;
+#endif
+        // 런타임 폴백
+        var m = new Material(Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard"));
+        m.color = colorName == "red" ? Color.red : Color.blue;
+        return m;
+    }
+
+    static void ApplyMat(Transform t, Material mat)
+    {
+        if (t == null) return;
+        var r = t.GetComponent<Renderer>() ?? t.GetComponentInChildren<Renderer>();
+        if (r != null) r.material = mat;
     }
 
     protected override void Update()
     {
-        base.Update(); // moves head position
+        base.Update();
 
         if (isHeld)
         {
@@ -42,7 +90,6 @@ public class LongNote : NoteBase
 
     public override bool ShouldDespawn(float despawnZ)
     {
-        // Keep alive until the tail passes
         if (tail == null) return base.ShouldDespawn(despawnZ);
         return tail.position.z < despawnZ;
     }
@@ -55,8 +102,19 @@ public class LongNote : NoteBase
         WasHit = true;
         isHeld = true;
         ScoreManager.Instance?.RegisterHit(this, true, velocity);
+
+        // 헤드 슬라이싱 — sliceHandler.sliceTarget 을 head 오브젝트로 지정할 것
+        if (sliceHandler == null) sliceHandler = GetComponent<NoteSliceHandler>();
+        Material headMat = head != null
+            ? (head.GetComponent<Renderer>() ?? head.GetComponentInChildren<Renderer>())?.sharedMaterial
+            : null;
+        sliceHandler?.Slice(sliceDir, headMat);
+
+        SliceEffect.Play(transform.position, sliceDir, data.color);
+
+        // 헤드만 숨기고 바디/꼬리는 홀드 중 유지
+        if (head != null) head.gameObject.SetActive(false);
     }
 
-    // Called by LongNoteBody trigger
     public void SetHeld(bool held) => isHeld = held;
 }

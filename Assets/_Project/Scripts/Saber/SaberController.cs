@@ -13,6 +13,8 @@ public class SaberController : MonoBehaviour
 
     public Vector3 Velocity { get; private set; }
     public float Speed      => Velocity.magnitude;
+    public Transform Tip    => tip;
+    public Transform Root   => root;
 
     void Start()
     {

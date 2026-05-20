@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------------------
 // Cartoon FX
-// (c) 2012-2025 Jean Moreno
+// (c) 2012-2020 Jean Moreno
 //--------------------------------------------------------------------------------------------------------------------------------
 
 using System.Collections;
@@ -14,15 +14,7 @@ namespace CartoonFX
 {
 	public class CFXR_ParticleTextFontAsset : ScriptableObject
 	{
-		public enum LetterCase
-		{
-			Both,
-			Upper,
-			Lower
-		}
-
 		public string CharSequence = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?-.#@$ ";
-		public LetterCase letterCase = LetterCase.Upper;
 		public Sprite[] CharSprites;
 		public Kerning[] CharKerningOffsets;
 

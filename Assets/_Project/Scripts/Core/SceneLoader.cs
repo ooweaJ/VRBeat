@@ -9,11 +9,24 @@ public static class SceneLoader
 
     public static void Load(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if (Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError($"[SceneLoader] Cannot load scene '{sceneName}'. Is it added to Build Settings?");
+        }
     }
 
     public static IEnumerator LoadAsync(string sceneName, Action onComplete = null)
     {
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            Debug.LogError($"[SceneLoader] Cannot load async scene '{sceneName}'.");
+            yield break;
+        }
+
         var op = SceneManager.LoadSceneAsync(sceneName);
         op.allowSceneActivation = false;
 

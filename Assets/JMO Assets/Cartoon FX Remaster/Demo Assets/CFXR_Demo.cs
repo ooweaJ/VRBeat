@@ -1,20 +1,11 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------------------
 // Cartoon FX
-// (c) 2012-2025 Jean Moreno
+// (c) 2012-2020 Jean Moreno
 //--------------------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
-#if UNITY_6000_0_OR_NEWER && CFXR_NEW_INPUT_SYSTEM
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
-#endif
-#if CFXR_URP_INSTALLED
-using UnityEngine.Rendering.Universal;
-#endif
 
 namespace CartoonFX
 {
@@ -103,8 +94,8 @@ namespace CartoonFX
 
 		public void ResetCam()
 		{
-			demoCamera.transform.position = camInitialPosition;
-			demoCamera.transform.rotation = camInitialRotation;
+			Camera.main.transform.position = camInitialPosition;
+			Camera.main.transform.rotation = camInitialRotation;
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------
@@ -125,14 +116,11 @@ namespace CartoonFX
 		public Text labelEffect;
 		public Text labelIndex;
 		[Space]
-		public GameObject groundURP;
-		public GameObject groundBIRP;
-		GameObject ground;
+		public GameObject ground;
+		public Collider groundCollider;
 		public Transform demoCamera;
-		public GameObject eventSystem;
+		public MonoBehaviour bloom;
 		public float rotationSpeed = 10f;
-		public float zoomFactor = 1f;
-		MonoBehaviour bloom;
 
 		bool slowMotion = false;
 		bool rotateCamera = false;
@@ -149,69 +137,18 @@ namespace CartoonFX
 
 		void Awake()
 		{
-			camInitialPosition = demoCamera.transform.position;
-			camInitialRotation = demoCamera.transform.rotation;
+			camInitialPosition = Camera.main.transform.position;
+			camInitialRotation = Camera.main.transform.rotation;
 
 			var list = new List<GameObject>();
 			for (int i = 0; i < this.transform.childCount; i++)
 			{
-				var effect = this.transform.GetChild(i).gameObject;
-				list.Add(effect);
-
-				var cfxrEffect= effect.GetComponent<CFXR_Effect>();
-				if (cfxrEffect != null) cfxrEffect.clearBehavior = CFXR_Effect.ClearBehavior.Disable;
+				list.Add(this.transform.GetChild(i).gameObject);
 			}
 			effectsList = list.ToArray();
 
 			PlayAtIndex();
 			UpdateLabels();
-
-			bool isURP = GraphicsSettings.currentRenderPipeline != null;
-			ground = isURP ? groundURP : groundBIRP;
-			groundURP.SetActive(isURP);
-			groundBIRP.SetActive(!isURP);
-
-			bloom = demoCamera.GetComponent<Kino.Bloom>();
-#if CFXR_URP_INSTALLED
-			if (isURP)
-			{
-				bloom = demoCamera.GetComponent<Volume>();
-				var camUrpData = demoCamera.GetComponent<UniversalAdditionalCameraData>();
-				if (camUrpData == null)
-					camUrpData = demoCamera.gameObject.AddComponent<UniversalAdditionalCameraData>();
-				camUrpData.renderPostProcessing = true;
-			}
-#endif
-#if UNITY_6000_0_OR_NEWER && CFXR_NEW_INPUT_SYSTEM
-			// use correct input system for UI
-			Destroy(eventSystem.GetComponent<StandaloneInputModule>());
-			eventSystem.AddComponent<InputSystemUIInputModule>();
-#endif
-		}
-
-		static class ButtonsPressed
-		{
-#if UNITY_6000_0_OR_NEWER && CFXR_NEW_INPUT_SYSTEM
-			internal static bool PlayEffect => Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;
-			internal static bool RestartEffect => Keyboard.current != null && (Keyboard.current.deleteKey.wasPressedThisFrame || Keyboard.current.backspaceKey.wasPressedThisFrame);
-			internal static bool Left => Keyboard.current != null && Keyboard.current.leftArrowKey.wasPressedThisFrame;
-			internal static bool Right => Keyboard.current != null && Keyboard.current.rightArrowKey.wasPressedThisFrame;
-			internal static bool Mouse0 => Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
-			internal static bool Mouse1 => Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame;
-			internal static bool Mouse2 => Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame;
-			internal static Vector2 MousePosition => Mouse.current != null ? Mouse.current.position.value : Vector2.zero;
-			internal static float MouseScrollY => Mouse.current != null ? Mouse.current.scroll.value.y : 0;
-#else
-			internal static bool PlayEffect => Input.GetKeyDown(KeyCode.Space);
-			internal static bool RestartEffect => Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Backspace);
-			internal static bool Left => Input.GetKeyDown(KeyCode.LeftArrow);
-			internal static bool Right => Input.GetKeyDown(KeyCode.RightArrow);
-			internal static bool Mouse0 => Input.GetMouseButtonDown(0);
-			internal static bool Mouse1 => Input.GetMouseButtonDown(1);
-			internal static bool Mouse2 => Input.GetMouseButtonDown(2);
-			internal static Vector2 MousePosition => Input.mousePosition;
-			internal static float MouseScrollY => Input.mouseScrollDelta.y;
-#endif
 		}
 
 		void Update()
@@ -221,11 +158,16 @@ namespace CartoonFX
 				demoCamera.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
 			}
 
-			if (ButtonsPressed.PlayEffect)
+			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				if (currentEffect != null)
 				{
 					var ps = currentEffect.GetComponent<ParticleSystem>();
+					if (ps == null)
+					{
+						return;
+					}
+
 					if (ps.isEmitting)
 					{
 						ps.Stop(true);
@@ -249,7 +191,7 @@ namespace CartoonFX
 				}
 			}
 
-			if (ButtonsPressed.RestartEffect)
+			if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Backspace))
 			{
 				if (currentEffect != null)
 				{
@@ -258,19 +200,19 @@ namespace CartoonFX
 				}
 			}
 
-			if (ButtonsPressed.Left)
+			if (Input.GetKeyDown(KeyCode.LeftArrow))
 			{
 				PreviousEffect();
 			}
 
-			if (ButtonsPressed.Right)
+			if (Input.GetKeyDown(KeyCode.RightArrow))
 			{
 				NextEffect();
 			}
 
-			if (ButtonsPressed.Mouse0)
+			if (Input.GetMouseButtonDown(0))
 			{
-				var ray = demoCamera.GetComponent<Camera>().ScreenPointToRay(ButtonsPressed.MousePosition);
+				var ray = demoCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 				if (Physics.Raycast(ray))
 				{
 					if (currentEffect != null)
@@ -281,15 +223,15 @@ namespace CartoonFX
 				}
 			}
 
-			if (ButtonsPressed.Mouse1 || ButtonsPressed.Mouse2)
+			if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
 			{
 				ResetCam();
 			}
 
-			float scroll = ButtonsPressed.MouseScrollY;
+			float scroll = Input.GetAxis("Mouse ScrollWheel");
 			if (scroll != 0f)
 			{
-				demoCamera.transform.Translate(Vector3.forward * (scroll < 0f ? -1f : 1f) * zoomFactor, Space.Self);
+				Camera.main.transform.Translate(Vector3.forward * (scroll < 0f ? -1f : 1f), Space.Self);
 			}
 		}
 
