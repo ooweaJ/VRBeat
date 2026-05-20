@@ -46,7 +46,10 @@ public class SaberController : MonoBehaviour
     {
         if (other.TryGetComponent(out NoteBase note))
         {
-            note.OnSliced(Velocity.normalized, Velocity.magnitude, color);
+            float vel = Velocity.magnitude;
+            Debug.Log($"[Saber] Hit detected with {other.name}. Velocity: {vel:F2}");
+
+            note.OnSliced(Velocity.normalized, vel, color);
             HapticFeedback.Pulse(handedness, 0.5f, 0.1f);
         }
     }

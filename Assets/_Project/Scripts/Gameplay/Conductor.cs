@@ -28,6 +28,8 @@ public class Conductor : MonoBehaviour
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
+
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
     void OnDestroy()

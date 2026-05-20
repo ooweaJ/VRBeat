@@ -5,20 +5,17 @@ public abstract class NoteBase : MonoBehaviour
     protected NoteData data;
     protected float noteSpeed;
     protected float hitZ;
+    protected GameConfig config;
 
     public NoteData Data => data;
     public bool WasHit { get; protected set; }
 
-    // Lane/row layout constants
-    const float LaneWidth  = 0.6f;
-    const float RowHeight  = 0.6f;
-    const float BaseHeight = 0.8f;
-
-    public virtual void Initialize(NoteData d, float speed, float hz)
+    public virtual void Initialize(NoteData d, float speed, float hz, GameConfig cfg)
     {
         data      = d;
         noteSpeed = speed;
         hitZ      = hz;
+        config    = cfg;
         WasHit    = false;
         ApplyDirectionRotation();
         UpdatePosition();
@@ -28,6 +25,8 @@ public abstract class NoteBase : MonoBehaviour
 
     protected virtual void UpdatePosition()
     {
+        if (Conductor.Instance == null) return;
+
         float beatsRemaining   = data.beat - Conductor.Instance.SongBeat;
         float secondsRemaining = beatsRemaining * Conductor.Instance.SecondsPerBeat;
         float zPos             = hitZ + secondsRemaining * noteSpeed;
@@ -44,10 +43,14 @@ public abstract class NoteBase : MonoBehaviour
 
     public abstract void OnSliced(Vector3 sliceDirection, float velocity, SaberColor saberColor);
 
-    protected static Vector3 LaneToWorldPos(int lane, int row)
+    protected Vector3 LaneToWorldPos(int lane, int row)
     {
-        float x = (lane - 1.5f) * LaneWidth;
-        float y = BaseHeight + row * RowHeight;
+        float laneW = config != null ? config.laneWidth : 0.6f;
+        float rowH  = config != null ? config.rowHeight  : 0.6f;
+        float baseH = config != null ? config.baseHeight : 0.8f;
+
+        float x = (lane - 1.5f) * laneW;
+        float y = baseH + row * rowH;
         return new Vector3(x, y, 0f);
     }
 

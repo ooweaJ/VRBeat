@@ -10,9 +10,9 @@ public class LongNote : NoteBase
     float holdTimer;
     const float HoldScoreInterval = 0.1f; // score tick every 100ms
 
-    public override void Initialize(NoteData d, float speed, float hz)
+    public override void Initialize(NoteData d, float speed, float hz, GameConfig cfg)
     {
-        base.Initialize(d, speed, hz);
+        base.Initialize(d, speed, hz, cfg);
         isHeld    = false;
         holdTimer = 0f;
 

@@ -4,7 +4,7 @@
   "artist": "Artist Name",
   "mapper": "YourName",
   "bpm": 120,
-  "audioFile": "audio.ogg",
+  "audioFile": "audio.mp3",
   "coverFile": "cover.png",
   "previewStart": 0.0,
   "previewDuration": 10.0,

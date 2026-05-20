@@ -19,6 +19,7 @@ public class SongLibrary : MonoBehaviour
     {
         Songs.Clear();
         string songsPath = Path.Combine(Application.streamingAssetsPath, "Songs");
+        Debug.Log($"[SongLibrary] Searching for songs at: {songsPath}");
 
 #if UNITY_ANDROID && !UNITY_EDITOR
         // On Android, Directory.GetDirectories doesn't work on StreamingAssets.

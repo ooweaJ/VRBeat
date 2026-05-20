@@ -1,13 +1,31 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
+    [SerializeField] InputActionProperty menuAction;
+
+    void OnEnable()
+    {
+        menuAction.action.Enable();
+        menuAction.action.performed += OnMenuPressed;
+    }
+
+    void OnDisable()
+    {
+        menuAction.action.performed -= OnMenuPressed;
+    }
+
+    void OnMenuPressed(InputAction.CallbackContext context)
+    {
+        Toggle();
+    }
 
     void Update()
     {
-        // Quest menu button or keyboard Escape
-        if (Input.GetKeyDown(KeyCode.Escape) || OVRInput.GetDown(OVRInput.Button.Start))
+        // Keyboard Escape for testing
+        if (Input.GetKeyDown(KeyCode.Escape))
             Toggle();
     }
 

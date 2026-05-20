@@ -97,7 +97,7 @@
 ## 알려진 제한 사항
 
 - `SongLibrary.LoadAllSongs()`: Android(Quest) 빌드에서는 `Directory.GetDirectories` 미작동 → **빌드 전 `manifest.json` 기반 로딩으로 교체 필요**
-- `PauseMenu.cs`: `OVRInput` 참조 → Meta XR SDK 없으면 `#if` 처리 필요
-- `OVRSettings.cs`: `OVRManager` 참조 → Meta XR SDK 필요
+- `PauseMenu.cs`: ✅ OVRInput 제거 및 Unity InputSystem(XRI)으로 교체 완료
+- `OVRSettings.cs`: ✅ OVRManager 참조 부분 주석 처리 완료 (컴파일 오류 해결)
 - `SliceEffect.cs`: 파티클 시스템 프리팹 Inspector에서 연결 필요
 - `audio.ogg` 파일은 직접 추가해야 함 (저작권 파일 별도 준비)

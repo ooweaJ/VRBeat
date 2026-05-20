@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -8,7 +9,9 @@ public class SongLoader : MonoBehaviour
     public IEnumerator LoadAudio(string path, Action<AudioClip> onLoaded)
     {
         string uri = PathToUri(path);
-        using var req = UnityWebRequestMultimedia.GetAudioClip(uri, AudioType.OGGVORBIS);
+        AudioType type = GetAudioType(path);
+
+        using var req = UnityWebRequestMultimedia.GetAudioClip(uri, type);
         ((DownloadHandlerAudioClip)req.downloadHandler).streamAudio = true;
         yield return req.SendWebRequest();
 
@@ -16,6 +19,18 @@ public class SongLoader : MonoBehaviour
             onLoaded?.Invoke(DownloadHandlerAudioClip.GetContent(req));
         else
             Debug.LogWarning($"[SongLoader] Audio load failed: {req.error} ({uri})");
+    }
+
+    AudioType GetAudioType(string path)
+    {
+        string ext = Path.GetExtension(path).ToLower();
+        switch (ext)
+        {
+            case ".mp3": return AudioType.MPEG;
+            case ".wav": return AudioType.WAV;
+            case ".ogg": return AudioType.OGGVORBIS;
+            default:     return AudioType.UNKNOWN;
+        }
     }
 
     public IEnumerator LoadCover(string path, Action<Sprite> onLoaded)
