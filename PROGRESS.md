@@ -66,21 +66,38 @@
 | 7 | **LongNote** 머리/꼬리/유지 로직 | ✅ | 색상 적용, 헤드 슬라이싱, 바디 조각 잘리기 완료 |
 | 8 | **ScoreManager + HealthSystem** | ✅ | 타격 시 점수/체력 변화 확인 |
 | 9 | **HUD + PauseMenu** | ✅ | 월드스페이스 Canvas 자동 생성/연결 및 Smooth Follow 적용 |
-| 10 | **SongSelect UI + 최고점수** | 🔲 | **[중요]** 씬 제작 및 Build Settings 추가 필요 |
-| 11 | **Result 씬 + SaveSystem** | 🔲 | **[중요]** 씬 제작 및 Build Settings 추가 필요 |
-| 12 | **Calibration 씬** (userOffset 측정) | 🔲 | 박수 타이밍 측정 로직 추가 |
-| 13 | **Settings 씬** | 🔲 | SettingsUI 배치 |
+| 10 | **SongSelect UI + 최고점수** | ✅ | 씬 제작 + Build Settings 추가 완료, 최고점수 표시 검증됨 |
+| 11 | **Result 씬 + SaveSystem** | ✅ | 점수/정확도/랭크/NEW RECORD 표시 + 최고점수 저장 검증됨 |
+| 12 | **Calibration 씬** (userOffset 측정) | ✅ | 메트로놈(dspTime 예약) + 탭 오프셋 중앙값 측정 + GameSettings 저장, 검증됨 |
+| 13 | **Settings 씬** | ✅ | 노트속도/좌우손/3종 볼륨 슬라이더 + 오프셋 ± + Save/Back 와이어링, 저장 검증됨 |
 | 14 | **Tutorial 씬** | 🔲 | 기본 조작 가이드 |
 | 15 | **ChartEditorWindow** 채보 제작 | 🔲 | 로직은 있으나 UI/사용법 검증 필요 |
 | 16 | 노래 2~3곡 추가 + 풀 플레이 테스트 | ✅ | song_001 2분 분량 확장 완료 |
-| 17 | Quest 빌드 + OVR 최적화 + 90fps 측정 | 🔲 | OVRSettings 활성화 |
-| 18 | 이펙트/사운드/햅틱 폴리싱 | 🔶 | SliceEffect(파티클 Instantiate), SaberTrail(커스텀 리본 메시), 동적 메시 슬라이싱(EzySlice) 완료. 사운드/햅틱 미완 |
+| 17 | Quest 빌드 + OVR 최적화 + 90fps 측정 | 🔶 | 설정/코드 최적화 완료(아래 참조). **실제 APK 빌드·90fps 실측은 기기 연결 후 대기** |
+| 18 | 이펙트/사운드/햅틱 폴리싱 | 🔶 | SliceEffect, SaberTrail, EzySlice + **히트/미스/색오류 효과음(절차적 SFX) 연결 완료**. 햅틱 폴리싱 미완 |
 | 19 | (선택) 리플레이 시스템 | 🔲 | - |
 | 20 | README + 시연 영상 | 🔲 | - |
 
 ---
 
-## 오늘 완료한 작업 (비주얼 폴리싱 세션)
+## 오늘 완료한 작업 (사운드/씬/최적화 세션)
+
+- **사운드 연결 (#18)**: `Audio/SfxManager.cs` 신규 — 효과음 에셋 없이 절차적 신스 톤 생성(히트=고음, 색오류=중음, 미스=저음). `ScoreManager` 히트/미스/색오류 시점에 연결, `GameSettings.sfxVolume × masterVolume` 볼륨 연동. 런타임 재생 검증 완료.
+- **Calibration 씬 (#12)**: `Calibration/CalibrationController.cs` 신규 — dspTime 예약 메트로놈(소스 풀) + 탭 오프셋 중앙값 측정 + `userOffset` 저장. `CreateScenes`에 빌더 추가, Build Settings index 3. 측정→저장→영속화 검증.
+- **Settings 씬 (#13)**: `CreateScenes`에 슬라이더/토글 빌더 + Settings 씬 빌더 추가. `SettingsUI` 전체 와이어링(슬라이더 onValueChanged 영구 리스너 포함), Build Settings index 4. 값 변경→저장→영속화 검증.
+- **Quest 최적화 (#17, 설정 한정)**: 프로젝트가 이미 Quest 준비 상태 확인 — IL2CPP/ARM64/minSdk32/Linear/Vulkan, OpenXR **SinglePassInstanced(Multiview)** + **MetaQuestFeature** 활성. `OVRSettings`를 `RuntimeInitializeOnLoadMethod`로 전역 90fps 적용하도록 개선. **실제 APK 빌드는 사용자 요청으로 보류(기기 필요).**
+
+---
+
+## 이전 완료한 작업 (게임 루프 연결 세션)
+
+- **SongSelect→Gameplay 전환 크래시 수정**: `GameManager`가 `[Managers]`(Conductor 등 자식 보유)에 얹혀 있어, 중복 GameManager의 `Destroy(gameObject)`가 Conductor까지 파괴 → `Conductor.Instance` null → NRE. `Destroy(this)`(컴포넌트만 제거)로 변경해 자식 매니저 보존.
+- **Gameplay→Result 점수 전달 구현**: `ScoreManager`는 씬 단위 싱글톤이라 전환 시 파괴됨. `GameResult` 스냅샷을 신규 추가하고, `GameManager.LastResult`에 전환 직전 캡처 + `SaveSystem` 저장/신기록 판정. `ResultUI`는 `LastResult`에서 읽도록 변경.
+- **전체 루프 검증 완료**: SongSelect → Gameplay(점수) → Result(점수·정확도·랭크·NEW RECORD 표시 + 최고점수 저장) → SongSelect(Best 표시)까지 end-to-end 동작 확인.
+
+---
+
+## 이전 완료한 작업 (비주얼 폴리싱 세션)
 
 - **어셈블리 충돌 수정**: Cartoon FX Remaster `.asmdef` 파일 위치 수정
 - **SliceEffect**: 파티클 Instantiate 방식으로 재작성 (CFXR 호환)
@@ -96,10 +113,15 @@
 
 ## 다음 즉시 할 일
 
-1. ✅ **LongNote 바디 슬라이싱 튜닝**: 양옆 spread 연출로 전환 — 전체 폭 큐브 1개 → 좌/우 반쪽 2개로 갈라져 `transform.right` 양옆 + 뒤 + 위로 날아가도록 변경. `Spread/Back/Up Force`, `Chunk Lifetime` Inspector 조절 가능. → **플레이테스트로 힘 값 미세조정 필요**
-2. **누락된 씬 제작**: `SongSelect`, `Result` 씬을 만들어 전체 게임 루프 연결
-3. **사운드 연결**: 히트/미스 효과음 AudioClip 연결 (스크립트는 완성됨)
-4. **Quest 빌드 + OVR 최적화**: OVRSettings 활성화, 90fps 측정
+1. ✅ **게임 루프 연결** + 최고점수 저장/표시
+2. ✅ **사운드 연결** (절차적 SFX, 히트/미스/색오류)
+3. ✅ **Calibration 씬** (#12)
+4. ✅ **Settings 씬** (#13)
+5. ✅ **Quest 설정/코드 최적화** (#17 일부) — 실제 APK 빌드·90fps 실측만 기기 연결 후 남음
+6. **씬 간 내비게이션**: SongSelect에서 Settings/Calibration로 이동하는 버튼 추가(현재 씬은 있으나 진입 경로 없음)
+7. **Tutorial 씬** (#14)
+8. **햅틱 폴리싱** (#18) — HapticFeedback 연결 검증
+9. **(기기 연결 시) Quest APK 빌드 + 90fps 실측**
 
 ---
 

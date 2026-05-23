@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Result.unity
     guid: 812444c164ef07d49a94dba07ce385cb
+  - enabled: 1
+    path: Assets/_Project/Scenes/Calibration.unity
+    guid: f5f11ba31205d094f85478d06e107664
+  - enabled: 1
+    path: Assets/_Project/Scenes/Settings.unity
+    guid: 93a076adb8184744fb813f8e7ca85c3e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

@@ -69,12 +69,24 @@ public static class CreateScenes
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
         BasicLighting();
 
-        var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
-        var cam = camGo.AddComponent<Camera>();
-        cam.clearFlags = CameraClearFlags.SolidColor;
-        cam.backgroundColor = new Color(0.04f, 0.04f, 0.1f);
-        cam.nearClipPlane = 0.01f;
-        camGo.transform.position = new Vector3(0, 1.7f, 0);
+        // XR Rig (컨트롤러 포함) — 없으면 기본 카메라 폴백
+        Camera cam = null;
+        var xrPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Project/Prefabs/XR Origin (XR Rig).prefab");
+        if (xrPrefab != null)
+        {
+            var xrGo = (GameObject)PrefabUtility.InstantiatePrefab(xrPrefab);
+            cam = xrGo.GetComponentInChildren<Camera>();
+            Debug.Log("SongSelect: XR Rig instantiated");
+        }
+        if (cam == null)
+        {
+            var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
+            cam = camGo.AddComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.04f, 0.04f, 0.1f);
+            cam.nearClipPlane = 0.01f;
+            camGo.transform.position = new Vector3(0, 1.7f, 0);
+        }
 
         var es = new GameObject("EventSystem");
         es.AddComponent<EventSystem>(); es.AddComponent<InputSystemUIInputModule>();
@@ -86,7 +98,9 @@ public static class CreateScenes
         var cvGo = new GameObject("SongSelectCanvas");
         var cv = cvGo.AddComponent<Canvas>(); cv.renderMode = RenderMode.WorldSpace;
         cv.worldCamera = cam;
-        cvGo.AddComponent<CanvasScaler>(); cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<CanvasScaler>();
+        cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<TrackedDeviceRaycaster>();
         RT(cvGo).sizeDelta = new Vector2(800, 600);
         cvGo.transform.position = new Vector3(0, 1.5f, 2.5f);
         cvGo.transform.localScale = Vector3.one * 0.002f;
@@ -150,18 +164,206 @@ public static class CreateScenes
         Debug.Log("SongSelect.unity saved");
     }
 
+    // ── Calibration 씬 (단독 생성) ─────────────────────────────────
+    [MenuItem("VRBeat/Create Calibration Scene")]
+    public static void CreateCalibrationScene()
+    {
+        var font = TMP_Settings.defaultFontAsset;
+        BuildCalibrationScene(font);
+        AddSceneToBuildSettings("Assets/_Project/Scenes/Calibration.unity");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log("[CreateScenes] Calibration.unity created.");
+    }
+
+    static void BuildCalibrationScene(TMP_FontAsset font)
+    {
+        var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        BasicLighting();
+
+        Camera cam = null;
+        var xrPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Project/Prefabs/XR Origin (XR Rig).prefab");
+        if (xrPrefab != null)
+        {
+            var xrGo = (GameObject)PrefabUtility.InstantiatePrefab(xrPrefab);
+            cam = xrGo.GetComponentInChildren<Camera>();
+        }
+        if (cam == null)
+        {
+            var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
+            cam = camGo.AddComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.04f,0.04f,0.1f);
+            cam.nearClipPlane = 0.01f;
+            camGo.transform.position = new Vector3(0,1.7f,0);
+        }
+
+        var es = new GameObject("EventSystem");
+        es.AddComponent<EventSystem>(); es.AddComponent<InputSystemUIInputModule>();
+
+        new GameObject("GameManager").AddComponent<GameManager>();
+
+        var cvGo = new GameObject("CalibrationCanvas");
+        var cv = cvGo.AddComponent<Canvas>(); cv.renderMode = RenderMode.WorldSpace;
+        cv.worldCamera = cam;
+        cvGo.AddComponent<CanvasScaler>();
+        cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<TrackedDeviceRaycaster>();
+        RT(cvGo).sizeDelta = new Vector2(700, 600);
+        cvGo.transform.position = new Vector3(0,1.5f,2.5f);
+        cvGo.transform.localScale = Vector3.one * 0.002f;
+
+        Img("Background", cvGo.transform, V2(0,0), V2(1,1), new Color(0.05f,0.05f,0.12f,0.95f));
+        Label("Header", cvGo.transform, V2(0,0.88f), V2(1,1), "CALIBRATION", 40, TextAlignmentOptions.Center, Color.white, font);
+
+        var instrTmp = Label("InstructionText", cvGo.transform, V2(0.05f,0.46f), V2(0.95f,0.86f),
+            "START를 누른 뒤,\n클릭 박자에 맞춰\nTAP 또는 Space를 누르세요.", 24, TextAlignmentOptions.Center, Color.white, font);
+        var offTmp   = Label("OffsetText", cvGo.transform, V2(0.05f,0.36f), V2(0.95f,0.45f),
+            "현재 보정값: 0 ms", 24, TextAlignmentOptions.Center, new Color(1f,0.85f,0.2f), font);
+
+        var tapBtn   = MakeBtn("TapButton",   cvGo.transform, V2(0.15f,0.04f), V2(0.85f,0.20f), "TAP",   38, new Color(0.1f,0.4f,0.8f), font);
+        var startBtn = MakeBtn("StartButton", cvGo.transform, V2(0.05f,0.22f), V2(0.47f,0.33f), "START", 24, new Color(0.1f,0.7f,0.2f), font);
+        var backBtn  = MakeBtn("BackButton",  cvGo.transform, V2(0.53f,0.22f), V2(0.95f,0.33f), "BACK",  24, new Color(0.3f,0.3f,0.4f), font);
+
+        var ui = cvGo.AddComponent<CalibrationController>();
+        var so = new SerializedObject(ui);
+        so.FindProperty("instructionText").objectReferenceValue = instrTmp;
+        so.FindProperty("offsetText").objectReferenceValue      = offTmp;
+        so.ApplyModifiedProperties();
+        UnityEventTools.AddPersistentListener(startBtn.onClick, ui.StartCalibration);
+        UnityEventTools.AddPersistentListener(tapBtn.onClick,   ui.Tap);
+        UnityEventTools.AddPersistentListener(backBtn.onClick,  ui.Back);
+
+        EditorSceneManager.SaveScene(scene, "Assets/_Project/Scenes/Calibration.unity");
+        Debug.Log("Calibration.unity saved");
+    }
+
+    // ── Settings 씬 (단독 생성) ────────────────────────────────────
+    [MenuItem("VRBeat/Create Settings Scene")]
+    public static void CreateSettingsScene()
+    {
+        var font = TMP_Settings.defaultFontAsset;
+        BuildSettingsScene(font);
+        AddSceneToBuildSettings("Assets/_Project/Scenes/Settings.unity");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log("[CreateScenes] Settings.unity created.");
+    }
+
+    static void BuildSettingsScene(TMP_FontAsset font)
+    {
+        var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        BasicLighting();
+
+        Camera cam = null;
+        var xrPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Project/Prefabs/XR Origin (XR Rig).prefab");
+        if (xrPrefab != null)
+        {
+            var xrGo = (GameObject)PrefabUtility.InstantiatePrefab(xrPrefab);
+            cam = xrGo.GetComponentInChildren<Camera>();
+        }
+        if (cam == null)
+        {
+            var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
+            cam = camGo.AddComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.04f,0.04f,0.1f);
+            cam.nearClipPlane = 0.01f;
+            camGo.transform.position = new Vector3(0,1.7f,0);
+        }
+
+        var es = new GameObject("EventSystem");
+        es.AddComponent<EventSystem>(); es.AddComponent<InputSystemUIInputModule>();
+
+        new GameObject("GameManager").AddComponent<GameManager>();
+
+        var cvGo = new GameObject("SettingsCanvas");
+        var cv = cvGo.AddComponent<Canvas>(); cv.renderMode = RenderMode.WorldSpace;
+        cv.worldCamera = cam;
+        cvGo.AddComponent<CanvasScaler>();
+        cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<TrackedDeviceRaycaster>();
+        RT(cvGo).sizeDelta = new Vector2(720, 820);
+        cvGo.transform.position = new Vector3(0,1.5f,2.5f);
+        cvGo.transform.localScale = Vector3.one * 0.002f;
+
+        Img("Background", cvGo.transform, V2(0,0), V2(1,1), new Color(0.05f,0.05f,0.12f,0.95f));
+        Label("Header", cvGo.transform, V2(0,0.92f), V2(1,1), "SETTINGS", 40, TextAlignmentOptions.Center, Color.white, font);
+
+        var defaults = new GameSettings();
+        Color lblCol = new Color(0.85f,0.85f,0.9f);
+
+        // 각 행: 왼쪽 라벨 + 오른쪽 컨트롤
+        void RowLabel(string text, float y0, float y1) =>
+            Label(text + "Label", cvGo.transform, V2(0.05f,y0), V2(0.45f,y1), text, 22, TextAlignmentOptions.Left, lblCol, font);
+
+        RowLabel("Note Speed",   0.82f, 0.89f);
+        var noteSpeedSlider = MakeSlider("NoteSpeedSlider",  cvGo.transform, V2(0.48f,0.82f), V2(0.95f,0.89f), 5f, 20f, defaults.noteSpeed);
+        RowLabel("Master Volume",0.73f, 0.80f);
+        var masterSlider    = MakeSlider("MasterVolSlider",  cvGo.transform, V2(0.48f,0.73f), V2(0.95f,0.80f), 0f, 1f, defaults.masterVolume);
+        RowLabel("Music Volume", 0.64f, 0.71f);
+        var musicSlider     = MakeSlider("MusicVolSlider",   cvGo.transform, V2(0.48f,0.64f), V2(0.95f,0.71f), 0f, 1f, defaults.musicVolume);
+        RowLabel("SFX Volume",   0.55f, 0.62f);
+        var sfxSlider       = MakeSlider("SfxVolSlider",     cvGo.transform, V2(0.48f,0.55f), V2(0.95f,0.62f), 0f, 1f, defaults.sfxVolume);
+        RowLabel("Left Handed",  0.46f, 0.53f);
+        var leftToggle      = MakeToggle("LeftHandedToggle", cvGo.transform, V2(0.48f,0.46f), V2(0.95f,0.53f), defaults.leftHandedMode);
+
+        // Offset 행: 라벨 + 값 + [-]/[+]
+        RowLabel("Offset", 0.35f, 0.43f);
+        var offTmp   = Label("OffsetText", cvGo.transform, V2(0.40f,0.35f), V2(0.66f,0.43f), "Offset: 0 ms", 20, TextAlignmentOptions.Center, new Color(1f,0.85f,0.2f), font);
+        var minusBtn = MakeBtn("MinusButton", cvGo.transform, V2(0.68f,0.35f), V2(0.81f,0.43f), "-", 28, new Color(0.3f,0.3f,0.4f), font);
+        var plusBtn  = MakeBtn("PlusButton",  cvGo.transform, V2(0.83f,0.35f), V2(0.96f,0.43f), "+", 28, new Color(0.3f,0.3f,0.4f), font);
+
+        var saveBtn = MakeBtn("SaveButton", cvGo.transform, V2(0.05f,0.05f), V2(0.47f,0.18f), "SAVE", 26, new Color(0.1f,0.7f,0.2f), font);
+        var backBtn = MakeBtn("BackButton", cvGo.transform, V2(0.53f,0.05f), V2(0.95f,0.18f), "BACK", 26, new Color(0.3f,0.3f,0.4f), font);
+
+        var ui = cvGo.AddComponent<SettingsUI>();
+        var so = new SerializedObject(ui);
+        so.FindProperty("noteSpeedSlider").objectReferenceValue    = noteSpeedSlider;
+        so.FindProperty("leftHandedToggle").objectReferenceValue   = leftToggle;
+        so.FindProperty("masterVolumeSlider").objectReferenceValue = masterSlider;
+        so.FindProperty("musicVolumeSlider").objectReferenceValue  = musicSlider;
+        so.FindProperty("sfxVolumeSlider").objectReferenceValue    = sfxSlider;
+        so.FindProperty("offsetText").objectReferenceValue         = offTmp;
+        so.ApplyModifiedProperties();
+
+        UnityEventTools.AddPersistentListener(noteSpeedSlider.onValueChanged, ui.OnNoteSpeedChanged);
+        UnityEventTools.AddPersistentListener(masterSlider.onValueChanged,    ui.OnMasterVolumeChanged);
+        UnityEventTools.AddPersistentListener(musicSlider.onValueChanged,     ui.OnMusicVolumeChanged);
+        UnityEventTools.AddPersistentListener(sfxSlider.onValueChanged,       ui.OnSfxVolumeChanged);
+        UnityEventTools.AddPersistentListener(leftToggle.onValueChanged,      ui.OnLeftHandedChanged);
+        UnityEventTools.AddPersistentListener(minusBtn.onClick, ui.DecreaseOffset);
+        UnityEventTools.AddPersistentListener(plusBtn.onClick,  ui.IncreaseOffset);
+        UnityEventTools.AddPersistentListener(saveBtn.onClick,  ui.Save);
+        UnityEventTools.AddPersistentListener(backBtn.onClick,  ui.Back);
+
+        EditorSceneManager.SaveScene(scene, "Assets/_Project/Scenes/Settings.unity");
+        Debug.Log("Settings.unity saved");
+    }
+
     // ── Step 4 ────────────────────────────────────────────────────
     static void BuildResultScene(TMP_FontAsset font)
     {
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
         BasicLighting();
 
-        var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
-        var cam = camGo.AddComponent<Camera>();
-        cam.clearFlags = CameraClearFlags.SolidColor;
-        cam.backgroundColor = new Color(0.04f,0.04f,0.1f);
-        cam.nearClipPlane = 0.01f;
-        camGo.transform.position = new Vector3(0,1.7f,0);
+        Camera cam = null;
+        var xrPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Project/Prefabs/XR Origin (XR Rig).prefab");
+        if (xrPrefab != null)
+        {
+            var xrGo = (GameObject)PrefabUtility.InstantiatePrefab(xrPrefab);
+            cam = xrGo.GetComponentInChildren<Camera>();
+            Debug.Log("Result: XR Rig instantiated");
+        }
+        if (cam == null)
+        {
+            var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
+            cam = camGo.AddComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.04f,0.04f,0.1f);
+            cam.nearClipPlane = 0.01f;
+            camGo.transform.position = new Vector3(0,1.7f,0);
+        }
 
         var es = new GameObject("EventSystem");
         es.AddComponent<EventSystem>(); es.AddComponent<InputSystemUIInputModule>();
@@ -171,7 +373,9 @@ public static class CreateScenes
         var cvGo = new GameObject("ResultCanvas");
         var cv = cvGo.AddComponent<Canvas>(); cv.renderMode = RenderMode.WorldSpace;
         cv.worldCamera = cam;
-        cvGo.AddComponent<CanvasScaler>(); cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<CanvasScaler>();
+        cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<TrackedDeviceRaycaster>();
         RT(cvGo).sizeDelta = new Vector2(600, 700);
         cvGo.transform.position = new Vector3(0,1.5f,2.5f);
         cvGo.transform.localScale = Vector3.one * 0.002f;
@@ -225,6 +429,20 @@ public static class CreateScenes
         Debug.Log("Build Settings updated: SongSelect(0) Gameplay(1) Result(2)");
     }
 
+    /// <summary>빌드 세팅에 씬을 추가(이미 있으면 무시).</summary>
+    static void AddSceneToBuildSettings(string scenePath, bool enabled = true)
+    {
+        var list = new System.Collections.Generic.List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
+        if (list.Exists(s => s.path == scenePath))
+        {
+            Debug.Log("Build Settings already contains " + scenePath);
+            return;
+        }
+        list.Add(new EditorBuildSettingsScene(scenePath, enabled));
+        EditorBuildSettings.scenes = list.ToArray();
+        Debug.Log("Build Settings += " + scenePath + " (index " + (list.Count - 1) + ")");
+    }
+
     // ── Helpers ──────────────────────────────────────────────────
     static void BasicLighting()
     {
@@ -256,6 +474,52 @@ public static class CreateScenes
     { var go = new GameObject(n); go.transform.SetParent(p, false); Anchors(go, amin, amax);
       var tmp = go.AddComponent<TextMeshProUGUI>(); tmp.text = text; tmp.fontSize = size;
       tmp.alignment = align; tmp.color = col; if (font) tmp.font = font; return tmp; }
+
+    static Slider MakeSlider(string n, Transform p, Vector2 amin, Vector2 amax, float min, float max, float val)
+    {
+        var go = new GameObject(n); go.transform.SetParent(p, false); Anchors(go, amin, amax);
+        var slider = go.AddComponent<Slider>();
+
+        var bg = new GameObject("Background"); bg.transform.SetParent(go.transform, false);
+        var bgrt = bg.AddComponent<RectTransform>();
+        bgrt.anchorMin = V2(0,0.3f); bgrt.anchorMax = V2(1,0.7f); bgrt.offsetMin = Vector2.zero; bgrt.offsetMax = Vector2.zero;
+        bg.AddComponent<Image>().color = new Color(0.2f,0.2f,0.25f);
+
+        var fillArea = new GameObject("Fill Area"); fillArea.transform.SetParent(go.transform, false);
+        var fart = fillArea.AddComponent<RectTransform>();
+        fart.anchorMin = V2(0,0.3f); fart.anchorMax = V2(1,0.7f); fart.offsetMin = V2(5,0); fart.offsetMax = V2(-15,0);
+        var fill = new GameObject("Fill"); fill.transform.SetParent(fillArea.transform, false);
+        var fillrt = fill.AddComponent<RectTransform>();
+        fillrt.anchorMin = Vector2.zero; fillrt.anchorMax = V2(0,1); fillrt.sizeDelta = V2(10,0);
+        fill.AddComponent<Image>().color = new Color(0.2f,0.6f,1f);
+
+        var handleArea = new GameObject("Handle Slide Area"); handleArea.transform.SetParent(go.transform, false);
+        var hart = handleArea.AddComponent<RectTransform>();
+        hart.anchorMin = Vector2.zero; hart.anchorMax = Vector2.one; hart.offsetMin = V2(10,0); hart.offsetMax = V2(-10,0);
+        var handle = new GameObject("Handle"); handle.transform.SetParent(handleArea.transform, false);
+        var hrt = handle.AddComponent<RectTransform>();
+        hrt.sizeDelta = V2(20,0); hrt.anchorMin = V2(0,0); hrt.anchorMax = V2(0,1);
+        var handleImg = handle.AddComponent<Image>(); handleImg.color = Color.white;
+
+        slider.fillRect = fillrt; slider.handleRect = hrt; slider.targetGraphic = handleImg;
+        slider.direction = Slider.Direction.LeftToRight;
+        slider.minValue = min; slider.maxValue = max; slider.value = val;
+        return slider;
+    }
+
+    static Toggle MakeToggle(string n, Transform p, Vector2 amin, Vector2 amax, bool on)
+    {
+        var go = new GameObject(n); go.transform.SetParent(p, false); Anchors(go, amin, amax);
+        var toggle = go.AddComponent<Toggle>();
+        var bg = new GameObject("Background"); bg.transform.SetParent(go.transform, false);
+        var bgrt = bg.AddComponent<RectTransform>();
+        bgrt.anchorMin = V2(0,0.5f); bgrt.anchorMax = V2(0,0.5f); bgrt.sizeDelta = V2(34,34); bgrt.anchoredPosition = V2(20,0);
+        var bgImg = bg.AddComponent<Image>(); bgImg.color = new Color(0.2f,0.2f,0.25f);
+        var check = new GameObject("Checkmark"); check.transform.SetParent(bg.transform, false); Stretch(check);
+        var checkImg = check.AddComponent<Image>(); checkImg.color = new Color(0.2f,0.85f,0.35f);
+        toggle.targetGraphic = bgImg; toggle.graphic = checkImg; toggle.isOn = on;
+        return toggle;
+    }
 
     static Button MakeBtn(string n, Transform p, Vector2 amin, Vector2 amax,
                             string text, float size, Color bgCol, TMP_FontAsset font)

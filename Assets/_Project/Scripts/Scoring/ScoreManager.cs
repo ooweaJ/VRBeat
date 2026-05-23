@@ -46,6 +46,7 @@ public class ScoreManager : MonoBehaviour
         TotalHits++;
         if (grade == HitGrade.Perfect) PerfectHits++;
 
+        SfxManager.Get().PlayHit();
         HUD.Instance?.OnHit(grade, Score, Combo);
     }
 
@@ -54,6 +55,7 @@ public class ScoreManager : MonoBehaviour
         Combo = 0;
         MissedHits++;
         HealthSystem.Instance?.TakeDamage(10);
+        SfxManager.Get().PlayMiss();
         HUD.Instance?.OnMiss(Score, Combo);
     }
 
@@ -62,6 +64,7 @@ public class ScoreManager : MonoBehaviour
         Combo = 0;
         MissedHits++;
         HealthSystem.Instance?.TakeDamage(15);
+        SfxManager.Get().PlayWrongColor();
         HUD.Instance?.OnMiss(Score, Combo);
     }
 

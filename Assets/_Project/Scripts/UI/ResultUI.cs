@@ -12,36 +12,20 @@ public class ResultUI : MonoBehaviour
 
     void Start()
     {
-        var sm = ScoreManager.Instance;
-        if (sm == null) return;
+        // 점수는 GameManager가 Gameplay→Result 전환 직전에 스냅샷으로 담아 둔다.
+        // (ScoreManager는 씬 단위 싱글톤이라 Result 씬에는 존재하지 않음)
+        var result = GameManager.Instance?.LastResult;
+        if (result == null) return;
 
-        float accuracy = sm.Accuracy;
-        string rank    = AccuracyCalc.GetRank(accuracy);
+        string rank = AccuracyCalc.GetRank(result.accuracy);
 
-        if (scoreText    != null) scoreText.text    = sm.Score.ToString("N0");
-        if (accuracyText != null) accuracyText.text = $"{accuracy * 100f:F1}%";
-        if (comboText    != null) comboText.text    = $"Max Combo: {sm.MaxCombo}";
+        if (scoreText    != null) scoreText.text    = result.score.ToString("N0");
+        if (accuracyText != null) accuracyText.text = $"{result.accuracy * 100f:F1}%";
+        if (comboText    != null) comboText.text    = $"Max Combo: {result.maxCombo}";
         if (rankText     != null) rankText.text     = rank;
 
-        if (fullComboEffect != null) fullComboEffect.SetActive(sm.MissedHits == 0);
-
-        SaveResult(sm, accuracy);
-    }
-
-    void SaveResult(ScoreManager sm, float accuracy)
-    {
-        var gm = GameManager.Instance;
-        if (gm?.SelectedSong == null || gm.SelectedDifficulty == null) return;
-
-        string songId = gm.SelectedSong.info.songId;
-        string diff   = gm.SelectedDifficulty.name;
-
-        var prev    = SaveSystem.LoadRecord(songId, diff);
-        bool newRec = prev == null || sm.Score > prev.highScore;
-
-        SaveSystem.SaveRecord(sm.BuildRecord(songId, diff));
-
-        if (newRecordText != null) newRecordText.gameObject.SetActive(newRec);
+        if (fullComboEffect != null) fullComboEffect.SetActive(result.fullCombo);
+        if (newRecordText   != null) newRecordText.gameObject.SetActive(result.isNewRecord);
     }
 
     public void Retry()     => GameManager.Instance?.StartGame(

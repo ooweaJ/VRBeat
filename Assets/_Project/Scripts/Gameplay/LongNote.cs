@@ -107,6 +107,11 @@ public class LongNote : NoteBase
 
     public override bool ShouldDespawn(float despawnZ)
     {
+        // Duration이 끝나기 전에는 절대 despawn 안 함
+        if (Conductor.Instance != null &&
+            Conductor.Instance.SongBeat < data.beat + data.duration)
+            return false;
+
         if (tail == null) return base.ShouldDespawn(despawnZ);
         return tail.position.z < despawnZ;
     }
