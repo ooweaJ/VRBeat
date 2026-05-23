@@ -5,7 +5,15 @@ public class LongNoteBody : MonoBehaviour
 {
     [SerializeField] LongNote longNote;
 
-    [SerializeField] float sliceStep = 0.3f;
+    [SerializeField] float sliceStep = 0.15f; // 작을수록 더 자주/빨리 잘림
+
+    [Header("대각선 양옆 갈라짐 연출")]
+    [Tooltip("수평면 기준 위로 들어올린 각도. 60이면 양쪽 조각이 60°로 벌어져 위로 튐")]
+    [SerializeField] float spreadAngle   = 60f;
+    [SerializeField] float spreadForce   = 3.0f; // 대각선 바깥으로 밀어내는 힘
+    [SerializeField] float backForce     = 0.8f; // 플레이어 쪽(뒤)으로 미는 힘
+    [SerializeField] float spinTorque    = 5.0f; // 굴러가는 회전량
+    [SerializeField] float chunkLifetime = 0.8f;
 
     Transform saberInside;
     float     totalLocalLength; // Initialize 후 body.localScale.z
@@ -48,8 +56,10 @@ public class LongNoteBody : MonoBehaviour
             float chunkStart = consumedLocalZ;
             consumedLocalZ  += sliceStep;
 
-            SpawnChunk(chunkStart);
+            // 먼저 바디를 잘라낸 뒤, 방금 제거된 구간([chunkStart, consumedLocalZ])에서
+            // 조각을 생성 → 남은 바디와 겹치지 않고 절단면에서 자연스럽게 떨어져 나감
             TrimBodyFront(consumedLocalZ);
+            SpawnChunk(chunkStart);
             PlayEffect();
         }
     }
@@ -67,38 +77,58 @@ public class LongNoteBody : MonoBehaviour
     {
         Transform p = transform.parent;
 
-        // 조각 중심 = chunkStart + sliceStep/2 (부모 로컬 Z)
+        // 조각 중심 = 방금 제거된 구간의 중심 = 새 절단면 바로 앞 (부모 로컬 Z)
         float chunkCenterZ = chunkStartLocalZ + sliceStep * 0.5f;
-
-        // 부모 로컬 → 월드
         Vector3 worldCenter = p != null
             ? p.TransformPoint(new Vector3(0f, 0f, chunkCenterZ))
             : new Vector3(0f, 0f, chunkCenterZ);
 
-        // 조각 월드 크기 계산
+        // 조각 월드 크기 (바디 두께 = lossyScale.x, 길이 = sliceStep)
         float worldXY = transform.lossyScale.x;
         float worldZ  = p != null
             ? Mathf.Abs(p.lossyScale.z) * sliceStep
             : sliceStep;
 
+        // 좌/우 반쪽 두 조각으로 갈라 60° 대각선으로 튕겨냄
+        SpawnHalf(worldCenter, worldXY, worldZ, -1f); // 왼쪽 반쪽
+        SpawnHalf(worldCenter, worldXY, worldZ, +1f); // 오른쪽 반쪽
+    }
+
+    // side: -1 = 왼쪽, +1 = 오른쪽 (노트 로컬 X 기준)
+    void SpawnHalf(Vector3 fullWorldCenter, float worldXY, float worldZ, float side)
+    {
+        float   halfWidth = worldXY * 0.5f;
+        Vector3 right     = transform.right;
+        Vector3 up        = transform.up;
+
+        // 반쪽 중심을 자기 쪽으로 1/4 폭 이동 → 가운데가 갈라진 모양
+        Vector3 halfCenter = fullWorldCenter + right * (side * worldXY * 0.25f);
+
         var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        go.transform.SetPositionAndRotation(worldCenter, transform.rotation);
-        go.transform.localScale = new Vector3(worldXY, worldXY, worldZ);
+        go.transform.SetPositionAndRotation(halfCenter, transform.rotation);
+        go.transform.localScale = new Vector3(halfWidth, worldXY, worldZ);
 
-        // 충돌체 제거 (시각 전용)
-        Destroy(go.GetComponent<Collider>());
+        Destroy(go.GetComponent<Collider>()); // 시각 전용
 
-        // 바디와 같은 머티리얼 사용
         if (GetComponent<MeshRenderer>() is MeshRenderer mr)
             go.GetComponent<MeshRenderer>().material = mr.sharedMaterial;
 
-        // 물리 — 플레이어 방향 + 약간 랜덤
-        var rb = go.AddComponent<Rigidbody>();
-        rb.AddForce(Vector3.back * 3f + Random.insideUnitSphere * 1.2f,
-                    ForceMode.VelocityChange);
-        rb.AddTorque(Random.insideUnitSphere * 8f, ForceMode.VelocityChange);
+        // ── 60° 대각선 좌우 분리 ──
+        // 수평(right) 성분 cos, 수직(up) 성분 sin → spreadAngle 만큼 위로 들린 대각선
+        float   rad     = spreadAngle * Mathf.Deg2Rad;
+        Vector3 outward = right * (side * Mathf.Cos(rad)) + up * Mathf.Sin(rad);
 
-        Destroy(go, 0.6f);
+        var rb = go.AddComponent<Rigidbody>(); // 중력 ON → 자연스럽게 포물선 낙하
+        Vector3 force = outward * (spreadForce * Random.Range(0.9f, 1.1f))
+                      + Vector3.back * backForce;
+        rb.AddForce(force, ForceMode.VelocityChange);
+
+        // 바깥으로 굴러 넘어가는 회전 (좌/우 반대), 약간의 랜덤만 가미
+        Vector3 spin = transform.forward * (-side * spinTorque)
+                     + Random.insideUnitSphere * (spinTorque * 0.25f);
+        rb.AddTorque(spin, ForceMode.VelocityChange);
+
+        Destroy(go, chunkLifetime);
     }
 
     void TrimBodyFront(float newConsumedLocalZ)

@@ -96,7 +96,7 @@
 
 ## 다음 즉시 할 일
 
-1. **LongNote 바디 슬라이싱 튜닝**: 조각 위치감 조정 (앞에서 잘리는 느낌 강화) 또는 양옆 spread 연출로 전환 — 내일 플레이테스트 후 결정
+1. ✅ **LongNote 바디 슬라이싱 튜닝**: 양옆 spread 연출로 전환 — 전체 폭 큐브 1개 → 좌/우 반쪽 2개로 갈라져 `transform.right` 양옆 + 뒤 + 위로 날아가도록 변경. `Spread/Back/Up Force`, `Chunk Lifetime` Inspector 조절 가능. → **플레이테스트로 힘 값 미세조정 필요**
 2. **누락된 씬 제작**: `SongSelect`, `Result` 씬을 만들어 전체 게임 루프 연결
 3. **사운드 연결**: 히트/미스 효과음 AudioClip 연결 (스크립트는 완성됨)
 4. **Quest 빌드 + OVR 최적화**: OVRSettings 활성화, 90fps 측정

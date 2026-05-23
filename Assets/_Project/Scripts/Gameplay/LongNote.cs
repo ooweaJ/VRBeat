@@ -7,15 +7,28 @@ public class LongNote : NoteBase
     [SerializeField] Transform body;
     [SerializeField] NoteSliceHandler sliceHandler;
 
+    [Tooltip("바디 두께 배율 (1=원본, 작을수록 얇음)")]
+    [SerializeField] float bodyThickness = 0.5f;
+
     bool isHeld;
     float holdTimer;
     const float HoldScoreInterval = 0.1f;
+
+    // 풀 재사용 시 두께 배율이 누적되지 않도록 원본 x/y 캐시
+    float baseBodyX;
+    float baseBodyY;
 
     void Awake()
     {
         // 루트에 큐브 메시가 있으면 Head 구체를 가리므로 숨김
         var rootRenderer = GetComponent<MeshRenderer>();
         if (rootRenderer != null) rootRenderer.enabled = false;
+
+        if (body != null)
+        {
+            baseBodyX = body.localScale.x;
+            baseBodyY = body.localScale.y;
+        }
     }
 
     public override void Initialize(NoteData d, float speed, float hz, GameConfig cfg)
@@ -34,7 +47,11 @@ public class LongNote : NoteBase
         if (body != null)
         {
             // body 앞면이 Head(z=0)와 정렬되도록 center를 localLength/2 로 이동
-            body.localScale    = new Vector3(body.localScale.x, body.localScale.y, localLength);
+            // x/y 는 원본 기준 bodyThickness 배율로 얇게 (재사용 시 누적 방지)
+            body.localScale    = new Vector3(
+                baseBodyX * bodyThickness,
+                baseBodyY * bodyThickness,
+                localLength);
             body.localPosition = new Vector3(0f, 0f, localLength / 2f);
         }
         if (tail != null)

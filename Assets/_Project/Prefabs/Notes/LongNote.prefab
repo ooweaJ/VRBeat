@@ -127,6 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LongNoteBody
   longNote: {fileID: 8836976247532648678}
   sliceStep: 3
+  spreadAngle: 75
+  spreadForce: 5
+  backForce: 0.8
+  spinTorque: 5
+  chunkLifetime: 0.8
 --- !u!1 &1548470547557676995
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +378,7 @@ MonoBehaviour:
   tail: {fileID: 4706253727219146456}
   body: {fileID: 9097843407603267538}
   sliceHandler: {fileID: 0}
+  bodyThickness: 0.5
 --- !u!54 &3405741359985174446
 Rigidbody:
   m_ObjectHideFlags: 0
