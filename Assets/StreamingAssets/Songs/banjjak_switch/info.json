@@ -1,0 +1,24 @@
+{
+  "songId": "banjjak_switch",
+  "title": "반짝 스위치",
+  "artist": "Unknown",
+  "mapper": "auto",
+  "bpm": 129.2,
+  "audioFile": "audio.mp3",
+  "coverFile": "cover.png",
+  "previewStart": 0.0,
+  "previewDuration": 10.0,
+  "songOffset": 0.0,
+  "difficulties": [
+    {
+      "name": "Easy",
+      "chartFile": "chart_easy.json",
+      "level": 3
+    },
+    {
+      "name": "Normal",
+      "chartFile": "chart_normal.json",
+      "level": 5
+    }
+  ]
+}
