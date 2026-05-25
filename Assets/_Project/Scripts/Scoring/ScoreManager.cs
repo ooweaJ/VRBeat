@@ -46,6 +46,10 @@ public class ScoreManager : MonoBehaviour
         TotalHits++;
         if (grade == HitGrade.Perfect) PerfectHits++;
 
+        float heal = grade == HitGrade.Perfect ? 5f :
+                     grade == HitGrade.Great   ? 3f : 1f;
+        HealthSystem.Instance?.Heal(heal);
+
         SfxManager.Get().PlayHit();
         HUD.Instance?.OnHit(grade, Score, Combo);
     }

@@ -44,6 +44,8 @@ public class Conductor : MonoBehaviour
         userOffset = GameManager.Instance != null ? GameManager.Instance.Settings.userOffset : 0f;
 
         audioSource.clip = clip;
+        audioSource.spatialBlend = 0f;
+        audioSource.volume = 1f;
         dspStartTime = AudioSettings.dspTime + 0.5;
         audioSource.PlayScheduled(dspStartTime);
         isPaused = false;

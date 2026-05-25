@@ -14,9 +14,13 @@ public class SongSelectUI : MonoBehaviour
     [SerializeField] Transform    difficultyParent;
     [SerializeField] GameObject   difficultyButtonPrefab;
 
+    static readonly Color ColorSelected = new Color(1f, 0.85f, 0.2f);   // 노란색
+    static readonly Color ColorNormal   = new Color(1f, 1f, 1f);        // 흰색
+
     List<SongData> songs;
     SongData selectedSong;
     DifficultyInfo selectedDiff;
+    readonly List<(DifficultyInfo diff, Image img)> diffButtons = new();
 
     void Start()
     {
@@ -53,6 +57,7 @@ public class SongSelectUI : MonoBehaviour
     void PopulateDifficulties(SongData song)
     {
         foreach (Transform t in difficultyParent) Destroy(t.gameObject);
+        diffButtons.Clear();
         if (song.info.difficulties == null) return;
 
         foreach (var diff in song.info.difficulties)
@@ -60,8 +65,10 @@ public class SongSelectUI : MonoBehaviour
             var btn  = Instantiate(difficultyButtonPrefab, difficultyParent);
             var txt  = btn.GetComponentInChildren<TextMeshProUGUI>();
             if (txt != null) txt.text = $"{diff.name} Lv.{diff.level}";
+            var img  = btn.GetComponent<Image>();
             var b    = btn.GetComponent<Button>();
             var d    = diff;
+            if (img != null) diffButtons.Add((d, img));
             b?.onClick.AddListener(() => SelectDifficulty(d));
         }
 
@@ -71,6 +78,10 @@ public class SongSelectUI : MonoBehaviour
     void SelectDifficulty(DifficultyInfo diff)
     {
         selectedDiff = diff;
+
+        foreach (var (d, img) in diffButtons)
+            img.color = d == diff ? ColorSelected : ColorNormal;
+
         var record = SaveSystem.LoadRecord(selectedSong?.info.songId, diff.name);
         if (highScoreText != null)
             highScoreText.text = record != null ? $"Best: {record.highScore:N0}" : "No record";

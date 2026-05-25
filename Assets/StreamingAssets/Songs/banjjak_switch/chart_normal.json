@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "noteSpeed": 8.0,
+  "noteSpeed": 5.0,
   "notes": [
     {
       "type": "normal",
@@ -6246,6 +6246,42 @@
       "lane": 3,
       "row": 1,
       "direction": "downRight",
+      "color": "blue"
+    },
+    {
+      "type": "long",
+      "beat": 462.0,
+      "duration": 4,
+      "lane": 1,
+      "row": 1,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 462.0,
+      "duration": 4,
+      "lane": 2,
+      "row": 1,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "long",
+      "beat": 468.0,
+      "duration": 4,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 468.0,
+      "duration": 4,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
       "color": "blue"
     }
   ]

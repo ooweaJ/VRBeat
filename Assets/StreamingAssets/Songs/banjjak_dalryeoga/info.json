@@ -1,0 +1,24 @@
+{
+  "songId": "banjjak_dalryeoga",
+  "title": "반짝 달려가",
+  "artist": "Unknown",
+  "mapper": "auto",
+  "bpm": 128.0,
+  "audioFile": "audio.mp3",
+  "coverFile": "cover.png",
+  "previewStart": 0.0,
+  "previewDuration": 10.0,
+  "songOffset": 0.0,
+  "difficulties": [
+    {
+      "name": "Easy",
+      "chartFile": "chart_easy.json",
+      "level": 3
+    },
+    {
+      "name": "Normal",
+      "chartFile": "chart_normal.json",
+      "level": 5
+    }
+  ]
+}

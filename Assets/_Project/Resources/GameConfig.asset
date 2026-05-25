@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785a7629a28ec624091d62c4f7e00430, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
-  spawnDistance: 30
+  spawnDistance: 20
   hitDistance: 0
   despawnDistance: -2
-  laneWidth: 0.6
-  rowHeight: 0.6
-  baseHeight: 0.2
+  laneWidth: 0.45
+  rowHeight: 0.5
+  baseHeight: 0.5
   poolWarmupCount: 64

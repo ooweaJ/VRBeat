@@ -80,7 +80,20 @@
 
 ---
 
-## 오늘 완료한 작업 (사운드/씬/최적화 세션)
+## 오늘 완료한 작업 (채보/플레이어블 폴리싱 세션)
+
+- **채보 Beat Saber 스타일 전면 재작성**: 빨강=왼손(레인 0-1)/파랑=오른손(레인 2-3) 완전 분리, 16박자 사이클로 자연스러운 방향 흐름(down→up→diagonal 반복). Easy 1박/beat, Normal 0.5박/beat.
+- **banjjak_dalryeoga 채보 재생성**: Easy 317개, Normal 633개 노트. UTF-8 BOM 없음 확인.
+- **시동 걸어 신규 추가**: `StreamingAssets/Songs/sidong_georeo/` 생성, MP3 복사, info.json(BPM 120) + chart_easy(395개)/chart_normal(789개) 완성.
+- **테스트 노래(song_001) 삭제**: 폴더 및 .meta 제거.
+- **자르면 체력 회복 구현**: `ScoreManager.RegisterHit()`에 힐 추가 — Perfect +5, Great +3, Good +1 HP.
+- **HUD 위치 최적화**: distanceFromCamera 1→2.5m, heightOffset 0→+0.3(노트 레인 위), followSpeed 5→3(멀미 감소).
+- **노트 그리드 시야각 개선**: `GameConfig.baseHeight` 0.7→0.5 (상단 노트 1.7m→1.5m, 플레이어가 약간 내려다보는 비트 세이버 각도).
+- **난이도 버튼 선택 하이라이트**: `SongSelectUI` — 선택된 난이도 노란색, 미선택 흰색.
+
+---
+
+## 이전 완료한 작업 (사운드/씬/최적화 세션)
 
 - **사운드 연결 (#18)**: `Audio/SfxManager.cs` 신규 — 효과음 에셋 없이 절차적 신스 톤 생성(히트=고음, 색오류=중음, 미스=저음). `ScoreManager` 히트/미스/색오류 시점에 연결, `GameSettings.sfxVolume × masterVolume` 볼륨 연동. 런타임 재생 검증 완료.
 - **Calibration 씬 (#12)**: `Calibration/CalibrationController.cs` 신규 — dspTime 예약 메트로놈(소스 풀) + 탭 오프셋 중앙값 측정 + `userOffset` 저장. `CreateScenes`에 빌더 추가, Build Settings index 3. 측정→저장→영속화 검증.
@@ -113,15 +126,11 @@
 
 ## 다음 즉시 할 일
 
-1. ✅ **게임 루프 연결** + 최고점수 저장/표시
-2. ✅ **사운드 연결** (절차적 SFX, 히트/미스/색오류)
-3. ✅ **Calibration 씬** (#12)
-4. ✅ **Settings 씬** (#13)
-5. ✅ **Quest 설정/코드 최적화** (#17 일부) — 실제 APK 빌드·90fps 실측만 기기 연결 후 남음
-6. **씬 간 내비게이션**: SongSelect에서 Settings/Calibration로 이동하는 버튼 추가(현재 씬은 있으나 진입 경로 없음)
-7. **Tutorial 씬** (#14)
-8. **햅틱 폴리싱** (#18) — HapticFeedback 연결 검증
-9. **(기기 연결 시) Quest APK 빌드 + 90fps 실측**
+1. **씬 간 내비게이션**: SongSelect에서 Settings/Calibration로 이동하는 버튼 추가(현재 씬은 있으나 진입 경로 없음)
+2. **Tutorial 씬** (#14)
+3. **햅틱 폴리싱** (#18) — HapticFeedback 연결 검증
+4. **시동 걸어 BPM 검증** — 현재 120으로 설정했으나 실제 박자와 다를 수 있음. 맞지 않으면 `sidong_georeo/info.json`의 `"bpm"` 값 조정
+5. **(기기 연결 시) Quest APK 빌드 + 90fps 실측**
 
 ---
 
