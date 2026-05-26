@@ -1,0 +1,29 @@
+{
+  "songId": "gwangran_test",
+  "title": "광란 Hey Kids!! (원본)",
+  "artist": "Unknown",
+  "mapper": "beatsage",
+  "bpm": 120.0,
+  "audioFile": "audio.ogg",
+  "coverFile": "cover.jpg",
+  "previewStart": 0.0,
+  "previewDuration": 10.0,
+  "songOffset": 0.0,
+  "difficulties": [
+    {
+      "name": "Easy",
+      "chartFile": "chart_easy.json",
+      "level": 3
+    },
+    {
+      "name": "Normal",
+      "chartFile": "chart_normal.json",
+      "level": 5
+    },
+    {
+      "name": "Hard",
+      "chartFile": "chart_hard.json",
+      "level": 7
+    }
+  ]
+}
