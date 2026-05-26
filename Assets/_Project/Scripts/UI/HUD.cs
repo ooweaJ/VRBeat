@@ -12,45 +12,18 @@ public class HUD : MonoBehaviour
     [SerializeField] TextMeshProUGUI gradeText;
     [SerializeField] Slider          healthSlider;
 
-    [Header("Follow Settings")]
-    [SerializeField] float distanceFromCamera = 2.0f;
-    [SerializeField] float heightOffset = -0.3f;
-    [SerializeField] float followSpeed = 5.0f;
-    [SerializeField] bool  smoothFollow = true;
-
-    Transform mainCamera;
-
     void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
-        
-        mainCamera = Camera.main?.transform;
-    }
 
-    void Update()
-    {
-        if (mainCamera == null) mainCamera = Camera.main?.transform;
-        if (mainCamera == null) return;
-
-        // Calculate target position
-        Vector3 targetPos = mainCamera.position + (mainCamera.forward * distanceFromCamera);
-        targetPos.y += heightOffset;
-
-        // Calculate target rotation (look at camera)
-        Quaternion targetRot = Quaternion.LookRotation(transform.position - mainCamera.position);
-
-        if (smoothFollow)
+        // 카메라 자식으로 붙이기 — 항상 시야에 고정
+        var cam = Camera.main?.transform;
+        if (cam != null)
         {
-            // Smoothly move and rotate
-            transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * followSpeed);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * followSpeed);
-        }
-        else
-        {
-            // Instant snap
-            transform.position = targetPos;
-            transform.rotation = targetRot;
+            transform.SetParent(cam, false);
+            transform.localPosition = new Vector3(0f, 0f, 0.5f); // 0.5m 앞
+            transform.localRotation = Quaternion.identity;
         }
     }
 

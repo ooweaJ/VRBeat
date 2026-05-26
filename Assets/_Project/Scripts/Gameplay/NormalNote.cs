@@ -48,8 +48,10 @@ public class NormalNote : NoteBase
         // 1. Check Color Match
         if (!ColorMatches(saberColor, data.color))
         {
+            WasHit = true;   // 중복 호출 방지
             Debug.Log($"[Note] Wrong Color! Saber: {saberColor}, Note: {data.color}");
             ScoreManager.Instance?.RegisterWrongColor(this);
+            gameObject.SetActive(false);
             return;
         }
 

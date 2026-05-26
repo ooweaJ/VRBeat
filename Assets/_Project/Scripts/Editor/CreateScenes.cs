@@ -238,6 +238,83 @@ public static class CreateScenes
         Debug.Log("Calibration.unity saved");
     }
 
+    // ── Tutorial 씬 (단독 생성) ───────────────────────────────────
+    [MenuItem("VRBeat/Create Tutorial Scene")]
+    public static void CreateTutorialScene()
+    {
+        var font = TMP_Settings.defaultFontAsset;
+        BuildTutorialScene(font);
+        AddSceneToBuildSettings("Assets/_Project/Scenes/Tutorial.unity");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log("[CreateScenes] Tutorial.unity created.");
+    }
+
+    static void BuildTutorialScene(TMP_FontAsset font)
+    {
+        var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        BasicLighting();
+
+        Camera cam = null;
+        var xrPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Project/Prefabs/XR Origin (XR Rig).prefab");
+        if (xrPrefab != null)
+        {
+            var xrGo = (GameObject)PrefabUtility.InstantiatePrefab(xrPrefab);
+            cam = xrGo.GetComponentInChildren<Camera>();
+        }
+        if (cam == null)
+        {
+            var camGo = new GameObject("Main Camera"); camGo.tag = "MainCamera";
+            cam = camGo.AddComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.04f, 0.04f, 0.1f);
+            cam.nearClipPlane = 0.01f;
+            camGo.transform.position = new Vector3(0, 1.7f, 0);
+        }
+
+        var es = new GameObject("EventSystem");
+        es.AddComponent<EventSystem>(); es.AddComponent<InputSystemUIInputModule>();
+
+        new GameObject("GameManager").AddComponent<GameManager>();
+        new GameObject("SongLibrary").AddComponent<SongLibrary>();
+
+        var cvGo = new GameObject("TutorialCanvas");
+        var cv = cvGo.AddComponent<Canvas>(); cv.renderMode = RenderMode.WorldSpace;
+        cv.worldCamera = cam;
+        cvGo.AddComponent<CanvasScaler>();
+        cvGo.AddComponent<GraphicRaycaster>();
+        cvGo.AddComponent<TrackedDeviceRaycaster>();
+        RT(cvGo).sizeDelta = new Vector2(700, 700);
+        cvGo.transform.position = new Vector3(0, 1.5f, 2.5f);
+        cvGo.transform.localScale = Vector3.one * 0.002f;
+
+        Img("Background", cvGo.transform, V2(0, 0), V2(1, 1), new Color(0.05f, 0.05f, 0.12f, 0.95f));
+        Label("Header", cvGo.transform, V2(0, 0.88f), V2(1, 1), "TUTORIAL", 45, TextAlignmentOptions.Center, Color.white, font);
+
+        Label("Step1", cvGo.transform, V2(0.05f, 0.72f), V2(0.95f, 0.84f),
+            "① 빨간 노트 = 왼손 세이버", 24, TextAlignmentOptions.Left, new Color(1f, 0.35f, 0.35f), font);
+        Label("Step2", cvGo.transform, V2(0.05f, 0.59f), V2(0.95f, 0.71f),
+            "② 파란 노트 = 오른손 세이버", 24, TextAlignmentOptions.Left, new Color(0.35f, 0.55f, 1f), font);
+        Label("Step3", cvGo.transform, V2(0.05f, 0.46f), V2(0.95f, 0.58f),
+            "③ 화살표 방향으로 노트를 베세요!", 24, TextAlignmentOptions.Left, Color.white, font);
+
+        var hintTmp = Label("HintText", cvGo.transform, V2(0.05f, 0.28f), V2(0.95f, 0.44f),
+            "찬란한 빛 (30초)\n노래에 맞춰 연습해보세요!", 20, TextAlignmentOptions.Center, new Color(0.75f, 0.75f, 0.8f), font);
+
+        var startBtn = MakeBtn("StartButton", cvGo.transform, V2(0.05f, 0.05f), V2(0.58f, 0.20f), "시작하기", 28, new Color(0.1f, 0.7f, 0.2f), font);
+        var backBtn  = MakeBtn("BackButton",  cvGo.transform, V2(0.62f, 0.05f), V2(0.95f, 0.20f), "뒤로",     26, new Color(0.3f, 0.3f, 0.4f), font);
+
+        var ui = cvGo.AddComponent<TutorialController>();
+        var so = new SerializedObject(ui);
+        so.FindProperty("stepText").objectReferenceValue = hintTmp;
+        so.ApplyModifiedProperties();
+        UnityEventTools.AddPersistentListener(startBtn.onClick, ui.StartTutorial);
+        UnityEventTools.AddPersistentListener(backBtn.onClick,  ui.Back);
+
+        EditorSceneManager.SaveScene(scene, "Assets/_Project/Scenes/Tutorial.unity");
+        Debug.Log("Tutorial.unity saved");
+    }
+
     // ── Settings 씬 (단독 생성) ────────────────────────────────────
     [MenuItem("VRBeat/Create Settings Scene")]
     public static void CreateSettingsScene()
@@ -441,6 +518,55 @@ public static class CreateScenes
         list.Add(new EditorBuildSettingsScene(scenePath, enabled));
         EditorBuildSettings.scenes = list.ToArray();
         Debug.Log("Build Settings += " + scenePath + " (index " + (list.Count - 1) + ")");
+    }
+
+    // ── Background Sphere (현재 씬에 추가) ───────────────────────
+    [MenuItem("VRBeat/Create Background Sphere")]
+    public static void CreateBackgroundSphere()
+    {
+        if (GameObject.Find("BackgroundSphere") != null)
+        {
+            Debug.Log("[CreateScenes] BackgroundSphere already exists in scene.");
+            return;
+        }
+
+        var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        go.name = "BackgroundSphere";
+        go.transform.position   = Vector3.zero;
+        go.transform.localScale = Vector3.one * 150f;
+        Object.DestroyImmediate(go.GetComponent<SphereCollider>());
+
+        const string shaderPath = "Assets/_Project/Shaders/BackgroundSphere.shader";
+        const string matPath    = "Assets/_Project/Materials/BackgroundSphere.mat";
+
+        var shader = AssetDatabase.LoadAssetAtPath<Shader>(shaderPath);
+        if (shader == null)
+        {
+            Debug.LogError("[CreateScenes] BackgroundSphere.shader not found at: " + shaderPath);
+            return;
+        }
+
+        Material mat = AssetDatabase.LoadAssetAtPath<Material>(matPath);
+        if (mat == null)
+        {
+            mat = new Material(shader);
+            mat.SetColor("_BaseColor",     new Color(0.04f, 0.02f, 0.08f));
+            mat.SetColor("_EmissionColor", Color.black);
+            mat.SetColor("_GridColor",     new Color(0.08f, 0.04f, 0.18f));
+            mat.SetFloat("_GridScale",     16f);
+            mat.SetFloat("_GridThickness", 0.015f);
+            System.IO.Directory.CreateDirectory("Assets/_Project/Materials");
+            AssetDatabase.CreateAsset(mat, matPath);
+            AssetDatabase.SaveAssets();
+        }
+
+        go.GetComponent<MeshRenderer>().sharedMaterial = mat;
+        go.AddComponent<BackgroundSphere>();
+
+        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(
+            UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+
+        Debug.Log("[CreateScenes] BackgroundSphere created. Scale=150, Shader=VRBeat/BackgroundSphere");
     }
 
     // ── Helpers ──────────────────────────────────────────────────

@@ -92,4 +92,8 @@ public class SongSelectUI : MonoBehaviour
         if (selectedSong == null || selectedDiff == null) return;
         GameManager.Instance?.StartGame(selectedSong, selectedDiff);
     }
+
+    public void GoToSettings()    => SceneLoader.Load("Settings");
+    public void GoToCalibration() => SceneLoader.Load("Calibration");
+    public void GoToTutorial()    => SceneLoader.Load("Tutorial");
 }

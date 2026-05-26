@@ -125,12 +125,14 @@ public class NoteSpawner : MonoBehaviour
         }
 
         // Song end → Result
+#if !UNITY_EDITOR   // 에디터에선 씬 전환 생략 (HUD 테스트용)
         if (Conductor.Instance.IsSongFinished
             && activeNotes.Count == 0
             && nextNoteIndex >= chart.notes.Length)
         {
             GameManager.Instance?.GoToResult();
         }
+#endif
     }
 
     void SpawnNote(NoteData data)

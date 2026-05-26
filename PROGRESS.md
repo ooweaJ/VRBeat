@@ -70,7 +70,7 @@
 | 11 | **Result 씬 + SaveSystem** | ✅ | 점수/정확도/랭크/NEW RECORD 표시 + 최고점수 저장 검증됨 |
 | 12 | **Calibration 씬** (userOffset 측정) | ✅ | 메트로놈(dspTime 예약) + 탭 오프셋 중앙값 측정 + GameSettings 저장, 검증됨 |
 | 13 | **Settings 씬** | ✅ | 노트속도/좌우손/3종 볼륨 슬라이더 + 오프셋 ± + Save/Back 와이어링, 저장 검증됨 |
-| 14 | **Tutorial 씬** | 🔲 | 기본 조작 가이드 |
+| 14 | **Tutorial 씬** | ✅ | chanran_bit 채보 + TutorialController + 씬 생성 완료 |
 | 15 | **ChartEditorWindow** 채보 제작 | 🔲 | 로직은 있으나 UI/사용법 검증 필요 |
 | 16 | 노래 2~3곡 추가 + 풀 플레이 테스트 | ✅ | song_001 2분 분량 확장 완료 |
 | 17 | Quest 빌드 + OVR 최적화 + 90fps 측정 | 🔶 | 설정/코드 최적화 완료(아래 참조). **실제 APK 빌드·90fps 실측은 기기 연결 후 대기** |
@@ -124,13 +124,36 @@
 
 ---
 
+## 오늘 완료한 작업 (UI/Tutorial/배경 세션)
+
+- **HUD 위치 조정**: `HUD.cs` heightOffset `-0.3f` → `-0.5f` (플레이어 눈높이 기준 너무 높다는 피드백 반영)
+- **Tutorial 씬 준비 (#14)**:
+  - `StreamingAssets/Songs/chanran_bit/` 생성 — `찬란한_빛.mp3` 복사, `info.json`(BPM 120, Easy Lv.1), `chart_easy.json`(28노트/30초, 3단계 튜토리얼 채보) 완성
+  - `Scripts/UI/TutorialController.cs` 신규 — chanran_bit 자동 로드, 시작하기/뒤로 버튼
+  - `CreateScenes.cs`에 `VRBeat > Create Tutorial Scene` 메뉴 추가
+  - **유니티에서 할 일**: `VRBeat > Create Tutorial Scene` 실행하면 Tutorial.unity 생성됨
+- **배경 스피어 시스템 (신규)**:
+  - `Shaders/BackgroundSphere.shader` — Cull Front + 격자 패턴, CGPROGRAM 방식 (URP 호환)
+  - `Scripts/Gameplay/BackgroundSphere.cs` — Conductor beat마다 빨강↔파랑 emission 펄스
+  - `CreateScenes.cs`에 `VRBeat > Create Background Sphere` 메뉴 추가
+  - **유니티에서 할 일**: Gameplay 씬 열고 `VRBeat > Create Background Sphere` 실행
+
+---
+
 ## 다음 즉시 할 일
 
-1. **씬 간 내비게이션**: SongSelect에서 Settings/Calibration로 이동하는 버튼 추가(현재 씬은 있으나 진입 경로 없음)
-2. **Tutorial 씬** (#14)
-3. **햅틱 폴리싱** (#18) — HapticFeedback 연결 검증
-4. **시동 걸어 BPM 검증** — 현재 120으로 설정했으나 실제 박자와 다를 수 있음. 맞지 않으면 `sidong_georeo/info.json`의 `"bpm"` 값 조정
-5. **(기기 연결 시) Quest APK 빌드 + 90fps 실측**
+1. **햅틱 폴리싱** (#18) — 슬라이스 속도 비례 진동, 판정 등급별 진동 강도 차별화
+2. **시동 걸어 BPM 검증** — 현재 120 설정, 실제 박자와 맞지 않으면 `sidong_georeo/info.json`의 `"bpm"` 값 조정
+3. **(기기 연결 시) Quest APK 빌드 + 90fps 실측**
+
+## 최근 완료 (UI/배경 세션)
+
+- **VideoSkybox 전 씬 적용**: Settings, Calibration, Tutorial, SongSelect, Result, Gameplay 모두 motion.mp4 스카이박스 등록
+- **HUD VR 최적화**: 캔버스 900×180, distanceFromCamera 2.5m, heightOffset +0.25m(노트 레인 위). 레이아웃: 좌=판정, 중=콤보(노랑), 우=점수, 하단=초록 HP바
+- **SongSelect 배경/패널 반투명** (alpha 0.72/0.82) — VR 영상 비쳐 보임
+- **Result 배경 반투명** (alpha 0.78), 캔버스 650×700, 랭크 폰트 110px
+- **난이도 버튼 텍스트 검은색** — 흰 배경에 흰 글씨 문제 수정
+- **Tutorial NEXON Lv2 Gothic 폰트** 적용 (한글 지원)
 
 ---
 

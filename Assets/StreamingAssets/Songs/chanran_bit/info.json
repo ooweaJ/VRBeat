@@ -1,0 +1,19 @@
+{
+  "songId": "chanran_bit",
+  "title": "찬란한 빛",
+  "artist": "Unknown",
+  "mapper": "tutorial",
+  "bpm": 120.0,
+  "audioFile": "audio.mp3",
+  "coverFile": "cover.png",
+  "previewStart": 0.0,
+  "previewDuration": 10.0,
+  "songOffset": 0.0,
+  "difficulties": [
+    {
+      "name": "Easy",
+      "chartFile": "chart_easy.json",
+      "level": 1
+    }
+  ]
+}
