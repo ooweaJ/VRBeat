@@ -1,1 +1,3318 @@
-{"version":"1.0","noteSpeed":4,"notes":[{"type":"normal","beat":2,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":3,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":4,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":5,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":6,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":7,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":8,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":9,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":10,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":11,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":12,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":13,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":14,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":15,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":16,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":17,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":18,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":19,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":20,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":21,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":22,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":23,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":24,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":25,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":26,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":27,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":28,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":29,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":30,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":31,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":32,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":33,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":34,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":35,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":36,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":37,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":38,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":39,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":40,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":41,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":42,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":43,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":44,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":45,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":46,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":47,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":48,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":49,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":50,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":51,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":52,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":53,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":54,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":55,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":56,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":57,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":58,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":59,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":60,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":61,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":62,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":63,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":64,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":65,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":66,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":67,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":68,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":69,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":70,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":71,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":72,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":73,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":74,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":75,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":76,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":77,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":78,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":79,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":80,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":81,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":82,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":83,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":84,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":85,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":86,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":87,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":88,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":89,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":90,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":91,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":92,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":93,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":94,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":95,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":96,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":97,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":98,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":99,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":100,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":101,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":102,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":103,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":104,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":105,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":106,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":107,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":108,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":109,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":110,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":111,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":112,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":113,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":114,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":115,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":116,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":117,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":118,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":119,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":120,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":121,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":122,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":123,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":124,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":125,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":126,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":127,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":128,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":129,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":130,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":131,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":132,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":133,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":134,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":135,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":136,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":137,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":138,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":139,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":140,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":141,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":142,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":143,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":144,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":145,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":146,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":147,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":148,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":149,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":150,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":151,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":152,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":153,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":154,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":155,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":156,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":157,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":158,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":159,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":160,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":161,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":162,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":163,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":164,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":165,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":166,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":167,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":168,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":169,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":170,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":171,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":172,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":173,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":174,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":175,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":176,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":177,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":178,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":179,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":180,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":181,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":182,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":183,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":184,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":185,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":186,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":187,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":188,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":189,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":190,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":191,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":192,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":193,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":194,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":195,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":196,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":197,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":198,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":199,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":200,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":201,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":202,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":203,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":204,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":205,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":206,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":207,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":208,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":209,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":210,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":211,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":212,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":213,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":214,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":215,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":216,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":217,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":218,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":219,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":220,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":221,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":222,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":223,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":224,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":225,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":226,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":227,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":228,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":229,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":230,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":231,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":232,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":233,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":234,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":235,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":236,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":237,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":238,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":239,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":240,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":241,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":242,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":243,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":244,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":245,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":246,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":247,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":248,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":249,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":250,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":251,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":252,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":253,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":254,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":255,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":256,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":257,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":258,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":259,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":260,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":261,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":262,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":263,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":264,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":265,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":266,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":267,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":268,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":269,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":270,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":271,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":272,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":273,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":274,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":275,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":276,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":277,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":278,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":279,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":280,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":281,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":282,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":283,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":284,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":285,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":286,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":287,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":288,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":289,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":290,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":291,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":292,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":293,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":294,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":295,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":296,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":297,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":298,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":299,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":300,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":301,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":302,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":303,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":304,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":305,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":306,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":307,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":308,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":309,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":310,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":311,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":312,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":313,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":314,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":315,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":316,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":317,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":318,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":319,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":320,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":321,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":322,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":323,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":324,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":325,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":326,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":327,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":328,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":329,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":330,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":331,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":332,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":333,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":334,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":335,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":336,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":337,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":338,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":339,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":340,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":341,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":342,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":343,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":344,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":345,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":346,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":347,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":348,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":349,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":350,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":351,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":352,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":353,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":354,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":355,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":356,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":357,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":358,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":359,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":360,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":361,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":362,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":363,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":364,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":365,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":366,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":367,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":368,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":369,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":370,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":371,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":372,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":373,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":374,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":375,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":376,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":377,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":378,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":379,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":380,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"},{"type":"normal","beat":381,"duration":0,"lane":3,"row":0,"direction":"upLeft","color":"blue"},{"type":"normal","beat":382,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":383,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":384,"duration":0,"lane":0,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":385,"duration":0,"lane":3,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":386,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":387,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":388,"duration":0,"lane":1,"row":1,"direction":"up","color":"red"},{"type":"normal","beat":389,"duration":0,"lane":2,"row":1,"direction":"up","color":"blue"},{"type":"normal","beat":390,"duration":0,"lane":0,"row":1,"direction":"downRight","color":"red"},{"type":"normal","beat":391,"duration":0,"lane":3,"row":1,"direction":"downLeft","color":"blue"},{"type":"normal","beat":392,"duration":0,"lane":1,"row":2,"direction":"down","color":"red"},{"type":"normal","beat":393,"duration":0,"lane":2,"row":2,"direction":"down","color":"blue"},{"type":"normal","beat":394,"duration":0,"lane":1,"row":1,"direction":"down","color":"red"},{"type":"normal","beat":395,"duration":0,"lane":2,"row":1,"direction":"down","color":"blue"},{"type":"normal","beat":396,"duration":0,"lane":0,"row":0,"direction":"upRight","color":"red"}]}
+{
+  "version": "1.0",
+  "noteSpeed": 8.0,
+  "notes": [
+    {
+      "type": "normal",
+      "beat": 4.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 5.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 6.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 7.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 8.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 9.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 10.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 11.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 11.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 12.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 13.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 14.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 15.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 15.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "left",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 16.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 17.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 17.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 18.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 18.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 19.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 20.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 21.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 22.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 22.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 23.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 24.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 24.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 25.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 26.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 27.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 28.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 28.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 29.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 29.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 30.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 30.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 31.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "long",
+      "beat": 32.75,
+      "duration": 13.4,
+      "lane": 1,
+      "row": 0,
+      "direction": "any",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 49.5,
+      "duration": 6.8,
+      "lane": 2,
+      "row": 0,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 58.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 58.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 59.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 59.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "long",
+      "beat": 60.25,
+      "duration": 8.0,
+      "lane": 0,
+      "row": 0,
+      "direction": "any",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 70.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 71.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 72.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 73.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 74.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 74.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 75.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 75.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 76.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 77.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 77.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 78.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 78.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 79.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 80.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 81.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 81.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 82.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 83.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 84.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 85.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 86.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 87.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 88.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 88.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 89.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 90.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 90.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 91.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 92.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 92.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 93.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 94.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 95.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 96.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 97.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 97.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 97.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 98.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 99.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 99.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 100.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 102.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 103.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 104.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 105.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 105.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 105.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 106.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 106.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 107.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 107.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 108.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 109.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 110.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 111.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 112.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 112.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 113.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 114.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 115.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 116.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 117.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 118.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 119.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 120.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 120.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 120.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 121.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 121.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 122.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 122.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 123.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 124.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 125.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 126.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 127.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 127.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "long",
+      "beat": 128.25,
+      "duration": 3.0,
+      "lane": 2,
+      "row": 2,
+      "direction": "any",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 132.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 133.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 134.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 135.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 135.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 136.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 137.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 138.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 139.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 140.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 141.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 142.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 142.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 143.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 144.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 145.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 146.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 147.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 148.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 149.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 150.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 150.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 150.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 151.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 152.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 153.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 154.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 155.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 156.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 157.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 157.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 158.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 159.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 160.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 161.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 162.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 163.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 163.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 164.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 165.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 165.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 165.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 166.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 167.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 167.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 168.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 169.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 170.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 171.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 172.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 173.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 174.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 174.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 175.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 176.0,
+      "duration": 5.8,
+      "lane": 3,
+      "row": 1,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 183.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "long",
+      "beat": 184.5,
+      "duration": 8.2,
+      "lane": 1,
+      "row": 0,
+      "direction": "any",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 194.75,
+      "duration": 13.6,
+      "lane": 0,
+      "row": 2,
+      "direction": "any",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 211.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 212.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 213.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 214.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 215.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 216.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 217.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 218.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 219.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 219.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 220.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 221.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 222.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 223.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "downRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 224.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 225.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 225.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 225.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 226.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "downRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 227.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 228.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 229.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "upRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 230.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 231.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 231.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 232.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 232.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 233.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 234.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 234.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 235.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 236.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 237.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 238.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 239.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 240.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 240.75,
+      "duration": 3.0,
+      "lane": 3,
+      "row": 2,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 244.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 245.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 246.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 247.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 247.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 248.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 249.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 249.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 250.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 251.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 252.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 253.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 254.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 254.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 255.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 255.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 255.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 256.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 257.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 257.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 258.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 259.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 260.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 261.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 262.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 262.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 262.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 263.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 263.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 264.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 264.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 265.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 266.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 267.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 268.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 269.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 269.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 270.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 270.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 270.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 272.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 272.25,
+      "duration": 28.2,
+      "lane": 3,
+      "row": 1,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 307.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 307.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 309.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 309.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 310.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 310.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 311.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 311.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 312.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 312.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 313.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 313.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 314.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 314.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 314.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 315.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 315.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 316.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 316.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 317.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 317.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 318.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 319.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 319.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 319.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 320.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 320.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 321.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 322.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 323.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 324.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 325.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 326.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 327.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 328.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 328.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 329.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 330.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 330.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 330.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 331.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 332.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 332.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 333.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 334.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 334.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 335.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 336.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 336.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 338.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 338.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 339.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 339.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 340.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 340.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 342.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 343.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 344.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 345.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 345.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 345.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 346.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 347.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 347.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 348.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 349.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 349.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 350.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 351.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 351.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 352.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 352.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 353.25,
+      "duration": 3.0,
+      "lane": 2,
+      "row": 0,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 357.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 358.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "downRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 359.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 360.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 360.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 360.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 361.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 362.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 362.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 363.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 364.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 365.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 366.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 366.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 367.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 367.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 368.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 369.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 372.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 373.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 374.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 375.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 375.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 376.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 377.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 377.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 378.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 378.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 379.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 380.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 381.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 381.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 382.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 383.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 384.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    }
+  ]
+}

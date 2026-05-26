@@ -125,14 +125,18 @@ public class NoteSpawner : MonoBehaviour
         }
 
         // Song end → Result
-#if !UNITY_EDITOR   // 에디터에선 씬 전환 생략 (HUD 테스트용)
-        if (Conductor.Instance.IsSongFinished
-            && activeNotes.Count == 0
-            && nextNoteIndex >= chart.notes.Length)
+        if (Conductor.Instance.IsSongFinished && nextNoteIndex >= chart.notes.Length)
         {
+            // 남은 노트(롱노트 포함) 강제 정리
+            for (int i = activeNotes.Count - 1; i >= 0; i--)
+            {
+                if (!activeNotes[i].WasHit)
+                    ScoreManager.Instance?.RegisterMiss(activeNotes[i]);
+                pool.Return(activeNotes[i]);
+                activeNotes.RemoveAt(i);
+            }
             GameManager.Instance?.GoToResult();
         }
-#endif
     }
 
     void SpawnNote(NoteData data)

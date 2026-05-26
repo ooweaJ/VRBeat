@@ -4,16 +4,7 @@
   "notes": [
     {
       "type": "normal",
-      "beat": 4.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 5.5,
+      "beat": 3.0,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -22,11 +13,74 @@
     },
     {
       "type": "normal",
-      "beat": 6.5,
+      "beat": 3.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 3.75,
       "duration": 0,
       "lane": 0,
-      "row": 2,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 4.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 4.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 5.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 5.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
       "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 6.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 7.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
@@ -40,115 +94,16 @@
     },
     {
       "type": "normal",
-      "beat": 7.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
       "beat": 8.25,
       "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 9.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 9.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 10.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 11.0,
-      "duration": 0,
       "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 11.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 12.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 13.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 14.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 14.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
+      "row": 1,
       "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 15.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "left",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 15.75,
+      "beat": 8.5,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -157,7 +112,7 @@
     },
     {
       "type": "normal",
-      "beat": 16.75,
+      "beat": 9.0,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -166,25 +121,34 @@
     },
     {
       "type": "normal",
-      "beat": 17.25,
+      "beat": 9.5,
       "duration": 0,
-      "lane": 2,
-      "row": 2,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 10.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 10.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
       "direction": "up",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 17.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 18.5,
+      "beat": 10.75,
       "duration": 0,
       "lane": 0,
       "row": 0,
@@ -193,7 +157,43 @@
     },
     {
       "type": "normal",
-      "beat": 18.5,
+      "beat": 11.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 12.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 12.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 13.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 14.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -202,7 +202,7 @@
     },
     {
       "type": "normal",
-      "beat": 19.5,
+      "beat": 15.0,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -211,7 +211,34 @@
     },
     {
       "type": "normal",
-      "beat": 20.5,
+      "beat": 15.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 16.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 17.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 17.5,
       "duration": 0,
       "lane": 0,
       "row": 1,
@@ -220,20 +247,74 @@
     },
     {
       "type": "normal",
-      "beat": 21.5,
+      "beat": 18.0,
       "duration": 0,
-      "lane": 2,
+      "lane": 1,
       "row": 0,
-      "direction": "downRight",
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 22.25,
+      "beat": 18.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 18.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 19.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 19.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 20.75,
       "duration": 0,
       "lane": 0,
       "row": 1,
       "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 21.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 22.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
@@ -247,43 +328,61 @@
     },
     {
       "type": "normal",
-      "beat": 22.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 23.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 24.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 24.75,
+      "beat": 23.0,
       "duration": 0,
       "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 23.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 24.0,
+      "duration": 0,
+      "lane": 1,
       "row": 0,
       "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 25.25,
+      "beat": 24.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 25.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 25.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 26.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -292,25 +391,16 @@
     },
     {
       "type": "normal",
-      "beat": 26.0,
+      "beat": 27.25,
       "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 26.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 27.0,
+      "beat": 27.75,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -319,7 +409,7 @@
     },
     {
       "type": "normal",
-      "beat": 28.0,
+      "beat": 28.25,
       "duration": 0,
       "lane": 3,
       "row": 0,
@@ -328,7 +418,16 @@
     },
     {
       "type": "normal",
-      "beat": 28.5,
+      "beat": 28.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 29.25,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -337,25 +436,43 @@
     },
     {
       "type": "normal",
-      "beat": 29.0,
+      "beat": 29.5,
       "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 29.75,
+      "beat": 30.0,
       "duration": 0,
-      "lane": 2,
+      "lane": 3,
       "row": 0,
       "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 30.25,
+      "beat": 30.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 31.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 31.5,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -364,16 +481,331 @@
     },
     {
       "type": "normal",
-      "beat": 30.75,
+      "beat": 32.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 32.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 33.0,
       "duration": 0,
       "lane": 3,
-      "row": 2,
+      "row": 1,
       "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 31.75,
+      "beat": 33.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 34.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 35.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 35.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 36.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 36.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 37.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 37.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 38.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 38.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 39.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 39.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 40.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 40.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 40.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 41.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 42.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 42.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 43.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 44.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 44.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 45.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 46.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 46.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 47.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 47.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 48.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 48.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 48.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 50.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 50.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 51.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 52.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 54.5,
       "duration": 0,
       "lane": 0,
       "row": 1,
@@ -382,7 +814,133 @@
     },
     {
       "type": "normal",
-      "beat": 32.75,
+      "beat": 55.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 55.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 56.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 57.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 58.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 59.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 60.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 61.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 62.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 63.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 63.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 63.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 63.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 64.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 65.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -391,34 +949,34 @@
     },
     {
       "type": "long",
-      "beat": 33.5,
-      "duration": 5.0,
+      "beat": 66.75,
+      "duration": 2.2,
       "lane": 1,
       "row": 0,
       "direction": "any",
       "color": "red"
     },
     {
-      "type": "long",
-      "beat": 39.75,
-      "duration": 2.6,
+      "type": "normal",
+      "beat": 69.5,
+      "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "any",
+      "direction": "upRight",
       "color": "blue"
     },
     {
-      "type": "long",
-      "beat": 43.0,
-      "duration": 5.2,
-      "lane": 2,
-      "row": 0,
-      "direction": "any",
+      "type": "normal",
+      "beat": 70.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 49.5,
+      "beat": 71.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -427,16 +985,16 @@
     },
     {
       "type": "long",
-      "beat": 51.5,
-      "duration": 4.0,
-      "lane": 3,
-      "row": 1,
+      "beat": 71.25,
+      "duration": 2.6,
+      "lane": 2,
+      "row": 0,
       "direction": "any",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 56.5,
+      "beat": 74.5,
       "duration": 0,
       "lane": 0,
       "row": 2,
@@ -444,80 +1002,17 @@
       "color": "red"
     },
     {
-      "type": "normal",
-      "beat": 58.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 58.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 59.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 59.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 60.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
       "type": "long",
-      "beat": 61.25,
-      "duration": 7.2,
-      "lane": 2,
+      "beat": 74.5,
+      "duration": 3.4,
+      "lane": 3,
       "row": 2,
       "direction": "any",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 70.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "downRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 71.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 72.0,
+      "beat": 78.75,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -526,7 +1021,7 @@
     },
     {
       "type": "normal",
-      "beat": 73.0,
+      "beat": 78.75,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -535,79 +1030,7 @@
     },
     {
       "type": "normal",
-      "beat": 73.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 74.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 74.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 75.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 75.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 75.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 76.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 77.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 77.75,
+      "beat": 79.75,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -616,52 +1039,16 @@
     },
     {
       "type": "normal",
-      "beat": 78.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 78.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 79.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 79.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 80.5,
+      "beat": 80.75,
       "duration": 0,
       "lane": 0,
       "row": 1,
-      "direction": "up",
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 81.0,
+      "beat": 81.75,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -670,88 +1057,106 @@
     },
     {
       "type": "normal",
-      "beat": 81.5,
+      "beat": 82.25,
       "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
     },
     {
       "type": "normal",
       "beat": 82.5,
       "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 82.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "downRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 83.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 84.25,
-      "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "up",
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 84.75,
+      "beat": 83.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 84.0,
       "duration": 0,
       "lane": 2,
       "row": 0,
       "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 84.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 85.25,
+      "beat": 85.0,
       "duration": 0,
-      "lane": 1,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 85.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 85.75,
+      "duration": 0,
+      "lane": 2,
       "row": 0,
-      "direction": "downLeft",
+      "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
       "beat": 86.0,
       "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 87.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 88.0,
+      "beat": 86.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 87.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 88.25,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -760,7 +1165,7 @@
     },
     {
       "type": "normal",
-      "beat": 88.5,
+      "beat": 89.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -769,20 +1174,11 @@
     },
     {
       "type": "normal",
-      "beat": 89.0,
+      "beat": 89.75,
       "duration": 0,
       "lane": 3,
       "row": 1,
       "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 89.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
       "color": "blue"
     },
     {
@@ -796,39 +1192,57 @@
     },
     {
       "type": "normal",
-      "beat": 90.75,
+      "beat": 91.0,
       "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upLeft",
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 91.75,
+      "beat": 91.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 92.0,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "right",
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
       "beat": 92.25,
       "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 92.75,
-      "duration": 0,
       "lane": 0,
       "row": 1,
       "direction": "upLeft",
       "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 93.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 93.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
     },
     {
       "type": "normal",
@@ -836,66 +1250,111 @@
       "duration": 0,
       "lane": 1,
       "row": 0,
-      "direction": "down",
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 93.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 94.0,
+      "beat": 94.25,
       "duration": 0,
-      "lane": 0,
+      "lane": 1,
       "row": 0,
       "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 94.5,
+      "beat": 94.75,
       "duration": 0,
       "lane": 2,
-      "row": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 95.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 95.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
       "direction": "up",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 95.5,
+      "beat": 96.75,
       "duration": 0,
       "lane": 1,
       "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
+      "direction": "down",
+      "color": "red"
     },
     {
       "type": "normal",
-      "beat": 96.5,
+      "beat": 97.0,
       "duration": 0,
-      "lane": 3,
+      "lane": 0,
       "row": 1,
-      "direction": "right",
-      "color": "blue"
+      "direction": "upLeft",
+      "color": "red"
     },
     {
       "type": "normal",
       "beat": 97.25,
       "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upLeft",
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
       "beat": 97.5,
       "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 97.75,
+      "beat": 98.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 98.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 99.0,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -904,7 +1363,7 @@
     },
     {
       "type": "normal",
-      "beat": 98.25,
+      "beat": 99.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -913,10 +1372,10 @@
     },
     {
       "type": "normal",
-      "beat": 99.25,
+      "beat": 99.5,
       "duration": 0,
-      "lane": 3,
-      "row": 2,
+      "lane": 2,
+      "row": 0,
       "direction": "up",
       "color": "blue"
     },
@@ -925,63 +1384,99 @@
       "beat": 99.75,
       "duration": 0,
       "lane": 1,
-      "row": 2,
+      "row": 0,
       "direction": "up",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 100.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 101.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 102.0,
+      "beat": 100.0,
       "duration": 0,
       "lane": 2,
       "row": 0,
-      "direction": "downRight",
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 100.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 103.0,
+      "beat": 100.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 101.25,
       "duration": 0,
       "lane": 0,
       "row": 1,
-      "direction": "left",
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 104.0,
+      "beat": 102.25,
       "duration": 0,
       "lane": 1,
-      "row": 2,
-      "direction": "upRight",
+      "row": 0,
+      "direction": "down",
       "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 102.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 103.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 103.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 104.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
     },
     {
       "type": "normal",
       "beat": 104.75,
       "duration": 0,
-      "lane": 3,
+      "lane": 1,
       "row": 0,
       "direction": "down",
-      "color": "blue"
+      "color": "red"
     },
     {
       "type": "normal",
@@ -989,66 +1484,21 @@
       "duration": 0,
       "lane": 2,
       "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 105.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
       "direction": "up",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 105.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 106.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 106.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 107.25,
+      "beat": 106.0,
       "duration": 0,
       "lane": 1,
       "row": 0,
       "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 107.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 108.5,
+      "beat": 106.5,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -1057,7 +1507,7 @@
     },
     {
       "type": "normal",
-      "beat": 109.0,
+      "beat": 107.0,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -1066,16 +1516,25 @@
     },
     {
       "type": "normal",
-      "beat": 109.5,
+      "beat": 107.5,
       "duration": 0,
-      "lane": 3,
-      "row": 1,
+      "lane": 2,
+      "row": 0,
       "direction": "up",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 110.5,
+      "beat": 108.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 108.0,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -1084,27 +1543,72 @@
     },
     {
       "type": "normal",
-      "beat": 111.0,
+      "beat": 108.25,
       "duration": 0,
-      "lane": 0,
+      "lane": 1,
       "row": 0,
-      "direction": "up",
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 111.5,
+      "beat": 108.75,
       "duration": 0,
       "lane": 3,
-      "row": 0,
-      "direction": "up",
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 112.25,
+      "beat": 109.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 110.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 110.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 111.25,
       "duration": 0,
       "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 111.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 112.0,
+      "duration": 0,
+      "lane": 2,
       "row": 0,
       "direction": "down",
       "color": "blue"
@@ -1113,18 +1617,18 @@
       "type": "normal",
       "beat": 112.5,
       "duration": 0,
-      "lane": 2,
+      "lane": 1,
       "row": 0,
       "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 112.75,
+      "beat": 113.0,
       "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "up",
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
     },
     {
@@ -1133,12 +1637,21 @@
       "duration": 0,
       "lane": 0,
       "row": 1,
-      "direction": "up",
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 114.25,
+      "beat": 113.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 114.0,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -1147,79 +1660,7 @@
     },
     {
       "type": "normal",
-      "beat": 114.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 115.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 116.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 116.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 116.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 117.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 118.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 119.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 119.75,
+      "beat": 114.5,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -1228,7 +1669,25 @@
     },
     {
       "type": "normal",
-      "beat": 120.0,
+      "beat": 115.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 115.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 115.75,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -1237,70 +1696,97 @@
     },
     {
       "type": "normal",
-      "beat": 120.25,
+      "beat": 116.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 116.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 117.25,
       "duration": 0,
       "lane": 2,
       "row": 0,
       "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 117.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 118.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 118.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 119.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 119.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 120.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
       "beat": 120.75,
       "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 121.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 121.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 122.25,
-      "duration": 0,
       "lane": 1,
       "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 122.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 123.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
       "direction": "up",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 123.5,
+      "beat": 121.5,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -1309,61 +1795,7 @@
     },
     {
       "type": "normal",
-      "beat": 123.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 124.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 124.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 125.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 126.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 126.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 127.5,
+      "beat": 122.5,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -1372,43 +1804,88 @@
     },
     {
       "type": "normal",
-      "beat": 127.75,
+      "beat": 123.0,
       "duration": 0,
-      "lane": 2,
+      "lane": 1,
       "row": 0,
       "direction": "down",
       "color": "red"
     },
     {
-      "type": "long",
-      "beat": 128.25,
-      "duration": 3.0,
-      "lane": 3,
+      "type": "normal",
+      "beat": 123.25,
+      "duration": 0,
+      "lane": 2,
       "row": 0,
-      "direction": "any",
+      "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 132.0,
+      "beat": 123.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 124.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 124.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 125.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 125.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 126.25,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "up",
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 133.0,
+      "beat": 126.75,
       "duration": 0,
       "lane": 1,
-      "row": 2,
-      "direction": "up",
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 133.5,
+      "beat": 127.0,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -1417,61 +1894,151 @@
     },
     {
       "type": "normal",
-      "beat": 134.0,
+      "beat": 127.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 128.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 128.5,
       "duration": 0,
       "lane": 1,
       "row": 0,
       "direction": "down",
       "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 129.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 129.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 130.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 130.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 131.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 131.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 132.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 132.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 133.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 134.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 134.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
     },
     {
       "type": "normal",
       "beat": 135.0,
       "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 135.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 136.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "right",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 137.75,
+      "beat": 136.0,
       "duration": 0,
       "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 138.5,
-      "duration": 0,
-      "lane": 3,
       "row": 0,
       "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 139.0,
+      "beat": 136.5,
       "duration": 0,
       "lane": 0,
       "row": 1,
@@ -1480,12 +2047,57 @@
     },
     {
       "type": "normal",
-      "beat": 139.5,
+      "beat": 137.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 2,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 137.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 138.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 138.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 138.75,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "up",
+      "direction": "upRight",
       "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 139.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
     },
     {
       "type": "normal",
@@ -1498,529 +2110,7 @@
     },
     {
       "type": "normal",
-      "beat": 140.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 141.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 142.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "right",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 142.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 143.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 144.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 145.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 146.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 146.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 147.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "right",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 148.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 148.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 149.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 150.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 150.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 150.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 151.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 152.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 153.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 154.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 155.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 156.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 157.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 157.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 158.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 159.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 160.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 161.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 162.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 163.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 163.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 164.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 165.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 165.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 165.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 166.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 167.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 167.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 168.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 169.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 169.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 170.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "downRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 171.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 172.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 172.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 173.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 174.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 174.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 175.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "upRight",
-      "color": "red"
-    },
-    {
-      "type": "long",
-      "beat": 176.0,
-      "duration": 5.8,
-      "lane": 0,
-      "row": 1,
-      "direction": "any",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 183.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "long",
-      "beat": 184.5,
-      "duration": 6.0,
-      "lane": 1,
-      "row": 0,
-      "direction": "any",
-      "color": "red"
-    },
-    {
-      "type": "long",
-      "beat": 192.0,
-      "duration": 2.2,
-      "lane": 3,
-      "row": 1,
-      "direction": "any",
-      "color": "blue"
-    },
-    {
-      "type": "long",
-      "beat": 194.75,
-      "duration": 4.6,
-      "lane": 0,
-      "row": 1,
-      "direction": "any",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 200.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 200.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 202.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "long",
-      "beat": 202.0,
-      "duration": 7.8,
-      "lane": 3,
-      "row": 2,
-      "direction": "any",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 211.75,
+      "beat": 140.75,
       "duration": 0,
       "lane": 0,
       "row": 1,
@@ -2029,7 +2119,403 @@
     },
     {
       "type": "normal",
-      "beat": 212.75,
+      "beat": 141.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 141.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 142.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 142.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 143.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 143.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 144.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 144.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 145.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 145.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 145.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 146.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 147.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 147.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 148.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 148.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 149.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 149.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 149.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 150.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 151.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 151.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 152.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 152.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 152.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 153.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 153.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 153.75,
+      "duration": 3.0,
+      "lane": 2,
+      "row": 0,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 157.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 159.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 160.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 161.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 161.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 162.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 165.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 166.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 167.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 168.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 168.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 169.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 169.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 170.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 170.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 171.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 173.0,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -2038,7 +2524,385 @@
     },
     {
       "type": "normal",
-      "beat": 213.5,
+      "beat": 174.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 175.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 175.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 175.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 176.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 176.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 177.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 177.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 179.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 179.5,
+      "duration": 3.4,
+      "lane": 1,
+      "row": 0,
+      "direction": "any",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 183.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 184.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 185.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 186.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 2,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 187.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 187.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 188.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 188.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 189.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 189.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 190.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 190.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 190.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 190.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 191.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 191.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 192.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 193.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 2,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 194.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 194.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 195.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 195.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 195.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 196.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 196.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 197.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 197.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 197.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 198.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 198.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 198.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 198.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 199.75,
       "duration": 0,
       "lane": 1,
       "row": 2,
@@ -2047,16 +2911,304 @@
     },
     {
       "type": "normal",
-      "beat": 214.5,
+      "beat": 199.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 200.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 201.25,
       "duration": 0,
       "lane": 2,
-      "row": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 201.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 202.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 202.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 202.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 203.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 203.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 204.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 204.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
       "direction": "up",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 215.5,
+      "beat": 204.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 204.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 205.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 205.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 205.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 206.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 207.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 208.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 209.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 210.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 210.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 210.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 211.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 211.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 212.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 212.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 213.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 213.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 213.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 214.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 215.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 215.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 216.25,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -2074,205 +3226,205 @@
     },
     {
       "type": "normal",
-      "beat": 217.5,
+      "beat": 216.75,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "right",
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 217.75,
+      "beat": 217.0,
       "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 218.25,
+      "beat": 217.25,
       "duration": 0,
-      "lane": 0,
+      "lane": 2,
       "row": 0,
       "direction": "down",
-      "color": "red"
+      "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 218.25,
+      "beat": 217.5,
       "duration": 0,
       "lane": 1,
       "row": 0,
       "direction": "down",
-      "color": "blue"
+      "color": "red"
     },
     {
       "type": "normal",
-      "beat": 219.25,
+      "beat": 218.0,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "right",
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 219.75,
+      "beat": 218.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 218.5,
       "duration": 0,
       "lane": 2,
       "row": 0,
-      "direction": "downRight",
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 219.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 219.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 220.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
       "beat": 220.25,
       "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 221.0,
-      "duration": 0,
-      "lane": 1,
+      "lane": 2,
       "row": 0,
-      "direction": "downLeft",
+      "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 222.0,
+      "beat": 220.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 220.75,
       "duration": 0,
       "lane": 3,
-      "row": 2,
+      "row": 1,
       "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 223.0,
+      "beat": 221.25,
       "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 223.5,
+      "beat": 221.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 222.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 222.75,
       "duration": 0,
       "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 223.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 223.75,
+      "duration": 0,
+      "lane": 1,
       "row": 0,
-      "direction": "downRight",
+      "direction": "downLeft",
       "color": "blue"
     },
     {
       "type": "normal",
       "beat": 224.0,
       "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 224.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 225.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 225.25,
-      "duration": 0,
       "lane": 2,
       "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 225.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
+      "direction": "downRight",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 226.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 227.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 227.75,
+      "beat": 224.25,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "right",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 228.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 229.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
       "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 230.5,
+      "beat": 224.5,
       "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 231.0,
+      "beat": 224.5,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -2281,10 +3433,136 @@
     },
     {
       "type": "normal",
-      "beat": 231.5,
+      "beat": 224.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 225.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 225.5,
       "duration": 0,
       "lane": 0,
-      "row": 2,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 225.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 226.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 226.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 227.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 228.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 228.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 228.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 229.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 230.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 230.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 231.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 232.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
       "direction": "upLeft",
       "color": "red"
     },
@@ -2292,105 +3570,114 @@
       "type": "normal",
       "beat": 232.5,
       "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 233.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 234.0,
+      "duration": 0,
       "lane": 3,
-      "row": 2,
+      "row": 1,
       "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 232.75,
+      "beat": 234.5,
       "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 233.25,
+      "beat": 235.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 235.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 236.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 237.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 237.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 238.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 239.25,
       "duration": 0,
       "lane": 1,
       "row": 0,
       "direction": "downLeft",
       "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 234.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 234.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "right",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 235.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 236.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 237.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 238.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 239.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 239.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
     },
     {
       "type": "normal",
       "beat": 240.0,
       "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 241.0,
+      "duration": 0,
       "lane": 3,
       "row": 1,
       "direction": "upRight",
@@ -2398,61 +3685,52 @@
     },
     {
       "type": "normal",
-      "beat": 240.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 242.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 242.25,
+      "beat": 241.5,
       "duration": 0,
       "lane": 2,
       "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 242.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
       "direction": "downLeft",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 244.5,
+      "beat": 243.0,
       "duration": 0,
       "lane": 0,
       "row": 1,
-      "direction": "downLeft",
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 244.5,
+      "beat": 243.75,
       "duration": 0,
-      "lane": 1,
-      "row": 0,
+      "lane": 3,
+      "row": 1,
       "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 245.5,
+      "beat": 244.25,
       "duration": 0,
       "lane": 1,
-      "row": 2,
-      "direction": "up",
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 245.5,
+      "beat": 244.75,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -2461,27 +3739,45 @@
     },
     {
       "type": "normal",
-      "beat": 246.5,
+      "beat": 245.25,
       "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 245.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 246.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 247.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "red"
     },
     {
       "type": "normal",
       "beat": 247.5,
       "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 247.75,
-      "duration": 0,
-      "lane": 3,
+      "lane": 2,
       "row": 0,
       "direction": "down",
       "color": "blue"
@@ -2491,13 +3787,40 @@
       "beat": 248.25,
       "duration": 0,
       "lane": 1,
-      "row": 2,
-      "direction": "up",
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 249.25,
+      "beat": 248.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 249.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 249.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 250.5,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -2506,48 +3829,48 @@
     },
     {
       "type": "normal",
-      "beat": 249.75,
+      "beat": 250.75,
       "duration": 0,
       "lane": 3,
       "row": 1,
-      "direction": "up",
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 250.25,
+      "beat": 251.25,
       "duration": 0,
       "lane": 0,
-      "row": 2,
-      "direction": "up",
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 251.0,
+      "beat": 251.75,
       "duration": 0,
-      "lane": 2,
+      "lane": 1,
       "row": 0,
-      "direction": "down",
+      "direction": "downLeft",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 252.0,
+      "beat": 252.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 253.25,
       "duration": 0,
       "lane": 3,
       "row": 1,
       "direction": "up",
       "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 253.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
     },
     {
       "type": "normal",
@@ -2560,25 +3883,34 @@
     },
     {
       "type": "normal",
-      "beat": 254.75,
+      "beat": 254.25,
       "duration": 0,
-      "lane": 2,
+      "lane": 1,
       "row": 0,
       "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 255.0,
+      "beat": 254.5,
       "duration": 0,
-      "lane": 1,
+      "lane": 2,
       "row": 0,
       "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 255.25,
+      "beat": 255.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 255.5,
       "duration": 0,
       "lane": 3,
       "row": 1,
@@ -2587,7 +3919,7 @@
     },
     {
       "type": "normal",
-      "beat": 255.75,
+      "beat": 256.5,
       "duration": 0,
       "lane": 2,
       "row": 0,
@@ -2596,25 +3928,7 @@
     },
     {
       "type": "normal",
-      "beat": 256.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 256.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 257.25,
+      "beat": 257.5,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -2623,151 +3937,79 @@
     },
     {
       "type": "normal",
-      "beat": 257.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 258.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 259.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 260.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 261.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 262.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 262.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 262.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 263.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 263.75,
+      "beat": 258.0,
       "duration": 0,
       "lane": 0,
       "row": 1,
-      "direction": "up",
+      "direction": "upLeft",
       "color": "red"
+    },
+    {
+      "type": "long",
+      "beat": 258.25,
+      "duration": 4.8,
+      "lane": 3,
+      "row": 2,
+      "direction": "any",
+      "color": "blue"
     },
     {
       "type": "normal",
       "beat": 264.25,
       "duration": 0,
       "lane": 2,
-      "row": 2,
-      "direction": "up",
+      "row": 0,
+      "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 264.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 265.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "downRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 266.0,
+      "beat": 265.0,
       "duration": 0,
       "lane": 1,
-      "row": 2,
-      "direction": "up",
+      "row": 0,
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 266.5,
+      "beat": 265.5,
       "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 265.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 267.0,
+      "beat": 266.25,
       "duration": 0,
-      "lane": 2,
+      "lane": 1,
       "row": 0,
-      "direction": "downRight",
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 268.0,
+      "beat": 266.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 267.25,
       "duration": 0,
       "lane": 0,
       "row": 2,
@@ -2776,52 +4018,79 @@
     },
     {
       "type": "normal",
-      "beat": 268.5,
+      "beat": 267.25,
       "duration": 0,
       "lane": 3,
-      "row": 1,
-      "direction": "right",
+      "row": 2,
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 269.0,
+      "beat": 268.25,
       "duration": 0,
-      "lane": 0,
+      "lane": 1,
       "row": 0,
-      "direction": "downLeft",
+      "direction": "down",
       "color": "red"
     },
     {
       "type": "normal",
-      "beat": 269.5,
+      "beat": 268.25,
       "duration": 0,
-      "lane": 1,
+      "lane": 2,
       "row": 0,
-      "direction": "downLeft",
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 269.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
       "color": "blue"
     },
     {
       "type": "normal",
       "beat": 269.75,
       "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "upRight",
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
       "color": "red"
     },
     {
       "type": "normal",
       "beat": 270.0,
       "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
+      "lane": 1,
+      "row": 0,
+      "direction": "downLeft",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 270.25,
+      "beat": 270.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 271.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "right",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 271.5,
       "duration": 0,
       "lane": 0,
       "row": 1,
@@ -2830,7 +4099,7 @@
     },
     {
       "type": "normal",
-      "beat": 270.75,
+      "beat": 272.0,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -2839,187 +4108,430 @@
     },
     {
       "type": "normal",
-      "beat": 272.25,
+      "beat": 272.5,
       "duration": 0,
-      "lane": 3,
-      "row": 2,
-      "direction": "upRight",
-      "color": "blue"
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
     },
     {
       "type": "normal",
-      "beat": 272.75,
+      "beat": 273.0,
       "duration": 0,
       "lane": 3,
       "row": 1,
       "direction": "right",
-      "color": "red"
+      "color": "blue"
     },
     {
-      "type": "long",
+      "type": "normal",
       "beat": 273.5,
-      "duration": 8.0,
+      "duration": 0,
       "lane": 0,
-      "row": 2,
-      "direction": "any",
+      "row": 1,
+      "direction": "left",
       "color": "red"
     },
     {
-      "type": "long",
-      "beat": 283.5,
-      "duration": 9.4,
-      "lane": 1,
+      "type": "normal",
+      "beat": 273.75,
+      "duration": 0,
+      "lane": 2,
       "row": 0,
-      "direction": "any",
+      "direction": "down",
       "color": "blue"
     },
     {
-      "type": "long",
+      "type": "normal",
+      "beat": 274.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 275.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 276.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "left",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 277.25,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 277.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 278.0,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 278.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 278.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 279.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 279.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 279.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 2,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 280.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 280.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 280.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 281.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 281.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 281.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 282.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 283.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 283.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 284.25,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 284.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 284.75,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "downLeft",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 285.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 285.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 286.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "downRight",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 286.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 287.0,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 287.25,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 287.5,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 288.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 288.25,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "up",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 288.5,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 288.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 289.75,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 290.75,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 291.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 292.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 293.5,
+      "duration": 0,
+      "lane": 3,
+      "row": 1,
+      "direction": "upRight",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 294.0,
+      "duration": 0,
+      "lane": 1,
+      "row": 0,
+      "direction": "down",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 294.5,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "down",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
+      "beat": 294.75,
+      "duration": 0,
+      "lane": 0,
+      "row": 1,
+      "direction": "upLeft",
+      "color": "red"
+    },
+    {
+      "type": "normal",
+      "beat": 295.0,
+      "duration": 0,
+      "lane": 2,
+      "row": 0,
+      "direction": "up",
+      "color": "blue"
+    },
+    {
+      "type": "normal",
       "beat": 295.25,
-      "duration": 3.4,
-      "lane": 3,
-      "row": 0,
-      "direction": "any",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 299.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "long",
-      "beat": 300.0,
-      "duration": 6.0,
-      "lane": 0,
-      "row": 1,
-      "direction": "any",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 307.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 309.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 310.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 310.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 311.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 312.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 313.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 313.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 314.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 314.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 315.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 315.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 315.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 316.75,
       "duration": 0,
       "lane": 1,
       "row": 0,
@@ -3028,43 +4540,16 @@
     },
     {
       "type": "normal",
-      "beat": 317.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 317.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 318.5,
+      "beat": 295.5,
       "duration": 0,
       "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 319.0,
-      "duration": 0,
-      "lane": 3,
       "row": 0,
       "direction": "down",
       "color": "blue"
     },
     {
       "type": "normal",
-      "beat": 319.5,
+      "beat": 295.75,
       "duration": 0,
       "lane": 0,
       "row": 1,
@@ -3073,776 +4558,11 @@
     },
     {
       "type": "normal",
-      "beat": 320.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 321.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 322.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 323.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 324.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 325.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 326.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 327.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 328.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 328.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 329.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 330.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 330.25,
+      "beat": 296.25,
       "duration": 0,
       "lane": 2,
       "row": 0,
       "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 330.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 331.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 332.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 332.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 333.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 334.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 334.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 335.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 336.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 336.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "downRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 338.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 339.25,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 340.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 341.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 342.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 343.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 344.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 345.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 345.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 345.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 346.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 347.25,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 347.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 348.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 349.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 349.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "upRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 350.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 351.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 351.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 352.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 352.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "red"
-    },
-    {
-      "type": "long",
-      "beat": 353.25,
-      "duration": 3.0,
-      "lane": 1,
-      "row": 2,
-      "direction": "any",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 357.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 358.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "right",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 359.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "left",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 360.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 360.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 360.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 361.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 362.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 362.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 363.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 364.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 364.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 365.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 366.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 366.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 367.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 367.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 368.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 369.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 370.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 372.0,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 373.0,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 373.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 374.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 374.75,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 375.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 375.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 375.75,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "up",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 376.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 2,
-      "direction": "up",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 377.25,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 377.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 378.5,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 379.0,
-      "duration": 0,
-      "lane": 1,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 379.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "down",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 380.5,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "down",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 381.0,
-      "duration": 0,
-      "lane": 0,
-      "row": 1,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 381.5,
-      "duration": 0,
-      "lane": 3,
-      "row": 1,
-      "direction": "upRight",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 382.5,
-      "duration": 0,
-      "lane": 1,
-      "row": 0,
-      "direction": "downRight",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 382.75,
-      "duration": 0,
-      "lane": 2,
-      "row": 0,
-      "direction": "downLeft",
-      "color": "blue"
-    },
-    {
-      "type": "normal",
-      "beat": 383.25,
-      "duration": 0,
-      "lane": 0,
-      "row": 2,
-      "direction": "upLeft",
-      "color": "red"
-    },
-    {
-      "type": "normal",
-      "beat": 384.75,
-      "duration": 0,
-      "lane": 3,
-      "row": 0,
-      "direction": "down",
       "color": "blue"
     }
   ]

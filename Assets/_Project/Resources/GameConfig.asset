@@ -16,6 +16,6 @@ MonoBehaviour:
   hitDistance: 0
   despawnDistance: -2
   laneWidth: 0.45
-  rowHeight: 0.5
+  rowHeight: 0.45
   baseHeight: 0.5
   poolWarmupCount: 64

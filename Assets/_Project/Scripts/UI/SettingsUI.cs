@@ -35,13 +35,13 @@ public class SettingsUI : MonoBehaviour
     public void OnMusicVolumeChanged(float v)  { settings.musicVolume   = v; }
     public void OnSfxVolumeChanged(float v)    { settings.sfxVolume     = v; }
 
-    public void IncreaseOffset() { settings.userOffset += 0.005f; UpdateOffsetText(); }
-    public void DecreaseOffset() { settings.userOffset -= 0.005f; UpdateOffsetText(); }
+    public void IncreaseOffset() { settings.userOffset += 0.010f; UpdateOffsetText(); }
+    public void DecreaseOffset() { settings.userOffset -= 0.010f; UpdateOffsetText(); }
 
     void UpdateOffsetText()
     {
         if (offsetText != null)
-            offsetText.text = $"Offset: {settings.userOffset * 1000f:F0} ms";
+            offsetText.text = $"Sync Offset: {settings.userOffset * 1000f:+0;-0;0} ms  (노트 빠르면 +, 늦으면 -)";
     }
 
     public void Save()

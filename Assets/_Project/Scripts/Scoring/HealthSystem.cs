@@ -24,14 +24,7 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = Mathf.Max(0, CurrentHealth - dmg);
         HUD.Instance?.UpdateHealth(CurrentHealth / MaxHealth);
         if (CurrentHealth <= 0)
-        {
-#if !UNITY_EDITOR
             GameManager.Instance?.GameOver();
-#else
-            CurrentHealth = MaxHealth * 0.1f; // 에디터: 즉사 대신 10%로 유지
-            HUD.Instance?.UpdateHealth(CurrentHealth / MaxHealth);
-#endif
-        }
     }
 
     public void Heal(float amount)
