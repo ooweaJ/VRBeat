@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SaberHandle 2
+  m_Name: SaberBlade_Red_handle
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -118,7 +118,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0.25471687, b: 0.344665, a: 1}
     - _Color: {r: 1, g: 0.25471684, b: 0.34466496, a: 1}
-    - _EmissionColor: {r: 1, g: 0.28616333, b: 0.28616333, a: 2.5}
+    - _EmissionColor: {r: 4.5, g: 0.15, b: 0.15, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

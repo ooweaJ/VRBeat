@@ -8,6 +8,9 @@ public class NormalNote : NoteBase
     [SerializeField] Renderer meshRenderer;
     [SerializeField] NoteSliceHandler sliceHandler;
 
+    static Material s_MatRed;
+    static Material s_MatBlue;
+
     public override void Initialize(NoteData d, float speed, float hz, GameConfig cfg)
     {
         base.Initialize(d, speed, hz, cfg);
@@ -18,26 +21,28 @@ public class NormalNote : NoteBase
     {
         if (meshRenderer == null) meshRenderer = GetComponent<Renderer>();
         if (meshRenderer == null) meshRenderer = GetComponentInChildren<Renderer>();
+        if (meshRenderer == null) return;
 
-        if (meshRenderer != null)
+        string colorName = data.color.ToLower();
+        Material mat = GetNoteMaterial(colorName);
+
+        if (mat != null)
+            meshRenderer.material = mat;
+        else
+            meshRenderer.material.color = colorName == "red" ? Color.red : Color.blue;
+    }
+
+    static Material GetNoteMaterial(string colorName)
+    {
+        if (colorName == "red")
         {
-            Material mat = null;
-            string colorName = data.color.ToLower();
-            
-#if UNITY_EDITOR
-            string assetPath = colorName == "red" ? "Assets/Material/matR.mat" : "Assets/Material/matB.mat";
-            mat = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(assetPath);
-#endif
-
-            if (mat != null)
-            {
-                meshRenderer.material = mat;
-            }
-            else
-            {
-                // Fallback to simple colors if material not found
-                meshRenderer.material.color = colorName == "red" ? Color.red : Color.blue;
-            }
+            if (s_MatRed == null) s_MatRed = Resources.Load<Material>("Notes/Note_Red");
+            return s_MatRed;
+        }
+        else
+        {
+            if (s_MatBlue == null) s_MatBlue = Resources.Load<Material>("Notes/Note_Blue");
+            return s_MatBlue;
         }
     }
 
@@ -48,7 +53,7 @@ public class NormalNote : NoteBase
         // 1. Check Color Match
         if (!ColorMatches(saberColor, data.color))
         {
-            WasHit = true;   // 중복 호출 방지
+            WasHit = true;
             Debug.Log($"[Note] Wrong Color! Saber: {saberColor}, Note: {data.color}");
             ScoreManager.Instance?.RegisterWrongColor(this);
             gameObject.SetActive(false);
@@ -56,7 +61,7 @@ public class NormalNote : NoteBase
         }
 
         // 2. Check Velocity
-        if (velocity < MinSliceVelocity) 
+        if (velocity < MinSliceVelocity)
         {
             Debug.Log($"[Note] Too slow! Velocity: {velocity:F2}");
             return;
@@ -77,5 +82,4 @@ public class NormalNote : NoteBase
         SliceEffect.Play(transform.position, sliceDir, data.color);
         gameObject.SetActive(false);
     }
-
 }

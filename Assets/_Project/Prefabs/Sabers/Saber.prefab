@@ -212,8 +212,8 @@ MonoBehaviour:
   saber: {fileID: 3472591032095335669}
   trailTip: {fileID: 4938835080161990782}
   trailRoot: {fileID: 3648272425133286066}
-  trailThreshold: 1.5
-  trailTime: 0.15
+  trailThreshold: 0.6
+  trailTime: 0.55
   trailMaterial: {fileID: 0}
 --- !u!1001 &824791615646924691
 PrefabInstance:

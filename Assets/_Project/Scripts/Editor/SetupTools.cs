@@ -3,6 +3,8 @@ using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class SetupTools : EditorWindow
 {
@@ -35,6 +37,13 @@ public class SetupTools : EditorWindow
         if (GUILayout.Button("4. Create and Wire HUD"))
         {
             CreateAndWireHUD();
+        }
+
+        EditorGUILayout.Space();
+        GUILayout.Label("Visual Effects", EditorStyles.boldLabel);
+        if (GUILayout.Button("5. Setup Bloom Post-Processing"))
+        {
+            SetupBloom();
         }
     }
 
@@ -203,6 +212,61 @@ public class SetupTools : EditorWindow
         serializedPool.ApplyModifiedProperties();
 
         Debug.Log("[VRBeat] Gameplay Scene Setup Complete. Don't forget to add XR Rig and HUD!");
+    }
+
+    static void SetupBloom()
+    {
+        // 1. Global Volume 찾거나 생성
+        var volume = Object.FindFirstObjectByType<Volume>();
+        if (volume == null)
+        {
+            var volumeGO = new GameObject("PostProcess_GlobalVolume");
+            volume = volumeGO.AddComponent<Volume>();
+            volume.isGlobal = true;
+        }
+
+        // 2. VolumeProfile 생성/로드
+        string dir = "Assets/_Project/Settings";
+        if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+        string profilePath = dir + "/BloomProfile.asset";
+
+        VolumeProfile profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(profilePath);
+        if (profile == null)
+        {
+            profile = ScriptableObject.CreateInstance<VolumeProfile>();
+            AssetDatabase.CreateAsset(profile, profilePath);
+        }
+        volume.sharedProfile = profile;
+
+        // 3. Bloom 오버라이드 추가/설정
+        if (!profile.TryGet(out Bloom bloom))
+            bloom = profile.Add<Bloom>(true);
+
+        bloom.active = true;
+        bloom.threshold.Override(0.85f);   // HDR 밝기 0.85 이상부터 번짐
+        bloom.intensity.Override(4.5f);    // 번짐 강도
+        bloom.scatter.Override(0.65f);     // 번짐 퍼짐 정도
+        bloom.tint.Override(Color.white);
+        bloom.highQualityFiltering.Override(true);
+
+        // 4. Main Camera에 Post Processing 활성화
+        var cam = Camera.main;
+        if (cam != null)
+        {
+            var camData = cam.GetComponent<UniversalAdditionalCameraData>();
+            if (camData == null) camData = cam.gameObject.AddComponent<UniversalAdditionalCameraData>();
+            camData.renderPostProcessing = true;
+            EditorUtility.SetDirty(cam.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("[VRBeat] Main Camera를 찾지 못했습니다. Camera에 Post Processing을 수동으로 체크하세요.");
+        }
+
+        EditorUtility.SetDirty(profile);
+        AssetDatabase.SaveAssets();
+        UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
+        Debug.Log("[VRBeat] Bloom Post-Processing 세팅 완료! BloomProfile.asset → Assets/_Project/Settings/");
     }
 
     static void CreateAndWireHUD()

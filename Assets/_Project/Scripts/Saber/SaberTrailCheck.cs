@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 루트~팁 전체를 잇는 리본 메시 트레일. TrailRenderer 불필요.
 public class SaberTrailCheck : MonoBehaviour
 {
     [SerializeField] SaberController saber;
     [SerializeField] Transform trailTip;
     [SerializeField] Transform trailRoot;
-    [SerializeField] float trailThreshold = 1.5f;
-    [SerializeField] float trailTime      = 0.15f;
+    [SerializeField] float trailThreshold = 0.4f;
+    [SerializeField] float trailTime      = 0.5f;
+    [SerializeField] float widthExpand    = 0.05f;
     [SerializeField] Material trailMaterial;
 
     struct Segment { public Vector3 tip, root; public float time; }
@@ -19,18 +19,15 @@ public class SaberTrailCheck : MonoBehaviour
     MeshRenderer mr;
     Mesh         mesh;
 
-    static readonly Color kRed  = new Color(1f,   0.2f, 0.2f);
-    static readonly Color kBlue = new Color(0.2f, 0.55f, 1f);
+    static readonly Color kRed  = new Color(1.0f, 0.15f, 0.15f);
+    static readonly Color kBlue = new Color(0.15f, 0.5f, 1.0f);
 
     void Awake()
     {
         if (saber == null) saber = GetComponentInParent<SaberController>();
-
-        // tip/root 미지정 시 SaberController에서 자동으로 가져옴
         if (trailTip  == null && saber != null) trailTip  = saber.Tip;
         if (trailRoot == null && saber != null) trailRoot = saber.Root;
 
-        // 트레일 메시는 월드 원점 고정 오브젝트에 붙임 (세이버와 같이 움직이면 안 됨)
         trailObj = new GameObject("SaberTrailMesh");
         mf = trailObj.AddComponent<MeshFilter>();
         mr = trailObj.AddComponent<MeshRenderer>();
@@ -46,16 +43,14 @@ public class SaberTrailCheck : MonoBehaviour
         }
         else
         {
-            Shader s = Shader.Find("Universal Render Pipeline/Particles/Unlit")
-                    ?? Shader.Find("Particles/Additive")
-                    ?? Shader.Find("Sprites/Default");
+            bool isBlue = saber != null && saber.color == SaberColor.Blue;
+            Shader s = Shader.Find("VRBeat/SaberTrail") ?? Shader.Find("Sprites/Default");
             if (s != null)
             {
-                Color c = saber != null && saber.color == SaberColor.Blue ? kBlue : kRed;
                 var mat = new Material(s);
-                mat.SetColor("_BaseColor", c);
-                mat.SetColor("_Color",     c);
-                mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+                mat.SetColor("_BaseColor", isBlue ? new Color(0.25f, 0.65f, 3.5f) : new Color(3.0f, 0.25f, 0.25f));
+                var tex = Resources.Load<Texture2D>("SaberTrail_Gradient");
+                if (tex != null) mat.SetTexture("_MainTex", tex);
                 mr.material = mat;
             }
         }
@@ -69,15 +64,14 @@ public class SaberTrailCheck : MonoBehaviour
 
         if (active)
         {
-            segments.Add(new Segment
-            {
-                tip  = trailTip.position,
-                root = trailRoot.position,
-                time = now
-            });
+            Vector3 tip  = trailTip.position;
+            Vector3 root = trailRoot.position;
+            Vector3 axis = (tip - root).normalized;
+            tip  += axis * widthExpand;
+            root -= axis * widthExpand;
+            segments.Add(new Segment { tip = tip, root = root, time = now });
         }
 
-        // 오래된 세그먼트 제거
         while (segments.Count > 0 && now - segments[0].time > trailTime)
             segments.RemoveAt(0);
 
@@ -94,14 +88,24 @@ public class SaberTrailCheck : MonoBehaviour
         var colors = new Color[n * 2];
         var tris   = new int[(n - 1) * 6];
 
-        Color baseColor = saber != null && saber.color == SaberColor.Blue ? kBlue : kRed;
+        bool isBlue   = saber != null && saber.color == SaberColor.Blue;
+        Color saberCol = isBlue ? kBlue : kRed;
 
         for (int i = 0; i < n; i++)
         {
-            float age   = now - segments[i].time;
-            float alpha = Mathf.Clamp01(1f - age / trailTime);
-            float u     = (float)i / (n - 1);
-            Color c     = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+            // u=0 tail(oldest), u=1 head(newest)
+            float u        = (float)i / (n - 1);
+            // alpha: ease-out curve — solid near head, fade at tail
+            float alpha    = Mathf.Pow(u, 0.6f);
+            // slight brightness boost at head for the "hot" look
+            float bright   = Mathf.Lerp(0.85f, 1.0f, u);
+
+            Color c = new Color(
+                saberCol.r * bright,
+                saberCol.g * bright,
+                saberCol.b * bright,
+                alpha
+            );
 
             verts [i * 2]     = segments[i].root;
             verts [i * 2 + 1] = segments[i].tip;
