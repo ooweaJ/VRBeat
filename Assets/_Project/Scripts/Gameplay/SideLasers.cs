@@ -1,25 +1,25 @@
 using UnityEngine;
 
-// 측면 레이저 빔 — 비트세이버 BBS/레이저 흉내.
-// Conductor 박자에 맞춰 strobe(번쩍) → fade(감쇠). 짝/홀 비트로 두 그룹을 교대 점등해
-// 좌우로 흐르는 움직임을 만든다. 색은 측면 고정(왼쪽 빨강 / 오른쪽 파랑).
+// 양옆 세로 라이트 기둥 — 비트세이버 측면 스트립 조명처럼 줄지어 서서 은은히 빛남.
+// 스윕(스포트라이트) 아님. 박자마다 밝아졌다 사라지는 펄스가 z를 따라 물결치며 흐른다.
 public class SideLasers : MonoBehaviour
 {
-    [Header("두 그룹 (짝/홀 비트 교대)")]
-    public Renderer[] groupA;
-    public Renderer[] groupB;
+    [Header("Columns (z 순서로 할당)")]
+    public Renderer[] columns;
 
     [Header("Color (HDR)")]
-    [ColorUsage(true, true)] public Color litColor = new Color(4f, 0.25f, 0.25f);
-    [ColorUsage(true, true)] public Color dimColor = new Color(0.12f, 0.02f, 0.02f);
+    [ColorUsage(true, true)] public Color baseColor = new Color(0.9f, 0.08f, 0.6f);  // 항상 켜진 글로우
+    [ColorUsage(true, true)] public Color beatColor = new Color(4.5f, 0.5f, 3.5f);   // 박자 강조
 
-    [Header("Strobe")]
-    [Range(1f, 16f)] public float decay = 7f;   // 감쇠 속도
+    [Header("Pulse")]
+    [Range(1f, 16f)] public float decay = 5f;     // 펄스 감쇠
+    public float waveSpeed = 5f;                  // 펄스가 z를 따라 흐르는 속도
+    public float wavePerColumn = 0.5f;            // 기둥 간 위상차
 
     static readonly int ColorProp = Shader.PropertyToID("_Color");
     MaterialPropertyBlock mpb;
     int   lastBeat = -1;
-    float levelA, levelB;
+    float level;
 
     void Awake() => mpb = new MaterialPropertyBlock();
 
@@ -29,30 +29,23 @@ public class SideLasers : MonoBehaviour
         if (c != null && c.IsPlaying)
         {
             int beat = Mathf.FloorToInt(c.SongBeat);
-            if (beat >= 0 && beat != lastBeat)
-            {
-                lastBeat = beat;
-                if ((beat & 1) == 0) levelA = 1f; else levelB = 1f;
-            }
+            if (beat >= 0 && beat != lastBeat) { lastBeat = beat; level = 1f; }
         }
+        level = Mathf.Lerp(level, 0f, Time.deltaTime * decay);
 
-        levelA = Mathf.Lerp(levelA, 0f, Time.deltaTime * decay);
-        levelB = Mathf.Lerp(levelB, 0f, Time.deltaTime * decay);
-
-        Apply(groupA, levelA);
-        Apply(groupB, levelB);
-    }
-
-    void Apply(Renderer[] group, float level)
-    {
-        if (group == null) return;
-        Color col = Color.Lerp(dimColor, litColor, level);
-        for (int i = 0; i < group.Length; i++)
+        if (columns == null) return;
+        float t = Time.time;
+        for (int i = 0; i < columns.Length; i++)
         {
-            if (group[i] == null) continue;
-            group[i].GetPropertyBlock(mpb);
+            if (columns[i] == null) continue;
+            // 박자 펄스에 z방향 물결을 섞어 생동감
+            float wave  = 0.5f + 0.5f * Mathf.Sin(t * waveSpeed - i * wavePerColumn);
+            float pulse = level * Mathf.Lerp(0.4f, 1f, wave);
+            Color col   = Color.Lerp(baseColor, beatColor, pulse);
+
+            columns[i].GetPropertyBlock(mpb);
             mpb.SetColor(ColorProp, col);
-            group[i].SetPropertyBlock(mpb);
+            columns[i].SetPropertyBlock(mpb);
         }
     }
 }

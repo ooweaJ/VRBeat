@@ -23,7 +23,7 @@ public class RotatingRings : MonoBehaviour
     [Range(0.5f, 6f)] public float spinDamp = 2f; // 임펄스 감쇠
 
     [Header("Glow")]
-    [ColorUsage(true, true)] public Color dimColor = new Color(0.1f, 0.1f, 0.12f);
+    [Range(0f, 0.5f)] public float idleGlow = 0.18f; // 박자 사이 기본 밝기(자기 색 비율)
     [Range(1f, 12f)] public float glowDecay = 5f;
 
     static readonly int ColorProp = Shader.PropertyToID("_Color");
@@ -64,7 +64,7 @@ public class RotatingRings : MonoBehaviour
 
             // 발광 펄스
             r.level = Mathf.Lerp(r.level, 0f, Time.deltaTime * glowDecay);
-            Color col = Color.Lerp(dimColor, r.color, r.level);
+            Color col = Color.Lerp(r.color * idleGlow, r.color, r.level);
             if (r.renderers != null)
                 for (int k = 0; k < r.renderers.Length; k++)
                 {

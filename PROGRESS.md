@@ -153,18 +153,36 @@
 | # | 항목 | 상태 | 메모 |
 |---|---|---|---|
 | E1 | **바닥 제작** — 노트 레인 바닥 + 플레이어 발밑 | ✅ | 어두운 광택(URP/Lit) 바닥 + 발광 레인 구분선 5개(흰색, 박자마다 빨강↔파랑 펄스). 메뉴 `VRBeat/Create Environment Floor`. **Gameplay 씬 적용+저장 완료**. 박자 펄스 동작은 곡 재생 시 확인 |
-| E2 | ~~오실로스코프 벽(FFT)~~ → **비트 구동 라이트쇼** | ✅ | 실제 비트세이버 조명 이벤트 방식으로 전환. 측면 레이저(박자 strobe/fade, 짝/홀 그룹 교대, 왼쪽 빨강/오른쪽 파랑) + 회전 링 6개(교차 회전 + 박자 펄스, 터널감) + 미러 플로어(Realtime Reflection Probe + 광택 바닥). 메뉴 `VRBeat/Create Light Show`. **Gameplay 씬 적용+저장 완료**. 색/모션/반사는 곡 재생 시 |
+| E2 | **라이트쇼 + 측면 조명 + 음향 EQ** | 🔶 | 비트세이버식 3D 라이트쇼 구현됨(아래 구성). **단, 무대 구도가 레퍼런스와 안 맞아 내일 재작업 예정** — 아래 "환경 재작업" 참조 |
 
-**설계 근거**: 실제 비트세이버는 UI/FFT가 아니라 **3D 월드 지오메트리 + Group Lighting Event(박자 동기 레이저·링) + 미러 플로어 + 블룸**. FFT 막대(범용 비주얼라이저 클리셰)를 비트 구동 정통파로 교체.
+**설계 근거**: 실제 비트세이버는 UI/FFT가 아니라 **3D 월드 지오메트리 + Group Lighting Event(박자 동기 레이저·링) + 미러 플로어 + 블룸**. 중앙 시야는 비우고 EQ는 주변부 배경으로.
+
+**배경 톤다운 (조명 가독성)**: `VideoSkybox.mat` `_Exposure` 1→0.18 로 마젠타 배경 영상을 어둡게 깔아 조명이 또렷이 살아나게 함. (이건 유지 OK)
+
+### 🔧 환경 재작업 (내일 — 2026-05-28 예정)
+
+**현재 씬 구성(Gameplay 저장됨):**
+- `Environment` — 광택 바닥(`HighwayFloor.mat` Smoothness 0.95) + 레인선 5개(`HighwayFloor.cs`, 박자 펄스)
+- `LightShow` — ①`SideLights`(양옆 세로 라이트 기둥, 좌/우 각 11개, x±3, `SideLasers.cs` 물결 펄스, 마젠타) ②`Rings`(회전 링 10개, 깔때기 zNear8~zFar36, `RotatingRings.cs`) ③`MirrorProbe`(실시간 Reflection Probe)
+- `OscilloscopeWalls` — 사이드 EQ(좌/우 각 40개, x±5.2, z18~, `OscilloscopeWall.cs`, 어둑)
+- 빌더 메뉴: `VRBeat/Create Environment Floor` / `Create Light Show` / `Create Side Equalizer` (모두 `Editor/CreateEnvironment.cs`)
+
+**❗ 미해결 — 레퍼런스와 다름 (재작업 핵심):**
+- 레퍼런스 이미지: `Assets/Screenshots/image.png`, `image2.png`, `image3.png` (실제 비트세이버 플레이샷)
+- **문제: 측면 조명의 원근감/배치가 레퍼런스와 전혀 다름.** 지금은 기둥이 "플레이어 바로 옆에 세워둔" 느낌으로, 레퍼런스처럼 옆으로 멀찍이 떨어져 자연스럽게 뒤로 수렴하는 깊이감이 안 남.
+- 원하는 것: 그림과 **무대 구도(컴포지션)를 비슷하게** — 측면 조명 위치/간격/**사이즈**, 빛(글로우) 모두 레퍼런스 매칭.
+- 사용자 피드백 원문: "그냥 바로 옆에 둔 거 같은 원근감", "이미지랑 전혀 다르다", "사이즈도 빛도 그림처럼".
+- 재작업 방향 후보(내일 검토): 기둥을 더 바깥(x↑)으로 + 더 크게/높게 + z 간격·개수 조정해 원근 수렴 강조 / 레인에서 더 떨어뜨리기 / 레퍼런스 image3의 측면 스트립 비율 참고.
 
 **신규 파일 (E1/E2):**
 - `Shaders/Emissive.shader` — `VRBeat/Emissive`, HDR 단색(Bloom 발광). MPB `_Color` 렌더러별 오버라이드.
 - `Scripts/Gameplay/HighwayFloor.cs` — Conductor 박자 → 레인선 흰↔빨강/파랑 펄스.
-- `Scripts/Gameplay/SideLasers.cs` — 측면 레이저 박자 strobe/fade(그룹 교대).
-- `Scripts/Gameplay/RotatingRings.cs` — 회전 링 idle 스핀 + 박자 임펄스/펄스.
+- `Scripts/Gameplay/SideLasers.cs` — 측면 서치라이트(스윕 + 박자 글로우).
+- `Scripts/Gameplay/RotatingRings.cs` — 회전 링 idle 스핀/글로우 + 박자 임펄스/펄스.
+- `Scripts/Gameplay/OscilloscopeWall.cs` — 음향 스펙트럼 막대(주변부 사이드 EQ에 사용).
 - `Scripts/Gameplay/MirrorFloorProbe.cs` — 미러 바닥용 스로틀 실시간 Reflection Probe.
-- `Scripts/Editor/CreateEnvironment.cs` — 메뉴 `Create Environment Floor` / `Create Light Show`.
-- (삭제) `OscilloscopeWall.cs` — FFT 막대 폐기.
+- `Scripts/Gameplay/CircularEqualizer.cs` — (방사형 EQ, 현재 미사용 — 중앙 배치 폐기)
+- `Scripts/Editor/CreateEnvironment.cs` — 메뉴 `Create Environment Floor` / `Create Light Show` / `Create Side Equalizer`.
 
 ## 최근 완료 (UI/배경 세션)
 
