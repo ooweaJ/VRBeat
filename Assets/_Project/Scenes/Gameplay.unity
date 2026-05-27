@@ -1964,7 +1964,7 @@ MonoBehaviour:
   spawnZ: 30
   pillarY: 8
   laneOffsetX: 0.9
-  radiusScale: 0.6
+  radiusScale: 2
   heightScale: 8
   redColor: {r: 1.8, g: 0.1, b: 0.1, a: 1}
   blueColor: {r: 0.1, g: 0.2, b: 1.8, a: 1}
