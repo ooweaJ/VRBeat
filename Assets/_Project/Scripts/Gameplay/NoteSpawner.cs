@@ -145,6 +145,7 @@ public class NoteSpawner : MonoBehaviour
         NoteBase note = pool.Get(data.type);
         note.Initialize(data, noteSpeed, hitZ, config);
         activeNotes.Add(note);
+        BackgroundSphere.NoteSpawn(data.color);
     }
 
     public void RemoveActiveNote(NoteBase note)

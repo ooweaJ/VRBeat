@@ -24,6 +24,8 @@ public class Conductor : MonoBehaviour
     public bool IsSongFinished =>
         audioSource.clip != null && SongTime >= audioSource.clip.length;
 
+    public float SongDuration => audioSource?.clip != null ? audioSource.clip.length : 0f;
+
     void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }

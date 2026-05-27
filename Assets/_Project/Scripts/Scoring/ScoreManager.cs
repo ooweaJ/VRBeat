@@ -50,6 +50,8 @@ public class ScoreManager : MonoBehaviour
                      grade == HitGrade.Great   ? 3f : 1f;
         HealthSystem.Instance?.Heal(heal);
 
+        HitGradePopup.Spawn(grade, note.transform.position);
+        BackgroundSphere.NoteHit(note.Data.color);
         SfxManager.Get().PlayHit();
         HUD.Instance?.OnHit(grade, Score, Combo);
     }
@@ -58,6 +60,7 @@ public class ScoreManager : MonoBehaviour
     {
         Combo = 0;
         MissedHits++;
+        HitGradePopup.SpawnMiss(note.transform.position);
         HealthSystem.Instance?.TakeDamage(10);
         SfxManager.Get().PlayMiss();
         HUD.Instance?.OnMiss(Score, Combo);
@@ -67,6 +70,7 @@ public class ScoreManager : MonoBehaviour
     {
         Combo = 0;
         MissedHits++;
+        HitGradePopup.SpawnMiss(note.transform.position);
         HealthSystem.Instance?.TakeDamage(8);
         SfxManager.Get().PlayWrongColor();
         HUD.Instance?.OnMiss(Score, Combo);

@@ -1,51 +1,72 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer))]
+// VideoSkybox _Tint 색상을 제어해 배경 분위기를 바꿈
+// 씬의 BackgroundSphere 메시는 비활성화, 이 스크립트만 사용
 public class BackgroundSphere : MonoBehaviour
 {
-    [Header("Note Hit Flash")]
-    [SerializeField] Color redNoteColor       = new Color(1f, 0.04f, 0.07f);
-    [SerializeField] Color blueNoteColor      = new Color(0.04f, 0.12f, 1f);
-    [SerializeField] float noteFlashIntensity = 5f;
-    [SerializeField] float noteFlashDecay     = 3f;
+    [Header("Tint Colors")]
+    [SerializeField] Color neutralTint  = new Color(1f, 1f, 1f, 0.502f);
+    [SerializeField] Color redTint      = new Color(1f, 0.25f, 0.25f, 0.502f);
+    [SerializeField] Color blueTint     = new Color(0.25f, 0.25f, 1f, 0.502f);
 
-    [Header("Ambient Light")]
-    [SerializeField] bool  controlAmbient    = true;
-    [SerializeField] Color neutralAmbient    = new Color(0.03f, 0.03f, 0.05f);
-    [SerializeField] float ambientMultiplier = 0.2f;
+    [Header("Spawn Flash")]
+    [SerializeField] float spawnDecay   = 3.5f;
 
-    static readonly int PropEmission  = Shader.PropertyToID("_EmissionColor");
-    static readonly int PropIntensity = Shader.PropertyToID("_Intensity");
+    [Header("Hit Flash")]
+    [SerializeField] float hitDecay     = 5.5f;
 
+    static readonly int TintProp = Shader.PropertyToID("_Tint");
     static BackgroundSphere instance;
 
-    Material mat;
-    Color    noteFlashColor;
-    float    noteFlashValue;
+    Material skyboxMat;
+    Color    currentTint;
+    float    currentDecay;
 
     void Awake()
     {
-        instance       = this;
-        mat            = GetComponent<MeshRenderer>().material;
-        noteFlashColor = Color.black;
+        instance = this;
+
+        // 구체 메시가 있으면 숨김
+        var mr = GetComponent<MeshRenderer>();
+        if (mr != null) mr.enabled = false;
+
+        // 인스턴스 생성 — 원본 에셋 머티리얼을 직접 수정하지 않기 위해
+        if (RenderSettings.skybox != null)
+        {
+            skyboxMat = new Material(RenderSettings.skybox);
+            RenderSettings.skybox = skyboxMat;
+        }
+        currentTint  = neutralTint;
+        currentDecay = spawnDecay;
+
+        if (skyboxMat != null)
+            skyboxMat.SetColor(TintProp, neutralTint);
     }
 
     void Update()
     {
-        noteFlashValue = Mathf.MoveTowards(noteFlashValue, 0f, Time.deltaTime * noteFlashDecay);
-
-        float intensity = noteFlashValue * noteFlashIntensity;
-        mat.SetColor(PropEmission,  noteFlashColor);
-        mat.SetFloat(PropIntensity, intensity);
-
-        if (controlAmbient)
-            RenderSettings.ambientLight = neutralAmbient + noteFlashColor * (intensity * ambientMultiplier);
+        if (skyboxMat == null) return;
+        currentTint = Color.Lerp(currentTint, neutralTint, Time.deltaTime * currentDecay);
+        skyboxMat.SetColor(TintProp, currentTint);
     }
 
+    // 노트 스폰 시 — 은은한 틴트 + 발광 오브
+    public static void NoteSpawn(string noteColor)
+    {
+        if (instance != null)
+        {
+            instance.currentTint  = noteColor == "blue" ? instance.blueTint : instance.redTint;
+            instance.currentDecay = instance.spawnDecay;
+        }
+        NoteFlashLight.Spawn(noteColor);
+    }
+
+    // 노트 히트 시 — 강한 틴트
     public static void NoteHit(string noteColor)
     {
         if (instance == null) return;
-        instance.noteFlashColor = noteColor == "blue" ? instance.blueNoteColor : instance.redNoteColor;
-        instance.noteFlashValue = 1f;
+        Color target = noteColor == "blue" ? instance.blueTint : instance.redTint;
+        instance.currentTint  = Color.Lerp(instance.currentTint, target, 0.8f);
+        instance.currentDecay = instance.hitDecay;
     }
 }

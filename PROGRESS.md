@@ -146,6 +146,15 @@
 2. **시동 걸어 BPM 검증** — 현재 120 설정, 실제 박자와 맞지 않으면 `sidong_georeo/info.json`의 `"bpm"` 값 조정
 3. **(기기 연결 시) Quest APK 빌드 + 90fps 실측**
 
+---
+
+## 환경 비주얼 TODO
+
+| # | 항목 | 상태 | 메모 |
+|---|---|---|---|
+| E1 | **바닥 제작** — 노트 레인 바닥 + 플레이어 발밑 | 🔲 | Beat Saber 스타일 어둡고 광택 있는 반사 바닥. 레인 구분선 포함 |
+| E2 | **오실로스코프 벽** — 좌우 벽면 오디오 리액티브 | 🔲 | AudioSpectrum 데이터 → 실시간 높낮이 변하는 그래프 형태. 벽 생기면 LightPillar 빛 반사로 원작과 훨씬 유사해짐 |
+
 ## 최근 완료 (UI/배경 세션)
 
 - **VideoSkybox 전 씬 적용**: Settings, Calibration, Tutorial, SongSelect, Result, Gameplay 모두 motion.mp4 스카이박스 등록

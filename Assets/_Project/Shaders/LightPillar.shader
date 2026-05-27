@@ -1,38 +1,38 @@
-Shader "VRBeat/SaberBlade"
+Shader "VRBeat/LightPillar"
 {
     Properties
     {
-        [HDR] _Color  ("Blade Color (HDR)", Color) = (0, 0.5, 1, 1)
-        _CorePower    ("Core Power", Range(0.1, 2.0)) = 0.5
-        _GlowPower    ("Glow Power", Range(0.5, 8.0)) = 3.0
+        [HDR] _Color         ("Color (HDR)",     Color)        = (0, 0.5, 1, 1)
+        _Intensity           ("Intensity",        Float)        = 1.0
+        _RadialPower         ("Radial Softness",  Range(0.2, 4.0)) = 0.8
+        _HeightFadePower     ("Height Fade",      Range(0.3, 4.0)) = 1.5
     }
+
     SubShader
     {
         Tags
         {
-            "Queue"="Transparent"
-            "RenderType"="Transparent"
-            "RenderPipeline"="UniversalPipeline"
+            "Queue"          = "Transparent"
+            "RenderType"     = "Transparent"
+            "RenderPipeline" = "UniversalPipeline"
         }
+        Blend One One
+        ZWrite Off
+        Cull Off
 
         Pass
         {
-            Name "SaberBlade"
-            Blend One One
-            ZWrite Off
-            Cull Off
-
             HLSLPROGRAM
             #pragma vertex   vert
             #pragma fragment frag
             #pragma multi_compile_instancing
-
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             struct Attributes
             {
                 float4 positionOS : POSITION;
                 float3 normalOS   : NORMAL;
+                float2 uv         : TEXCOORD0;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -41,12 +41,14 @@ Shader "VRBeat/SaberBlade"
                 float4 positionHCS : SV_POSITION;
                 float3 normalWS    : TEXCOORD0;
                 float3 worldPos    : TEXCOORD1;
+                float2 uv          : TEXCOORD2;
             };
 
             CBUFFER_START(UnityPerMaterial)
                 half4  _Color;
-                float  _CorePower;
-                float  _GlowPower;
+                float  _Intensity;
+                float  _RadialPower;
+                float  _HeightFadePower;
             CBUFFER_END
 
             Varyings vert(Attributes IN)
@@ -56,6 +58,7 @@ Shader "VRBeat/SaberBlade"
                 OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
                 OUT.normalWS    = TransformObjectToWorldNormal(IN.normalOS);
                 OUT.worldPos    = TransformObjectToWorld(IN.positionOS.xyz);
+                OUT.uv          = IN.uv;
                 return OUT;
             }
 
@@ -64,23 +67,17 @@ Shader "VRBeat/SaberBlade"
                 float3 normal  = normalize(IN.normalWS);
                 float3 viewDir = normalize(GetWorldSpaceViewDir(IN.worldPos));
 
-                // NdotV: 1.0 = surface facing camera (center of blade), 0.0 = silhouette edge
-                float NdotV = abs(dot(normal, viewDir));
+                // 카메라를 정면으로 바라보는 면 = 밝음
+                // 옆으로 돌아가는 면 = 점점 투명 (기둥 느낌)
+                float NdotV    = abs(dot(normal, viewDir));
+                float radial   = pow(NdotV, _RadialPower);
 
-                // Tiny white-hot pinpoint — only at the very center (high power = narrow)
-                float whiteCore = pow(NdotV, 22.0) * 2.5;
+                // 위아래 끝으로 갈수록 페이드
+                float v        = IN.uv.y;
+                float hFade    = pow(saturate(1.0 - abs(v - 0.5) * 2.0), _HeightFadePower);
 
-                // Broad colored body (the main saber color)
-                float body = pow(NdotV, _CorePower) * 2.2;
-
-                // Soft outer glow halo
-                float glow = pow(NdotV, _GlowPower);
-
-                float outerIntensity = saturate(body + glow);
-
-                // Color dominates, only tiny center spot turns white
-                half3 color = _Color.rgb * outerIntensity + whiteCore;
-                return half4(color, 1.0);
+                float brightness = radial * hFade * _Intensity;
+                return half4(_Color.rgb * brightness, 1.0);
             }
             ENDHLSL
         }

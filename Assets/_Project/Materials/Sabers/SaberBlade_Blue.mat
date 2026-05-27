@@ -25,8 +25,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _CorePower: 0.25
+    - _GlowPower: 1.8
     m_Colors:
-    - _Color: {r: 0.5, g: 0.8, b: 6, a: 1}
+    - _Color: {r: 0.3, g: 0.8, b: 12, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
