@@ -152,8 +152,19 @@
 
 | # | 항목 | 상태 | 메모 |
 |---|---|---|---|
-| E1 | **바닥 제작** — 노트 레인 바닥 + 플레이어 발밑 | 🔲 | Beat Saber 스타일 어둡고 광택 있는 반사 바닥. 레인 구분선 포함 |
-| E2 | **오실로스코프 벽** — 좌우 벽면 오디오 리액티브 | 🔲 | AudioSpectrum 데이터 → 실시간 높낮이 변하는 그래프 형태. 벽 생기면 LightPillar 빛 반사로 원작과 훨씬 유사해짐 |
+| E1 | **바닥 제작** — 노트 레인 바닥 + 플레이어 발밑 | ✅ | 어두운 광택(URP/Lit) 바닥 + 발광 레인 구분선 5개(흰색, 박자마다 빨강↔파랑 펄스). 메뉴 `VRBeat/Create Environment Floor`. **Gameplay 씬 적용+저장 완료**. 박자 펄스 동작은 곡 재생 시 확인 |
+| E2 | ~~오실로스코프 벽(FFT)~~ → **비트 구동 라이트쇼** | ✅ | 실제 비트세이버 조명 이벤트 방식으로 전환. 측면 레이저(박자 strobe/fade, 짝/홀 그룹 교대, 왼쪽 빨강/오른쪽 파랑) + 회전 링 6개(교차 회전 + 박자 펄스, 터널감) + 미러 플로어(Realtime Reflection Probe + 광택 바닥). 메뉴 `VRBeat/Create Light Show`. **Gameplay 씬 적용+저장 완료**. 색/모션/반사는 곡 재생 시 |
+
+**설계 근거**: 실제 비트세이버는 UI/FFT가 아니라 **3D 월드 지오메트리 + Group Lighting Event(박자 동기 레이저·링) + 미러 플로어 + 블룸**. FFT 막대(범용 비주얼라이저 클리셰)를 비트 구동 정통파로 교체.
+
+**신규 파일 (E1/E2):**
+- `Shaders/Emissive.shader` — `VRBeat/Emissive`, HDR 단색(Bloom 발광). MPB `_Color` 렌더러별 오버라이드.
+- `Scripts/Gameplay/HighwayFloor.cs` — Conductor 박자 → 레인선 흰↔빨강/파랑 펄스.
+- `Scripts/Gameplay/SideLasers.cs` — 측면 레이저 박자 strobe/fade(그룹 교대).
+- `Scripts/Gameplay/RotatingRings.cs` — 회전 링 idle 스핀 + 박자 임펄스/펄스.
+- `Scripts/Gameplay/MirrorFloorProbe.cs` — 미러 바닥용 스로틀 실시간 Reflection Probe.
+- `Scripts/Editor/CreateEnvironment.cs` — 메뉴 `Create Environment Floor` / `Create Light Show`.
+- (삭제) `OscilloscopeWall.cs` — FFT 막대 폐기.
 
 ## 최근 완료 (UI/배경 세션)
 
