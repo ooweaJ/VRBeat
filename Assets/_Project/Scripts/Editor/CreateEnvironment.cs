@@ -258,10 +258,10 @@ public static class CreateEnvironment
             }
 
             var ow = wall.AddComponent<OscilloscopeWall>();
-            ow.bars        = bars;
-            ow.heightScale = 4f;                                   // 낮게
-            ow.lowColor    = new Color(0.04f, 0.09f, 0.45f);       // 더 어둑한 파랑(배경)
-            ow.highColor   = new Color(0.55f, 0.08f, 0.08f);       // 더 어둑한 빨강(배경)
+            ow.bars              = bars;
+            ow.segmentsPerColumn = 1;
+            ow.lowColor          = new Color(0.04f, 0.09f, 0.45f);
+            ow.highColor         = new Color(0.55f, 0.08f, 0.08f);
         }
 
         MarkDirty();

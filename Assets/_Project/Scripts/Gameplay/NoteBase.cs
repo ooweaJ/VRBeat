@@ -6,6 +6,7 @@ public abstract class NoteBase : MonoBehaviour
     protected float noteSpeed;
     protected float hitZ;
     protected GameConfig config;
+    Vector3 fullScale;
 
     public NoteData Data => data;
     public bool WasHit { get; protected set; }
@@ -17,6 +18,7 @@ public abstract class NoteBase : MonoBehaviour
         hitZ      = hz;
         config    = cfg;
         WasHit    = false;
+        fullScale = transform.localScale;
         ApplyDirectionRotation();
         UpdatePosition();
     }
@@ -34,6 +36,11 @@ public abstract class NoteBase : MonoBehaviour
         Vector3 pos = LaneToWorldPos(data.lane, data.row);
         pos.z = zPos;
         transform.position = pos;
+
+        // 히트 포인트 근처 approachDist 구간에서만 0.1→0.4 스케일 (멀면 극소, 가까이서 확 커짐)
+        float approachDist = config != null ? config.noteApproachDist : 8f;
+        float t = approachDist > 0f ? Mathf.Clamp01(1f - (zPos - hitZ) / approachDist) : 1f;
+        transform.localScale = fullScale * Mathf.Lerp(0.25f, 1f, t);
     }
 
     public virtual bool ShouldDespawn(float despawnZ) => transform.position.z < despawnZ;

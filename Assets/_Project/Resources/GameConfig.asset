@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
   spawnDistance: 20
-  hitDistance: 0
+  hitDistance: 20
   despawnDistance: -2
   laneWidth: 0.45
   rowHeight: 0.45
