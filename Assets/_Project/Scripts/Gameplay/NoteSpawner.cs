@@ -97,13 +97,14 @@ public class NoteSpawner : MonoBehaviour
         if (!isReady || chart == null) return;
 
         float currentBeat = Conductor.Instance.SongBeat;
-        float hitZ        = config != null ? config.hitDistance   : 0f;
         float despawnZ    = config != null ? config.despawnDistance : -2f;
-        float spawnDist   = config != null ? config.spawnDistance  : 30f;
+        float syncDist    = config != null ? config.noteSyncStartDistance : 20f;
+        float preSyncTime = config != null ? config.notePreSyncDuration : 0.35f;
 
-        float spawnLeadBeats = (spawnDist / noteSpeed) / Conductor.Instance.SecondsPerBeat;
+        float spawnLeadSeconds = (syncDist / noteSpeed) + preSyncTime;
+        float spawnLeadBeats = spawnLeadSeconds / Conductor.Instance.SecondsPerBeat;
 
-        // Spawn notes that are within spawnDistance
+        // Spawn notes at z=40, then let the pre-sync approach bring them to z=20.
         while (nextNoteIndex < chart.notes.Length &&
                chart.notes[nextNoteIndex].beat <= currentBeat + spawnLeadBeats)
         {

@@ -40,8 +40,8 @@ public class LongNote : NoteBase
         float lengthInSeconds = d.duration * Conductor.Instance.SecondsPerBeat;
         float lengthInMeters  = lengthInSeconds * speed;
 
-        // 루트 스케일(0.4)을 나눠서 로컬 길이로 환산
-        float rootScaleZ  = Mathf.Abs(transform.localScale.z);
+        // 프리롤 스케일(0.1→0.4)이 걸려도 원본 루트 스케일 기준으로 로컬 길이 환산
+        float rootScaleZ  = Mathf.Abs(fullScale.z);
         float localLength = rootScaleZ > 0f ? lengthInMeters / rootScaleZ : lengthInMeters;
 
         if (body != null)

@@ -6,7 +6,8 @@ public abstract class NoteBase : MonoBehaviour
     protected float noteSpeed;
     protected float hitZ;
     protected GameConfig config;
-    Vector3 fullScale;
+    protected Vector3 fullScale;
+    bool hasFullScale;
 
     public NoteData Data => data;
     public bool WasHit { get; protected set; }
@@ -18,7 +19,16 @@ public abstract class NoteBase : MonoBehaviour
         hitZ      = hz;
         config    = cfg;
         WasHit    = false;
-        fullScale = transform.localScale;
+        if (!hasFullScale)
+        {
+            fullScale = transform.localScale;
+            hasFullScale = true;
+        }
+        else
+        {
+            transform.localScale = fullScale;
+        }
+
         ApplyDirectionRotation();
         UpdatePosition();
     }
@@ -31,16 +41,36 @@ public abstract class NoteBase : MonoBehaviour
 
         float beatsRemaining   = data.beat - Conductor.Instance.SongBeat;
         float secondsRemaining = beatsRemaining * Conductor.Instance.SecondsPerBeat;
-        float zPos             = hitZ + secondsRemaining * noteSpeed;
+        float syncStartDist    = config != null ? config.noteSyncStartDistance : 20f;
+        float spawnDist        = config != null ? config.spawnDistance : 40f;
+        float preSyncDuration  = config != null ? config.notePreSyncDuration : 0.35f;
+        float syncLeadSeconds  = syncStartDist / noteSpeed;
+
+        float zPos;
+        float scaleMultiplier;
+
+        if (preSyncDuration > 0f && secondsRemaining > syncLeadSeconds)
+        {
+            float spawnLeadSeconds = syncLeadSeconds + preSyncDuration;
+            float t = Mathf.InverseLerp(spawnLeadSeconds, syncLeadSeconds, secondsRemaining);
+            t = Mathf.SmoothStep(0f, 1f, t);
+
+            zPos = hitZ + Mathf.Lerp(spawnDist, syncStartDist, t);
+
+            float spawnScale = config != null ? config.noteSpawnScale : 0.25f;
+            float syncScale = config != null ? config.noteSyncScale : 1f;
+            scaleMultiplier = Mathf.Lerp(spawnScale, syncScale, t);
+        }
+        else
+        {
+            zPos = hitZ + secondsRemaining * noteSpeed;
+            scaleMultiplier = config != null ? config.noteSyncScale : 1f;
+        }
 
         Vector3 pos = LaneToWorldPos(data.lane, data.row);
         pos.z = zPos;
         transform.position = pos;
-
-        // 히트 포인트 근처 approachDist 구간에서만 0.1→0.4 스케일 (멀면 극소, 가까이서 확 커짐)
-        float approachDist = config != null ? config.noteApproachDist : 8f;
-        float t = approachDist > 0f ? Mathf.Clamp01(1f - (zPos - hitZ) / approachDist) : 1f;
-        transform.localScale = fullScale * Mathf.Lerp(0.25f, 1f, t);
+        transform.localScale = fullScale * scaleMultiplier;
     }
 
     public virtual bool ShouldDespawn(float despawnZ) => transform.position.z < despawnZ;

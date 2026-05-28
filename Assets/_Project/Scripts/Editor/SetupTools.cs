@@ -56,9 +56,13 @@ public class SetupTools : EditorWindow
         GameConfig config = ScriptableObject.CreateInstance<GameConfig>();
         
         // Default values (matching GameConfig.cs fields)
-        config.spawnDistance = 30f;
+        config.spawnDistance = 40f;
+        config.noteSyncStartDistance = 20f;
+        config.notePreSyncDuration = 0.5f;
         config.hitDistance = 0f;
         config.despawnDistance = -2f;
+        config.noteSpawnScale = 0.25f;
+        config.noteSyncScale = 1f;
         config.laneWidth = 0.6f;
         config.rowHeight = 0.6f;
         config.baseHeight = 0.8f;
