@@ -157,12 +157,14 @@ public static class CreateEnvironment
         {
             float u = (float)i / (count - 1);
             float z = Mathf.Lerp(zNear, zFar, u);
-            float w = Mathf.Lerp(3.6f, 1.3f, u);
+            // 멀리 가도 레인(폭 2.4)보다 항상 크게 — 링 좌우 바가 레인에 안 박히게
+            float w = Mathf.Lerp(3.8f, 2.6f, u);
             float h = w * 0.92f;
 
             var pivot = new GameObject($"Ring_{i}");
             pivot.transform.SetParent(ringsRoot.transform, false);
-            pivot.transform.localPosition = new Vector3(0f, 2.7f, z);
+            // 중심 y=1.0 — 바닥바는 floor 아래로 숨고 윗바는 노트 위로
+            pivot.transform.localPosition = new Vector3(0f, 1.0f, z);
 
             var renderers = new[]
             {
@@ -307,41 +309,42 @@ public static class CreateEnvironment
     }
 
     // ── 사이드 이퀄라이저 (주변부, 어둑한 배경 음향 반응) ─────────
+    // 비트세이버식 클래식 EQ: 멀리 바깥에 두고 Y축 15° 안쪽으로 돌려 플레이어 방향을 향하게.
+    // 세그는 가로>세로 직사각, 컬럼·세그 사이 갭 또렷.
     [MenuItem("VRBeat/Create Side Equalizer")]
     public static void CreateSideEqualizer()
     {
-        if (GameObject.Find("OscilloscopeWalls") != null)
-        {
-            Debug.Log("[CreateEnvironment] 'OscilloscopeWalls' 가 이미 씬에 있습니다.");
-            return;
-        }
+        var existing = GameObject.Find("OscilloscopeWalls");
+        if (existing != null) Object.DestroyImmediate(existing);
 
         var root = new GameObject("OscilloscopeWalls");
         root.transform.SetParent(GameObject.Find("Environment")?.transform, false);
         Material oscMaterial = GetEmissiveMaterial(OscilloscopeMatPath, Color.black);
 
-        const int   columns     = 90;
-        const int   segments    = 9;
+        const int   columns     = 50;
+        const int   segments    = 12;
         const float zNear       = 2.8f;
         const float zFar        = 40.5f;
-        const float wallX       = 5.2f;
-        const float yBase       = 0.42f;
-        const float yStep       = 0.30f;
-        Vector3     segmentSize = new Vector3(0.90f, 0.36f, 0.44f);
+        const float wallX       = 13.2f;   // 멀리 바깥 — Y회전으로 안쪽으로 수렴
+        const float wallY       = 1.10f;   // 레일/노트 라인에 맞춰 살짝 위
+        const float wallZ       = 1.65f;
+        const float yawDeg      = 15f;     // Y축 회전 — 플레이어 방향 가시성
+        const float yBase       = 0.0f;
+        const float yStep       = 0.28f;
+        Vector3     segmentSize = new Vector3(0.10f, 0.20f, 0.60f); // X 얇게 / 가로>세로 직사각, 컬럼 빽빽
 
         foreach (int side in new[] { -1, 1 })
         {
             var wall = new GameObject(side < 0 ? "Wall_Left" : "Wall_Right");
             wall.transform.SetParent(root.transform, false);
-            wall.transform.localPosition = Vector3.zero;
-            wall.transform.localRotation = Quaternion.identity;
+            wall.transform.localPosition = new Vector3(side * wallX, wallY, wallZ);
+            wall.transform.localRotation = Quaternion.Euler(0f, -side * yawDeg, 0f);
 
             var bars = new Transform[columns * segments];
             for (int col = 0; col < columns; col++)
             {
                 float u = (float)col / (columns - 1);
                 float z = Mathf.Lerp(zNear, zFar, u);
-                float x = side * wallX;
 
                 for (int seg = 0; seg < segments; seg++)
                 {
@@ -349,7 +352,7 @@ public static class CreateEnvironment
                     bar.name = $"Seg_{col}_{seg}";
                     bar.transform.SetParent(wall.transform, false);
                     bar.transform.localScale    = segmentSize;
-                    bar.transform.localPosition = new Vector3(x, yBase + seg * yStep, z);
+                    bar.transform.localPosition = new Vector3(0f, yBase + seg * yStep, z);
                     bar.transform.localRotation = Quaternion.identity;
                     Object.DestroyImmediate(bar.GetComponent<Collider>());
                     var mr = bar.GetComponent<MeshRenderer>();
@@ -372,7 +375,7 @@ public static class CreateEnvironment
         }
 
         MarkDirty();
-        Debug.Log($"[CreateEnvironment] Side Equalizer 생성 완료 — 좌/우 각 {columns}x{segments} 직사각 세그먼트.");
+        Debug.Log($"[CreateEnvironment] Side Equalizer 재생성 — 좌/우 {columns}x{segments}, Y축 {yawDeg}° 안쪽 회전.");
     }
 
     // ── 머티리얼 ──────────────────────────────────────────────────
