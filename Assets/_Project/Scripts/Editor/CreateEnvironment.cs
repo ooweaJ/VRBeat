@@ -11,6 +11,12 @@ public static class CreateEnvironment
     const string EmissiveShaderPath = "Assets/_Project/Shaders/Emissive.shader";
     const string MatDir             = "Assets/_Project/Materials";
     const string EmissiveMatPath    = MatDir + "/EnvEmissive.mat";
+    const string LaserBlueMatPath   = MatDir + "/EnvLaserBlue.mat";
+    const string LaserRedMatPath    = MatDir + "/EnvLaserRed.mat";
+    const string RibDarkMatPath     = MatDir + "/TunnelFrameBlack.mat";
+    const string RibBlueMatPath     = MatDir + "/TunnelFrameBlueGlow.mat";
+    const string RibRedMatPath      = MatDir + "/TunnelFrameRedGlow.mat";
+    const string OscilloscopeMatPath = MatDir + "/OscilloscopeDim.mat";
     const string FloorMatPath       = MatDir + "/HighwayFloor.mat";
 
     const float HalfWidth  = 1.2f;   // 레인 끝 (x = ±1.2)
@@ -69,10 +75,6 @@ public static class CreateEnvironment
     [MenuItem("VRBeat/Create Light Show")]
     public static void CreateLightShow()
     {
-        // 1) 구버전 오실로스코프 벽 제거(FFT 막대 → 비트 구동으로 대체)
-        var oldWalls = GameObject.Find("OscilloscopeWalls");
-        if (oldWalls != null) Object.DestroyImmediate(oldWalls);
-
         if (GameObject.Find("LightShow") != null)
         {
             Debug.Log("[CreateEnvironment] 'LightShow' 가 이미 씬에 있습니다.");
@@ -80,15 +82,22 @@ public static class CreateEnvironment
         }
 
         Material emissive = GetEmissiveMaterial();
+        Material laserBlue = GetEmissiveMaterial(LaserBlueMatPath, new Color(0.55f, 1.35f, 5.2f, 1f));
+        Material laserRed = GetEmissiveMaterial(LaserRedMatPath, new Color(5.8f, 0.35f, 0.35f, 1f));
+        Material ribDark = GetMaterial(RibDarkMatPath, new Color(0.006f, 0.008f, 0.012f, 1f), false);
+        Material ribBlue = GetEmissiveMaterial(RibBlueMatPath, new Color(0.28f, 1.0f, 5.2f, 1f));
+        Material ribRed = GetEmissiveMaterial(RibRedMatPath, new Color(4.8f, 0.22f, 0.24f, 1f));
         var root = new GameObject("LightShow");
 
         BuildSideLasers(root.transform, emissive);
-        BuildRings(root.transform, emissive);
+        BuildRings(root.transform, ribDark, ribBlue, ribRed);
+        BuildReferenceRearLasers(root.transform, laserBlue);
+        BuildMovingUpLasers(root.transform, laserBlue, laserRed);
         BuildMirrorProbe(root.transform);
         UpgradeFloorToMirror();
 
         MarkDirty();
-        Debug.Log("[CreateEnvironment] Light Show 생성 완료 — 측면 레이저 + 회전 링 + 미러 프로브.");
+        Debug.Log("[CreateEnvironment] Light Show 생성 완료 — 비트세이버식 터널 링 + 후방 수렴 레이저 + 미러 프로브.");
     }
 
     static void BuildSideLasers(Transform parent, Material emissive)
@@ -125,37 +134,37 @@ public static class CreateEnvironment
 
             var sl = wall.AddComponent<SideLasers>();
             sl.columns       = cols;
-            sl.baseColor     = new Color(0.9f, 0.08f, 0.6f);  // 마젠타 글로우(레퍼런스)
-            sl.beatColor     = new Color(4.5f, 0.5f, 3.5f);
+            sl.baseColor     = new Color(0.15f, 0.45f, 2.4f);
+            sl.beatColor     = new Color(0.45f, 1.4f, 6.0f);
             sl.wavePerColumn = side < 0 ? 0.5f : -0.5f;        // 좌우 반대 방향 물결
         }
     }
 
-    static void BuildRings(Transform parent, Material emissive)
+    static void BuildRings(Transform parent, Material ribDark, Material ribBlue, Material ribRed)
     {
-        const int count = 10;
-        const float zNear = 8f, zFar = 36f, t = 0.06f; // 앞 공간 비우고 뒤로 밀어 깊은 터널
-        Color   red  = new Color(5.5f, 0.4f, 0.4f);   // 더 밝게 → 광선검 글로우
-        Color   blue = new Color(0.4f, 1.1f, 6f);
-
+        Material emissive = GetEmissiveMaterial();
         var ringsRoot = new GameObject("Rings");
         ringsRoot.transform.SetParent(parent, false);
+
         var rr = ringsRoot.AddComponent<RotatingRings>();
+        const int count = 10;
+        const float zNear = 8f, zFar = 36f, t = 0.06f;
+        Color red = new Color(5.5f, 0.4f, 0.4f);
+        Color blue = new Color(0.4f, 1.1f, 6f);
         var ringList = new RotatingRings.Ring[count];
 
         for (int i = 0; i < count; i++)
         {
-            float u = (float)i / (count - 1);          // 0=가까움, 1=멈
+            float u = (float)i / (count - 1);
             float z = Mathf.Lerp(zNear, zFar, u);
-            float w = Mathf.Lerp(4.4f, 1.5f, u);       // 멀수록 작게 → 깔때기 원근감
+            float w = Mathf.Lerp(3.6f, 1.3f, u);
             float h = w * 0.92f;
 
             var pivot = new GameObject($"Ring_{i}");
             pivot.transform.SetParent(ringsRoot.transform, false);
-            pivot.transform.localPosition = new Vector3(0f, 1.5f, z);
+            pivot.transform.localPosition = new Vector3(0f, 2.7f, z);
 
-            // 사각 4변
-            var bars = new[]
+            var renderers = new[]
             {
                 MakeBar(pivot.transform, "Top",    new Vector3(0f,  h * 0.5f, 0f), new Vector3(w, t, t), emissive),
                 MakeBar(pivot.transform, "Bottom", new Vector3(0f, -h * 0.5f, 0f), new Vector3(w, t, t), emissive),
@@ -166,11 +175,93 @@ public static class CreateEnvironment
             ringList[i] = new RotatingRings.Ring
             {
                 pivot     = pivot.transform,
-                renderers = bars,
+                renderers = renderers,
                 color     = (i & 1) == 0 ? red : blue,
             };
         }
+
         rr.rings = ringList;
+    }
+
+    static void BuildReferenceRearLasers(Transform parent, Material laserMat)
+    {
+        var root = new GameObject("ReferenceRearLasers");
+        root.transform.SetParent(parent, false);
+        Vector3 vanish = new Vector3(0f, 1.45f, 36.5f);
+
+        foreach (int side in new[] { -1, 1 })
+        {
+            MakeBeam(root.transform, $"UpperFan_{side}_0", vanish + new Vector3(side * 0.20f,  0.15f, 0f), new Vector3(side * 13.5f, 6.7f,  8.5f), 0.035f, laserMat);
+            MakeBeam(root.transform, $"UpperFan_{side}_1", vanish + new Vector3(side * 0.55f,  0.00f, -0.5f), new Vector3(side * 10.0f, 5.2f, 10.0f), 0.030f, laserMat);
+            MakeBeam(root.transform, $"MidFan_{side}_0",   vanish + new Vector3(side * 0.35f, -0.25f, 0f), new Vector3(side *  8.5f, 2.8f,  6.2f), 0.030f, laserMat);
+            MakeBeam(root.transform, $"LowRail_{side}_0",  new Vector3(side * 0.7f, 0.62f, 30f), new Vector3(side * 5.3f, 0.82f, 4.2f), 0.032f, laserMat);
+            MakeBeam(root.transform, $"SideWall_{side}_0", new Vector3(side * 6.0f, 1.25f,  6f), new Vector3(side * 11.5f, 4.8f, 34f), 0.030f, laserMat);
+        }
+
+        MakeBeam(root.transform, "CenterChevron_Left",  new Vector3(-0.55f, 1.75f, 24f), new Vector3(0f, 2.10f, 27.3f), 0.035f, laserMat);
+        MakeBeam(root.transform, "CenterChevron_Right", new Vector3( 0.55f, 1.75f, 24f), new Vector3(0f, 2.10f, 27.3f), 0.035f, laserMat);
+    }
+
+    static void BuildMovingUpLasers(Transform parent, Material blueLaser, Material redLaser)
+    {
+        var root = new GameObject("MovingUpLasers");
+        root.transform.SetParent(parent, false);
+        var cross = root.AddComponent<CrossLaserSystem>();
+        cross.independentMode = true;
+        cross.sweepAngle = 60f;
+        cross.oscSpeed = 0.22f;
+        cross.restColor = new Color(0.25f, 0.85f, 4.0f, 1f);
+        cross.beatColor = new Color(0.65f, 1.7f, 7.5f, 1f);
+        cross.impulseDecay = 3.0f;
+
+        var left = new System.Collections.Generic.List<CrossLaserSystem.LaserBeam>();
+        var right = new System.Collections.Generic.List<CrossLaserSystem.LaserBeam>();
+        foreach (int side in new[] { -1, 1 })
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                float z = 19.0f + i * 5.1f;
+                float x = side * (4.45f + i * 0.72f);
+                var pivot = new GameObject($"UpLaserPivot_{side}_{i}");
+                pivot.transform.SetParent(root.transform, false);
+                pivot.transform.localPosition = new Vector3(x, 0.05f, z);
+                pivot.transform.localEulerAngles = new Vector3(0f, 0f, side * (24f + i * 4f));
+
+                var beam = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                beam.name = "Beam";
+                beam.transform.SetParent(pivot.transform, false);
+                beam.transform.localPosition = new Vector3(0f, 6.2f, 0f);
+                beam.transform.localScale = new Vector3(0.055f, 11.5f, 0.055f);
+                Object.DestroyImmediate(beam.GetComponent<Collider>());
+                var renderer = beam.GetComponent<MeshRenderer>();
+                renderer.sharedMaterial = side < 0 ? blueLaser : redLaser;
+                renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                renderer.receiveShadows = false;
+
+                var laser = new CrossLaserSystem.LaserBeam { pivot = pivot.transform, renderer = renderer };
+                if (side < 0) left.Add(laser); else right.Add(laser);
+            }
+        }
+
+        cross.leftBeams = left.ToArray();
+        cross.rightBeams = right.ToArray();
+    }
+
+    static Renderer MakeBeam(Transform parent, string name, Vector3 a, Vector3 b, float thickness, Material mat)
+    {
+        var beam = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        beam.name = name;
+        beam.transform.SetParent(parent, false);
+        Vector3 dir = b - a;
+        beam.transform.localPosition = (a + b) * 0.5f;
+        beam.transform.localRotation = Quaternion.FromToRotation(Vector3.forward, dir.normalized);
+        beam.transform.localScale = new Vector3(thickness, thickness, dir.magnitude);
+        Object.DestroyImmediate(beam.GetComponent<Collider>());
+        var mr = beam.GetComponent<MeshRenderer>();
+        mr.sharedMaterial = mat;
+        mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        mr.receiveShadows = false;
+        return mr;
     }
 
     static Renderer MakeBar(Transform parent, string name, Vector3 pos, Vector3 scale, Material mat)
@@ -227,62 +318,85 @@ public static class CreateEnvironment
 
         var root = new GameObject("OscilloscopeWalls");
         root.transform.SetParent(GameObject.Find("Environment")?.transform, false);
-        Material emissive = GetEmissiveMaterial();
+        Material oscMaterial = GetEmissiveMaterial(OscilloscopeMatPath, Color.black);
 
-        const int   barCount = 40;
-        const float wallX     = 5.2f;                 // 측면 기둥(3.0)보다 더 바깥 = 배경
-        const float zStartEq  = 18f;                  // 더 뒤쪽만 = 백그라운드
-        float       length    = TrackEnd - zStartEq;
-        float       step      = length / barCount;
+        const int   columns     = 90;
+        const int   segments    = 9;
+        const float zNear       = 2.8f;
+        const float zFar        = 40.5f;
+        const float wallX       = 5.2f;
+        const float yBase       = 0.42f;
+        const float yStep       = 0.30f;
+        Vector3     segmentSize = new Vector3(0.90f, 0.36f, 0.44f);
 
         foreach (int side in new[] { -1, 1 })
         {
             var wall = new GameObject(side < 0 ? "Wall_Left" : "Wall_Right");
             wall.transform.SetParent(root.transform, false);
-            wall.transform.localPosition = new Vector3(side * wallX, 0f, 0f);
+            wall.transform.localPosition = Vector3.zero;
+            wall.transform.localRotation = Quaternion.identity;
 
-            var bars = new Transform[barCount];
-            for (int i = 0; i < barCount; i++)
+            var bars = new Transform[columns * segments];
+            for (int col = 0; col < columns; col++)
             {
-                var bar = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                bar.name = $"Bar_{i}";
-                bar.transform.SetParent(wall.transform, false);
-                bar.transform.localScale    = new Vector3(0.2f, 1f, step * 0.6f);
-                bar.transform.localPosition = new Vector3(0f, 0.5f, zStartEq + step * (i + 0.5f));
-                Object.DestroyImmediate(bar.GetComponent<Collider>());
-                var mr = bar.GetComponent<MeshRenderer>();
-                mr.sharedMaterial    = emissive;
-                mr.shadowCastingMode  = UnityEngine.Rendering.ShadowCastingMode.Off;
-                mr.receiveShadows     = false;
-                bars[i] = bar.transform;
+                float u = (float)col / (columns - 1);
+                float z = Mathf.Lerp(zNear, zFar, u);
+                float x = side * wallX;
+
+                for (int seg = 0; seg < segments; seg++)
+                {
+                    var bar = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    bar.name = $"Seg_{col}_{seg}";
+                    bar.transform.SetParent(wall.transform, false);
+                    bar.transform.localScale    = segmentSize;
+                    bar.transform.localPosition = new Vector3(x, yBase + seg * yStep, z);
+                    bar.transform.localRotation = Quaternion.identity;
+                    Object.DestroyImmediate(bar.GetComponent<Collider>());
+                    var mr = bar.GetComponent<MeshRenderer>();
+                    mr.sharedMaterial    = oscMaterial;
+                    mr.enabled           = false;
+                    mr.shadowCastingMode  = UnityEngine.Rendering.ShadowCastingMode.Off;
+                    mr.receiveShadows     = false;
+                    bars[col * segments + seg] = bar.transform;
+                }
             }
 
             var ow = wall.AddComponent<OscilloscopeWall>();
             ow.bars              = bars;
-            ow.segmentsPerColumn = 1;
-            ow.lowColor          = new Color(0.04f, 0.09f, 0.45f);
-            ow.highColor         = new Color(0.55f, 0.08f, 0.08f);
+            ow.segmentsPerColumn = segments;
+            ow.gain              = 165f;
+            ow.smooth            = 14f;
+            ow.lowColor          = new Color(0.10f, 0.28f, 2.8f);
+            ow.highColor         = new Color(3.2f, 0.18f, 0.18f);
+            ow.dimColor          = Color.black;
         }
 
         MarkDirty();
-        Debug.Log($"[CreateEnvironment] Side Equalizer 생성 완료 — 좌/우 각 {barCount}개, x±{wallX} (주변부, 어둑).");
+        Debug.Log($"[CreateEnvironment] Side Equalizer 생성 완료 — 좌/우 각 {columns}x{segments} 직사각 세그먼트.");
     }
 
     // ── 머티리얼 ──────────────────────────────────────────────────
-    static Material GetEmissiveMaterial()
+    static Material GetEmissiveMaterial() => GetEmissiveMaterial(EmissiveMatPath, new Color(1.6f, 1.6f, 1.6f, 1f));
+
+    static Material GetEmissiveMaterial(string path, Color color) => GetMaterial(path, color, true);
+
+    static Material GetMaterial(string path, Color color, bool emissive)
     {
-        var mat = AssetDatabase.LoadAssetAtPath<Material>(EmissiveMatPath);
+        var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
         if (mat != null) return mat;
 
-        var shader = AssetDatabase.LoadAssetAtPath<Shader>(EmissiveShaderPath);
+        Shader shader = emissive ? AssetDatabase.LoadAssetAtPath<Shader>(EmissiveShaderPath) : null;
+        if (shader == null) shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
         if (shader == null)
         {
-            Debug.LogError("[CreateEnvironment] Emissive.shader 를 찾을 수 없습니다: " + EmissiveShaderPath);
+            Debug.LogError("[CreateEnvironment] 머티리얼 셰이더를 찾을 수 없습니다: " + path);
             return null;
         }
         mat = new Material(shader);
-        mat.SetColor("_Color", new Color(1.6f, 1.6f, 1.6f, 1f));
-        SaveMat(mat, EmissiveMatPath);
+        if (mat.HasProperty("_Color")) mat.SetColor("_Color", color);
+        if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", color);
+        if (mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness", 0.82f);
+        SaveMat(mat, path);
         return mat;
     }
 

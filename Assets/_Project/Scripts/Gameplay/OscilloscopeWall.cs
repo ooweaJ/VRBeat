@@ -3,6 +3,7 @@ using UnityEngine;
 // 세그먼트 방식 오실로스코프 — 로딩바처럼 ▓▓▓▓▓ 작은 큐브들이 쌓임.
 // bars[] 순서: column0_seg0, column0_seg1 … column1_seg0 …
 // 오디오 레벨에 따라 아래 세그먼트부터 순서대로 켜짐.
+[ExecuteAlways]
 public class OscilloscopeWall : MonoBehaviour
 {
     [Header("Segments (col0_seg0, col0_seg1 … col1_seg0 …)")]
@@ -17,7 +18,7 @@ public class OscilloscopeWall : MonoBehaviour
     [Header("Color (HDR)")]
     [ColorUsage(true, true)] public Color lowColor  = new Color(0.2f,  0.45f, 3.2f);
     [ColorUsage(true, true)] public Color highColor = new Color(3.4f,  0.25f, 0.25f);
-    [ColorUsage(true, true)] public Color dimColor  = new Color(0.02f, 0.02f, 0.05f);
+    [ColorUsage(true, true)] public Color dimColor  = Color.black;
 
     static readonly int ColorProp = Shader.PropertyToID("_Color");
     float[]            spectrum;
@@ -29,6 +30,18 @@ public class OscilloscopeWall : MonoBehaviour
     {
         spectrum = new float[Mathf.Max(64, sampleCount)];
         mpb      = new MaterialPropertyBlock();
+        CacheRenderers();
+        if (Application.isPlaying) SetAllVisible(false);
+    }
+
+    void OnValidate()
+    {
+        if (!Application.isPlaying)
+            SetEditorPreviewVisible();
+    }
+
+    void CacheRenderers()
+    {
         if (bars == null) return;
 
         int segsPerCol = Mathf.Max(1, segmentsPerColumn);
@@ -40,9 +53,42 @@ public class OscilloscopeWall : MonoBehaviour
                 rends[i] = bars[i].GetComponent<Renderer>();
     }
 
+    void SetAllVisible(bool visible)
+    {
+        if (rends == null) CacheRenderers();
+        if (rends == null) return;
+        for (int i = 0; i < rends.Length; i++)
+            if (rends[i] != null)
+                rends[i].enabled = visible;
+    }
+
+    void SetEditorPreviewVisible()
+    {
+        if (mpb == null) mpb = new MaterialPropertyBlock();
+        if (rends == null) CacheRenderers();
+        if (rends == null) return;
+
+        Color previewColor = Color.Lerp(lowColor, highColor, 0.25f) * 0.28f;
+        previewColor.a = 1f;
+        for (int i = 0; i < rends.Length; i++)
+        {
+            if (rends[i] == null) continue;
+            rends[i].enabled = true;
+            rends[i].GetPropertyBlock(mpb);
+            mpb.SetColor(ColorProp, previewColor);
+            rends[i].SetPropertyBlock(mpb);
+        }
+    }
+
     void Update()
     {
         if (bars == null || bars.Length == 0) return;
+        if (!Application.isPlaying)
+        {
+            SetEditorPreviewVisible();
+            return;
+        }
+
         int segsPerCol = Mathf.Max(1, segmentsPerColumn);
         int numCols    = bars.Length / segsPerCol;
         if (numCols == 0) return;
@@ -62,10 +108,12 @@ public class OscilloscopeWall : MonoBehaviour
             {
                 int idx = col * segsPerCol + seg;
                 if (idx >= bars.Length || rends[idx] == null) continue;
+                bool isActive = seg < activeSegs;
+                rends[idx].enabled = isActive;
+                if (!isActive) continue;
+
                 rends[idx].GetPropertyBlock(mpb);
-                mpb.SetColor(ColorProp, seg < activeSegs
-                    ? Color.Lerp(lowColor, highColor, (float)seg / segsPerCol)
-                    : dimColor);
+                mpb.SetColor(ColorProp, Color.Lerp(lowColor, highColor, (float)seg / segsPerCol));
                 rends[idx].SetPropertyBlock(mpb);
             }
         }
