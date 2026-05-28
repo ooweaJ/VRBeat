@@ -36,8 +36,8 @@ public static class SetupSliceLightShow
         sls.redColor = new Color(9.5f, 0.95f, 0.45f);
         sls.blueColor = new Color(0.12f, 3.20f, 16.0f);
         sls.rearRedColor = new Color(9.5f, 0.95f, 0.45f);
-        sls.rearBlueColor = new Color(0.08f, 0.75f, 13.5f);
-        sls.ringRedColor = new Color(16.0f, 0.55f, 2.25f);
+        sls.rearBlueColor = new Color(0.45f, 0.95f, 9.5f);
+        sls.ringRedColor = new Color(16.0f, 0.12f, 3.20f);
         sls.ringBlueColor = new Color(0.12f, 3.20f, 16.0f);
 
         GameObject rings = GameObject.Find("Rings");

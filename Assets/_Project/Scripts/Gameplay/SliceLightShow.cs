@@ -36,10 +36,10 @@ public class SliceLightShow : MonoBehaviour
 
     [Header("Rear Laser Colors (sharp)")]
     [ColorUsage(true, true)] public Color rearRedColor = new Color(9.5f, 0.95f, 0.45f);
-    [ColorUsage(true, true)] public Color rearBlueColor = new Color(0.08f, 0.75f, 13.5f);
+    [ColorUsage(true, true)] public Color rearBlueColor = new Color(0.45f, 0.95f, 9.5f);
 
     [Header("Ring Colors (wide glow)")]
-    [ColorUsage(true, true)] public Color ringRedColor = new Color(16.0f, 0.55f, 2.25f);
+    [ColorUsage(true, true)] public Color ringRedColor = new Color(16.0f, 0.12f, 3.20f);
     [ColorUsage(true, true)] public Color ringBlueColor = new Color(0.12f, 3.20f, 16.0f);
 
     static readonly string[] UpperGroupNames =
