@@ -311,13 +311,16 @@ public static class CreateEnvironment
     }
 
     // ── 대각선 레이저 (위로 향하는 \\\/// 형태, 게임존 안 침범) ────
-    // 후방-우측/좌측 origin에서 위쪽 + 중앙 방향으로 뻗어 올라가는 3개 빔 × 2(미러), y로 3겹.
-    // 빔 경로는 게임 플레이 영역(x ±1.5, z 0~32, y 0~3)을 절대 통과하지 않음.
+    // 좌/우 별도 GameObject로 분리: DiagonalLasers_Right (\\\), DiagonalLasers_Left (///).
+    // 각각 3개 빔 × y층 (0, +3, +6). 빔 경로는 게임 플레이 영역 절대 통과하지 않음.
     [MenuItem("VRBeat/Create Diagonal Lasers")]
     public static void CreateDiagonalLasers()
     {
-        var existing = GameObject.Find("DiagonalLasers");
-        if (existing != null) Object.DestroyImmediate(existing);
+        foreach (var n in new[] { "DiagonalLasers", "DiagonalLasers_Right", "DiagonalLasers_Left" })
+        {
+            var existing = GameObject.Find(n);
+            if (existing != null) Object.DestroyImmediate(existing);
+        }
 
         var lightShow = GameObject.Find("LightShow");
         Transform parent = lightShow != null ? lightShow.transform : null;
@@ -328,20 +331,25 @@ public static class CreateEnvironment
             ? new Vector3(Mathf.Abs(sel.transform.position.x), sel.transform.position.y, sel.transform.position.z)
             : new Vector3(22f, 1.4f, 40f);
 
-        var root = new GameObject("DiagonalLasers");
-        if (parent != null) root.transform.SetParent(parent, true);
-        root.transform.position = Vector3.zero;
-
         Vector3 targetR = new Vector3(-originR.x * 0.45f, originR.y + 10.6f, 20f);
         Vector3 originL = new Vector3(-originR.x, originR.y, originR.z);
         Vector3 targetL = new Vector3(-targetR.x, targetR.y, targetR.z);
         float[] yOffsets = { 0f, 3f, 6f };
 
-        BuildBeamLayers(root.transform, "DiagR", originR, targetR, yOffsets, 0.05f, laserMat); // \\\
-        BuildBeamLayers(root.transform, "DiagL", originL, targetL, yOffsets, 0.05f, laserMat); // ///
+        // 우측 (\\\) — DiagonalLasers_Right
+        var rootR = new GameObject("DiagonalLasers_Right");
+        if (parent != null) rootR.transform.SetParent(parent, true);
+        rootR.transform.position = Vector3.zero;
+        BuildBeamLayers(rootR.transform, "DiagR", originR, targetR, yOffsets, 0.05f, laserMat);
+
+        // 좌측 (///) — DiagonalLasers_Left
+        var rootL = new GameObject("DiagonalLasers_Left");
+        if (parent != null) rootL.transform.SetParent(parent, true);
+        rootL.transform.position = Vector3.zero;
+        BuildBeamLayers(rootL.transform, "DiagL", originL, targetL, yOffsets, 0.05f, laserMat);
 
         MarkDirty();
-        Debug.Log($"[CreateEnvironment] DiagonalLasers 좌/우 — origin x=±{originR.x}, target y up to +10.6.");
+        Debug.Log($"[CreateEnvironment] DiagonalLasers 우/좌 분리 — origin x=±{originR.x}, target y up to +10.6.");
     }
 
     // ── Λ 부채꼴 (정중앙 상부 한 점에서 4방향 아래로 펼침) ─────────

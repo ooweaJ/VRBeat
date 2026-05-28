@@ -75,6 +75,8 @@ public class RotatingRings : MonoBehaviour
                 for (int k = 0; k < r.renderers.Length; k++)
                 {
                     if (r.renderers[k] == null) continue;
+                    // SliceLightShow가 제어 중인 링은 자동 색 안 건드림
+                    if (SliceLightShow.Instance != null && SliceLightShow.Instance.IsControlled(r.renderers[k])) continue;
                     r.renderers[k].GetPropertyBlock(mpb);
                     mpb.SetColor(ColorProp, col);
                     r.renderers[k].SetPropertyBlock(mpb);

@@ -86,11 +86,14 @@ public class EnvColorManager : MonoBehaviour
     }
 
     // 슬라이스 이벤트 — 세이버 색으로 잠깐 모든 환경 라이트 펄스
+    // OnSliceEvent: 외부 시스템(SliceLightShow 등)이 구독하기 위한 정적 이벤트
+    public static event System.Action<SaberColor> OnSliceEvent;
     public void TriggerSlice(SaberColor color)
     {
         SliceColor   = color;
         SliceLevel   = 1f;
-        ImpulseLevel = Mathf.Max(ImpulseLevel, 0.7f); // 동시에 펄스 임펄스도 띄움
+        ImpulseLevel = Mathf.Max(ImpulseLevel, 0.7f);
+        OnSliceEvent?.Invoke(color);
     }
 
     // 현재 임펄스 + 슬라이스 반영 최종 색

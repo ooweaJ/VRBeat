@@ -95,6 +95,8 @@ public class CrossLaserSystem : MonoBehaviour
         for (int i = 0; i < g.Length; i++)
         {
             if (g[i]?.renderer == null) continue;
+            // SliceLightShow가 제어 중인 빔은 자동 색 안 건드림 (회전은 계속)
+            if (SliceLightShow.Instance != null && SliceLightShow.Instance.IsControlled(g[i].renderer)) continue;
             g[i].renderer.GetPropertyBlock(mpb);
             mpb.SetColor(ColorId, col);
             g[i].renderer.SetPropertyBlock(mpb);
