@@ -13,9 +13,12 @@ public class SaberHitDetector : MonoBehaviour
         if (note == null) return;
         if (other.TryGetComponent(out SaberController saber))
         {
-            note.OnSliced(saber.Velocity.normalized, saber.Velocity.magnitude, saber.color);
-            HapticFeedback.Pulse(saber.handedness, 0.5f, 0.1f);
-            EnvColorManager.Instance?.TriggerSlice(saber.color);
+            bool sliced = note.OnSliced(saber.Velocity.normalized, saber.Velocity.magnitude, saber.color);
+            if (sliced)
+            {
+                HapticFeedback.Pulse(saber.handedness, 0.5f, 0.1f);
+                EnvColorManager.Instance?.TriggerSlice(saber.color);
+            }
         }
     }
 }

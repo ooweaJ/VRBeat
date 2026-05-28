@@ -1,122 +1,198 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 슬라이스 판정 기반 라이트쇼.
-// - 등록된 라이트들은 평소엔 OFF (발광 없음).
-// - 슬라이스 성공 시 그 색으로 짧게 켰다가 페이드아웃 → OFF.
-// - 위 라이트: 순차 인덱스 회전.
-// - 뒤 라이트: 랜덤 N개.
-// - 링: 노트 색에 맞는 그룹만 점등.
-// - 미스(슬라이스 미발생) 시 아무것도 안 켜짐.
 public class SliceLightShow : MonoBehaviour
 {
     public static SliceLightShow Instance { get; private set; }
 
-    [Header("Upper Lasers (sequential, 순차로 하나씩)")]
+    [System.Serializable]
+    public class RendererGroup
+    {
+        public string name;
+        public Renderer[] renderers;
+    }
+
+    [Header("Upper Lasers (sequential groups)")]
+    public RendererGroup[] upperGroups;
+
+    [Header("Legacy Upper Beams")]
     public Renderer[] upperBeams;
 
-    [Header("Rear Lasers (random, 랜덤 N개)")]
+    [Header("Rear Lasers (random 2-3)")]
     public Renderer[] rearBeams;
-    [Range(1, 8)] public int rearLightUpCount = 2;
+    [Range(1, 10)] public int rearLightUpMin = 2;
+    [Range(1, 10)] public int rearLightUpMax = 3;
 
-    [Header("Rings — 색에 맞는 그룹만")]
+    [Header("Rings (matching color group)")]
     public Renderer[] redRings;
     public Renderer[] blueRings;
 
     [Header("Timing")]
-    [Range(0.2f, 1.5f)] public float flashHold   = 0.55f;
-    [Range(0.05f, 1f)]  public float flashFade   = 0.30f;
+    [Range(0.1f, 2f)] public float flashDuration = 0.5f;
 
     [Header("Colors (HDR)")]
-    [ColorUsage(true, true)] public Color redColor  = new Color(8f,   0.40f, 0.55f);
-    [ColorUsage(true, true)] public Color blueColor = new Color(0.50f, 1.30f, 8f);
+    [ColorUsage(true, true)] public Color redColor = new Color(9.5f, 0.95f, 0.45f);
+    [ColorUsage(true, true)] public Color blueColor = new Color(0.12f, 3.20f, 16.0f);
+
+    [Header("Rear Laser Colors (sharp)")]
+    [ColorUsage(true, true)] public Color rearRedColor = new Color(9.5f, 0.95f, 0.45f);
+    [ColorUsage(true, true)] public Color rearBlueColor = new Color(0.08f, 0.75f, 13.5f);
+
+    [Header("Ring Colors (wide glow)")]
+    [ColorUsage(true, true)] public Color ringRedColor = new Color(16.0f, 0.55f, 2.25f);
+    [ColorUsage(true, true)] public Color ringBlueColor = new Color(0.12f, 3.20f, 16.0f);
+
+    static readonly string[] UpperGroupNames =
+    {
+        "DiagonalLasers_Right",
+        "DiagonalLasers_Left",
+        "CrossLasers",
+        "ChevronLasers",
+    };
 
     static readonly int ColorProp = Shader.PropertyToID("_Color");
-    MaterialPropertyBlock mpb;
+    static readonly int BaseColorProp = Shader.PropertyToID("_BaseColor");
+    static readonly int EmissionColorProp = Shader.PropertyToID("_EmissionColor");
+
     readonly HashSet<Renderer> controlled = new HashSet<Renderer>();
     readonly Dictionary<Renderer, FlashState> active = new Dictionary<Renderer, FlashState>();
     readonly List<Renderer> doneScratch = new List<Renderer>();
-    int upperIdx = 0;
+    readonly List<Renderer> keyScratch = new List<Renderer>();
+    readonly Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
+    MaterialPropertyBlock mpb;
+    Material lightShowMaterial;
+    int upperIdx;
+    float cycleRemaining;
 
-    struct FlashState { public Color color; public float remaining; }
+    struct FlashState
+    {
+        public Color color;
+        public float remaining;
+    }
 
     void Awake()
     {
         Instance = this;
         mpb = new MaterialPropertyBlock();
+        AutoWireMissingReferences();
         RegisterAll();
+        AssignLightShowMaterials();
     }
 
-    void OnDestroy() { if (Instance == this) Instance = null; }
-
-    void RegisterAll()
+    void OnDestroy()
     {
-        controlled.Clear();
-        AddRange(controlled, upperBeams);
-        AddRange(controlled, rearBeams);
-        AddRange(controlled, redRings);
-        AddRange(controlled, blueRings);
+        RestoreOriginalMaterials();
+        if (Instance == this) Instance = null;
     }
 
     void Start()
     {
-        // 평소엔 모두 OFF
         foreach (var r in controlled) SetRendererColor(r, Color.black);
     }
 
-    void OnEnable()  { EnvColorManager.OnSliceEvent += HandleSlice; }
-    void OnDisable() { EnvColorManager.OnSliceEvent -= HandleSlice; }
+    void OnEnable()
+    {
+        EnvColorManager.OnSliceEvent += HandleSlice;
+    }
+
+    void OnDisable()
+    {
+        EnvColorManager.OnSliceEvent -= HandleSlice;
+    }
 
     public bool IsControlled(Renderer r) => r != null && controlled.Contains(r);
 
     void HandleSlice(SaberColor saberColor)
     {
-        Color flashCol = saberColor == SaberColor.Red ? redColor : blueColor;
+        if (cycleRemaining > 0f) return;
 
-        // 위 라이트: 순차로 하나씩
-        if (upperBeams != null && upperBeams.Length > 0)
+        Color upperColor = saberColor == SaberColor.Red ? redColor : blueColor;
+        Color rearColor = saberColor == SaberColor.Red ? rearRedColor : rearBlueColor;
+        Color ringColor = saberColor == SaberColor.Red ? ringRedColor : ringBlueColor;
+
+        TriggerNextUpperGroup(upperColor);
+        TriggerRearRandom(rearColor);
+        TriggerRingGroup(saberColor, ringColor);
+        cycleRemaining = flashDuration;
+    }
+
+    void TriggerNextUpperGroup(Color flashColor)
+    {
+        if (upperGroups != null && upperGroups.Length > 0)
         {
-            var beam = upperBeams[upperIdx % upperBeams.Length];
-            upperIdx = (upperIdx + 1) % upperBeams.Length;
-            TriggerFlash(beam, flashCol);
+            RendererGroup group = upperGroups[upperIdx % upperGroups.Length];
+            upperIdx = (upperIdx + 1) % upperGroups.Length;
+            TriggerGroupFlash(group);
+            return;
         }
 
-        // 뒤 라이트: 랜덤으로 N개 중복 없이
-        if (rearBeams != null && rearBeams.Length > 0)
-        {
-            int pickCount = Mathf.Min(rearLightUpCount, rearBeams.Length);
-            // 가벼운 Fisher-Yates 일부 추출
-            int[] pool = new int[rearBeams.Length];
-            for (int i = 0; i < pool.Length; i++) pool[i] = i;
-            for (int n = 0; n < pickCount; n++)
-            {
-                int swapIdx = Random.Range(n, pool.Length);
-                (pool[n], pool[swapIdx]) = (pool[swapIdx], pool[n]);
-                TriggerFlash(rearBeams[pool[n]], flashCol);
-            }
-        }
+        if (upperBeams == null || upperBeams.Length == 0) return;
 
-        // 링: 색 매칭
-        var rings = saberColor == SaberColor.Red ? redRings : blueRings;
-        if (rings != null)
-            for (int i = 0; i < rings.Length; i++) TriggerFlash(rings[i], flashCol);
+        Renderer beam = upperBeams[upperIdx % upperBeams.Length];
+        upperIdx = (upperIdx + 1) % upperBeams.Length;
+        TriggerFlash(beam, flashColor);
+
+        void TriggerGroupFlash(RendererGroup group)
+        {
+            if (group?.renderers == null) return;
+            for (int i = 0; i < group.renderers.Length; i++)
+                TriggerFlash(group.renderers[i], flashColor);
+        }
+    }
+
+    void TriggerRearRandom(Color flashColor)
+    {
+        if (rearBeams == null || rearBeams.Length == 0) return;
+
+        int min = Mathf.Clamp(Mathf.Min(rearLightUpMin, rearLightUpMax), 1, rearBeams.Length);
+        int max = Mathf.Clamp(Mathf.Max(rearLightUpMin, rearLightUpMax), min, rearBeams.Length);
+        int pickCount = Random.Range(min, max + 1);
+
+        int[] pool = new int[rearBeams.Length];
+        for (int i = 0; i < pool.Length; i++) pool[i] = i;
+
+        for (int n = 0; n < pickCount; n++)
+        {
+            int swapIdx = Random.Range(n, pool.Length);
+            (pool[n], pool[swapIdx]) = (pool[swapIdx], pool[n]);
+            TriggerFlash(rearBeams[pool[n]], flashColor);
+        }
+    }
+
+    void TriggerRingGroup(SaberColor saberColor, Color flashColor)
+    {
+        Renderer[] rings = saberColor == SaberColor.Red ? redRings : blueRings;
+        if (rings == null) return;
+
+        for (int i = 0; i < rings.Length; i++)
+            TriggerFlash(rings[i], flashColor);
     }
 
     void TriggerFlash(Renderer r, Color c)
     {
         if (r == null) return;
-        active[r] = new FlashState { color = c, remaining = flashHold + flashFade };
+
+        SetRendererColor(r, c);
+        active[r] = new FlashState { color = c, remaining = flashDuration };
     }
 
     void Update()
     {
+        if (cycleRemaining > 0f)
+            cycleRemaining -= Time.deltaTime;
+
         if (active.Count == 0) return;
+
         doneScratch.Clear();
-        var keys = new List<Renderer>(active.Keys);
-        foreach (var r in keys)
+        keyScratch.Clear();
+        keyScratch.AddRange(active.Keys);
+
+        for (int i = 0; i < keyScratch.Count; i++)
         {
-            var st = active[r];
+            Renderer r = keyScratch[i];
+            FlashState st = active[r];
             st.remaining -= Time.deltaTime;
+
             if (st.remaining <= 0f)
             {
                 SetRendererColor(r, Color.black);
@@ -124,26 +200,161 @@ public class SliceLightShow : MonoBehaviour
             }
             else
             {
-                // hold 구간은 풀 강도, fade 구간은 선형 감쇠
-                float fadeT = st.remaining < flashFade ? st.remaining / flashFade : 1f;
-                SetRendererColor(r, st.color * fadeT);
                 active[r] = st;
             }
         }
-        for (int i = 0; i < doneScratch.Count; i++) active.Remove(doneScratch[i]);
+
+        for (int i = 0; i < doneScratch.Count; i++)
+            active.Remove(doneScratch[i]);
+    }
+
+    void RegisterAll()
+    {
+        controlled.Clear();
+        AddGroups(controlled, upperGroups);
+        AddRange(controlled, upperBeams);
+        AddRange(controlled, rearBeams);
+        AddRange(controlled, redRings);
+        AddRange(controlled, blueRings);
+    }
+
+    void AssignLightShowMaterials()
+    {
+        Shader shader = Shader.Find("Universal Render Pipeline/Unlit") ??
+                        Shader.Find("Universal Render Pipeline/Lit") ??
+                        Shader.Find("Unlit/Color") ??
+                        Shader.Find("Standard");
+        if (shader == null) return;
+
+        lightShowMaterial = new Material(shader)
+        {
+            name = "Runtime_SliceLightShow_Neon",
+            color = Color.black,
+        };
+        lightShowMaterial.EnableKeyword("_EMISSION");
+        if (lightShowMaterial.HasProperty(ColorProp))
+            lightShowMaterial.SetColor(ColorProp, Color.black);
+        if (lightShowMaterial.HasProperty(BaseColorProp))
+            lightShowMaterial.SetColor(BaseColorProp, Color.black);
+        if (lightShowMaterial.HasProperty(EmissionColorProp))
+            lightShowMaterial.SetColor(EmissionColorProp, Color.black);
+
+        foreach (Renderer r in controlled)
+        {
+            if (r == null || originalMaterials.ContainsKey(r)) continue;
+
+            originalMaterials[r] = r.sharedMaterials;
+            Material[] mats = r.sharedMaterials;
+            for (int i = 0; i < mats.Length; i++)
+                mats[i] = lightShowMaterial;
+            r.sharedMaterials = mats;
+        }
+    }
+
+    void RestoreOriginalMaterials()
+    {
+        foreach (KeyValuePair<Renderer, Material[]> entry in originalMaterials)
+        {
+            if (entry.Key != null)
+                entry.Key.sharedMaterials = entry.Value;
+        }
+
+        originalMaterials.Clear();
+
+        if (lightShowMaterial != null)
+        {
+            Destroy(lightShowMaterial);
+            lightShowMaterial = null;
+        }
+    }
+
+    void AutoWireMissingReferences()
+    {
+        if (upperGroups == null || upperGroups.Length == 0)
+            upperGroups = CollectUpperGroups();
+
+        if (rearBeams == null || rearBeams.Length == 0)
+            rearBeams = CollectRenderers("MovingUpLasers");
+
+        if ((redRings == null || redRings.Length == 0) &&
+            (blueRings == null || blueRings.Length == 0))
+        {
+            (redRings, blueRings) = CollectRingsByColor("Rings");
+        }
+    }
+
+    RendererGroup[] CollectUpperGroups()
+    {
+        var groups = new List<RendererGroup>();
+        for (int i = 0; i < UpperGroupNames.Length; i++)
+        {
+            Renderer[] renderers = CollectRenderers(UpperGroupNames[i]);
+            if (renderers.Length == 0) continue;
+
+            groups.Add(new RendererGroup
+            {
+                name = UpperGroupNames[i],
+                renderers = renderers,
+            });
+        }
+
+        return groups.ToArray();
+    }
+
+    static Renderer[] CollectRenderers(string rootName)
+    {
+        GameObject root = GameObject.Find(rootName);
+        if (root == null) return new Renderer[0];
+
+        var list = new List<Renderer>();
+        foreach (var r in root.GetComponentsInChildren<Renderer>(true))
+            if (r != null) list.Add(r);
+        return list.ToArray();
+    }
+
+    static (Renderer[] red, Renderer[] blue) CollectRingsByColor(string rootName)
+    {
+        var red = new List<Renderer>();
+        var blue = new List<Renderer>();
+        GameObject ringsRoot = GameObject.Find(rootName);
+        if (ringsRoot == null) return (red.ToArray(), blue.ToArray());
+
+        for (int i = 0; i < ringsRoot.transform.childCount; i++)
+        {
+            Transform pivot = ringsRoot.transform.GetChild(i);
+            if (!pivot.name.StartsWith("Ring_")) continue;
+
+            List<Renderer> target = (i & 1) == 0 ? red : blue;
+            foreach (var r in pivot.GetComponentsInChildren<Renderer>(true))
+                if (r != null) target.Add(r);
+        }
+
+        return (red.ToArray(), blue.ToArray());
     }
 
     void SetRendererColor(Renderer r, Color c)
     {
         if (r == null) return;
+
         r.GetPropertyBlock(mpb);
         mpb.SetColor(ColorProp, c);
+        mpb.SetColor(BaseColorProp, c);
+        mpb.SetColor(EmissionColorProp, c);
         r.SetPropertyBlock(mpb);
     }
 
     static void AddRange(HashSet<Renderer> set, Renderer[] arr)
     {
         if (arr == null) return;
-        for (int i = 0; i < arr.Length; i++) if (arr[i] != null) set.Add(arr[i]);
+        for (int i = 0; i < arr.Length; i++)
+            if (arr[i] != null) set.Add(arr[i]);
+    }
+
+    static void AddGroups(HashSet<Renderer> set, RendererGroup[] groups)
+    {
+        if (groups == null) return;
+
+        for (int i = 0; i < groups.Length; i++)
+            if (groups[i] != null) AddRange(set, groups[i].renderers);
     }
 }

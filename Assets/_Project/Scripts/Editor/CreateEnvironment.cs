@@ -234,8 +234,8 @@ public static class CreateEnvironment
                 var beam = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 beam.name = "Beam";
                 beam.transform.SetParent(pivot.transform, false);
-                beam.transform.localPosition = new Vector3(0f, 6.2f, 0f);
-                beam.transform.localScale = new Vector3(0.055f, 11.5f, 0.055f);
+                beam.transform.localPosition = new Vector3(0f, 9f, 0f);
+                beam.transform.localScale = new Vector3(0.11f, 18f, 0.11f);
                 Object.DestroyImmediate(beam.GetComponent<Collider>());
                 var renderer = beam.GetComponent<MeshRenderer>();
                 renderer.sharedMaterial = side < 0 ? blueLaser : redLaser;

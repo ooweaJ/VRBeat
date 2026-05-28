@@ -116,10 +116,10 @@ public class LongNote : NoteBase
         return tail.position.z < despawnZ;
     }
 
-    public override void OnSliced(Vector3 sliceDir, float velocity, SaberColor saberColor)
+    public override bool OnSliced(Vector3 sliceDir, float velocity, SaberColor saberColor)
     {
-        if (WasHit || isHeld) return;
-        if (!ColorMatches(saberColor, data.color)) return;
+        if (WasHit || isHeld) return false;
+        if (!ColorMatches(saberColor, data.color)) return false;
 
         WasHit = true;
         isHeld = true;
@@ -136,6 +136,7 @@ public class LongNote : NoteBase
 
         // 헤드만 숨기고 바디/꼬리는 홀드 중 유지
         if (head != null) head.gameObject.SetActive(false);
+        return true;
     }
 
     public void SetHeld(bool held) => isHeld = held;

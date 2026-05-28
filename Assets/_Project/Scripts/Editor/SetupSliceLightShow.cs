@@ -2,49 +2,81 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-// 슬라이스 라이트쇼 셋업 — ChevronLasers(위 4), MovingUpLasers(뒤 움직이는), Rings를 자동 와이어링.
-// 등록된 라이트는 평소 OFF, 슬라이스 성공 시에만 잠깐 점등.
 public static class SetupSliceLightShow
 {
+    static readonly string[] UpperGroupNames =
+    {
+        "DiagonalLasers_Right",
+        "DiagonalLasers_Left",
+        "CrossLasers",
+        "ChevronLasers",
+    };
+
     [MenuItem("VRBeat/Setup Slice Light Show")]
     public static void Setup()
     {
-        var lightShow = GameObject.Find("LightShow");
+        GameObject lightShow = GameObject.Find("LightShow");
         if (lightShow == null)
         {
-            Debug.LogError("[SetupSliceLightShow] 'LightShow' GameObject 없음. Light Show 먼저 만들기.");
+            Debug.LogError("[SetupSliceLightShow] LightShow GameObject not found.");
             return;
         }
 
-        var sls = lightShow.GetComponent<SliceLightShow>();
+        SliceLightShow sls = lightShow.GetComponent<SliceLightShow>();
         if (sls == null) sls = lightShow.AddComponent<SliceLightShow>();
 
-        // 위 4개 — ChevronLasers (4 빔 순차 점등)
-        var chev = GameObject.Find("ChevronLasers");
-        sls.upperBeams = CollectRenderers(chev);
+        sls.upperGroups = CollectUpperGroups();
+        sls.upperBeams = new Renderer[0];
 
-        // 뒤 움직이는 — MovingUpLasers (랜덤 2개)
-        var movingUp = GameObject.Find("MovingUpLasers");
+        GameObject movingUp = GameObject.Find("MovingUpLasers");
         sls.rearBeams = CollectRenderers(movingUp);
+        sls.rearLightUpMin = 2;
+        sls.rearLightUpMax = 3;
+        sls.flashDuration = 0.5f;
+        sls.redColor = new Color(9.5f, 0.95f, 0.45f);
+        sls.blueColor = new Color(0.12f, 3.20f, 16.0f);
+        sls.rearRedColor = new Color(9.5f, 0.95f, 0.45f);
+        sls.rearBlueColor = new Color(0.08f, 0.75f, 13.5f);
+        sls.ringRedColor = new Color(16.0f, 0.55f, 2.25f);
+        sls.ringBlueColor = new Color(0.12f, 3.20f, 16.0f);
 
-        // 링 — 색별 그룹
-        var rings = GameObject.Find("Rings");
+        GameObject rings = GameObject.Find("Rings");
         (sls.redRings, sls.blueRings) = CollectRingsByColor(rings);
 
-        UnityEditor.EditorUtility.SetDirty(sls);
+        EditorUtility.SetDirty(sls);
         UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(
             UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
 
-        Debug.Log($"[SetupSliceLightShow] upper={sls.upperBeams?.Length ?? 0}, " +
+        Debug.Log($"[SetupSliceLightShow] upperGroups={sls.upperGroups?.Length ?? 0}, " +
                   $"rear={sls.rearBeams?.Length ?? 0}, redRings={sls.redRings?.Length ?? 0}, " +
                   $"blueRings={sls.blueRings?.Length ?? 0}");
+    }
+
+    static SliceLightShow.RendererGroup[] CollectUpperGroups()
+    {
+        var groups = new List<SliceLightShow.RendererGroup>();
+        for (int i = 0; i < UpperGroupNames.Length; i++)
+        {
+            GameObject root = GameObject.Find(UpperGroupNames[i]);
+            Renderer[] renderers = CollectRenderers(root);
+            if (renderers.Length == 0) continue;
+
+            groups.Add(new SliceLightShow.RendererGroup
+            {
+                name = UpperGroupNames[i],
+                renderers = renderers,
+            });
+        }
+
+        return groups.ToArray();
     }
 
     static Renderer[] CollectRenderers(GameObject root)
     {
         if (root == null) return new Renderer[0];
+
         var list = new List<Renderer>();
-        foreach (var r in root.GetComponentsInChildren<Renderer>(true))
+        foreach (Renderer r in root.GetComponentsInChildren<Renderer>(true))
             if (r != null) list.Add(r);
         return list.ToArray();
     }
@@ -57,14 +89,14 @@ public static class SetupSliceLightShow
 
         for (int i = 0; i < ringsRoot.transform.childCount; i++)
         {
-            var pivot = ringsRoot.transform.GetChild(i);
+            Transform pivot = ringsRoot.transform.GetChild(i);
             if (!pivot.name.StartsWith("Ring_")) continue;
-            int idx = i;
-            // BuildRings에서 (i & 1) == 0 → red, 그 외 blue 사용 중
-            var target = (idx & 1) == 0 ? red : blue;
-            foreach (var r in pivot.GetComponentsInChildren<Renderer>(true))
+
+            List<Renderer> target = (i & 1) == 0 ? red : blue;
+            foreach (Renderer r in pivot.GetComponentsInChildren<Renderer>(true))
                 if (r != null) target.Add(r);
         }
+
         return (red.ToArray(), blue.ToArray());
     }
 }

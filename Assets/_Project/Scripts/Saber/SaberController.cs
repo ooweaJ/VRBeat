@@ -51,9 +51,12 @@ public class SaberController : MonoBehaviour
             float vel = Velocity.magnitude;
             Debug.Log($"[Saber] Hit detected with {other.name}. Velocity: {vel:F2}");
 
-            note.OnSliced(Velocity.normalized, vel, color);
-            HapticFeedback.Pulse(handedness, 0.5f, 0.1f);
-            EnvColorManager.Instance?.TriggerSlice(color);
+            bool sliced = note.OnSliced(Velocity.normalized, vel, color);
+            if (sliced)
+            {
+                HapticFeedback.Pulse(handedness, 0.5f, 0.1f);
+                EnvColorManager.Instance?.TriggerSlice(color);
+            }
         }
     }
 }

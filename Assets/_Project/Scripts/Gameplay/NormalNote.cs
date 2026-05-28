@@ -46,9 +46,9 @@ public class NormalNote : NoteBase
         }
     }
 
-    public override void OnSliced(Vector3 sliceDir, float velocity, SaberColor saberColor)
+    public override bool OnSliced(Vector3 sliceDir, float velocity, SaberColor saberColor)
     {
-        if (WasHit) return;
+        if (WasHit) return false;
 
         // 1. Check Color Match
         if (!ColorMatches(saberColor, data.color))
@@ -57,14 +57,14 @@ public class NormalNote : NoteBase
             Debug.Log($"[Note] Wrong Color! Saber: {saberColor}, Note: {data.color}");
             ScoreManager.Instance?.RegisterWrongColor(this);
             gameObject.SetActive(false);
-            return;
+            return false;
         }
 
         // 2. Check Velocity
         if (velocity < MinSliceVelocity)
         {
             Debug.Log($"[Note] Too slow! Velocity: {velocity:F2}");
-            return;
+            return false;
         }
 
         // 3. Check Direction
@@ -81,5 +81,6 @@ public class NormalNote : NoteBase
 
         SliceEffect.Play(transform.position, sliceDir, data.color);
         gameObject.SetActive(false);
+        return true;
     }
 }

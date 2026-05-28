@@ -78,7 +78,7 @@ public abstract class NoteBase : MonoBehaviour
     void ApplyDirectionRotation() =>
         transform.localRotation = DirectionToRotation(data.direction);
 
-    public abstract void OnSliced(Vector3 sliceDirection, float velocity, SaberColor saberColor);
+    public abstract bool OnSliced(Vector3 sliceDirection, float velocity, SaberColor saberColor);
 
     protected Vector3 LaneToWorldPos(int lane, int row)
     {
