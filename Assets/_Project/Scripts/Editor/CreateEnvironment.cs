@@ -310,10 +310,9 @@ public static class CreateEnvironment
         AssetDatabase.SaveAssets();
     }
 
-    // ── 대각선 레이저 (위로 향하는 \\\ 형태, 게임존 안 침범) ───────
-    // 후방-우측 origin에서 위쪽 + 중앙 방향으로 뻗어 올라가는 3개 빔, y로 3겹 쌓임.
+    // ── 대각선 레이저 (위로 향하는 \\\/// 형태, 게임존 안 침범) ────
+    // 후방-우측/좌측 origin에서 위쪽 + 중앙 방향으로 뻗어 올라가는 3개 빔 × 2(미러), y로 3겹.
     // 빔 경로는 게임 플레이 영역(x ±1.5, z 0~32, y 0~3)을 절대 통과하지 않음.
-    // EnvSyncedBeam 부착 — 박자 펄스 + 슬라이스 색반응 자동 적용.
     [MenuItem("VRBeat/Create Diagonal Lasers")]
     public static void CreateDiagonalLasers()
     {
@@ -324,69 +323,60 @@ public static class CreateEnvironment
         Transform parent = lightShow != null ? lightShow.transform : null;
         Material laserMat = GetEmissiveMaterial(LaserBlueMatPath, new Color(0.55f, 1.35f, 5.2f, 1f));
 
-        // 선택된 GO 있으면 그 위치 기준
         var sel = UnityEditor.Selection.activeGameObject;
-        Vector3 origin = sel != null ? sel.transform.position : new Vector3(22f, 1.4f, 40f);
+        Vector3 originR = sel != null && Mathf.Abs(sel.transform.position.x) > 0.1f
+            ? new Vector3(Mathf.Abs(sel.transform.position.x), sel.transform.position.y, sel.transform.position.z)
+            : new Vector3(22f, 1.4f, 40f);
 
         var root = new GameObject("DiagonalLasers");
         if (parent != null) root.transform.SetParent(parent, true);
         root.transform.position = Vector3.zero;
 
-        // 위로 + 안쪽으로 향하는 종점 — y 상승 ~10.6, 게임존 위쪽으로 통과
-        Vector3 target = new Vector3(-origin.x * 0.45f, origin.y + 10.6f, 20f);
+        Vector3 targetR = new Vector3(-originR.x * 0.45f, originR.y + 10.6f, 20f);
+        Vector3 originL = new Vector3(-originR.x, originR.y, originR.z);
+        Vector3 targetL = new Vector3(-targetR.x, targetR.y, targetR.z);
         float[] yOffsets = { 0f, 3f, 6f };
 
-        BuildBeamLayers(root.transform, "Diag", origin, target, yOffsets, 0.05f, laserMat);
+        BuildBeamLayers(root.transform, "DiagR", originR, targetR, yOffsets, 0.05f, laserMat); // \\\
+        BuildBeamLayers(root.transform, "DiagL", originL, targetL, yOffsets, 0.05f, laserMat); // ///
 
         MarkDirty();
-        Debug.Log($"[CreateEnvironment] DiagonalLasers — origin={origin}, target={target}, y층 (0, +3, +6), 위쪽 \\\\\\ 방향.");
+        Debug.Log($"[CreateEnvironment] DiagonalLasers 좌/우 — origin x=±{originR.x}, target y up to +10.6.");
     }
 
-    static void BuildBeamLayers(Transform parent, string prefix, Vector3 from, Vector3 to, float[] yOffsets, float thickness, Material mat)
+    // ── Λ 부채꼴 (정중앙 상부 한 점에서 4방향 아래로 펼침) ─────────
+    [MenuItem("VRBeat/Create Chevron Lasers")]
+    public static void CreateChevronLasers()
     {
-        for (int i = 0; i < yOffsets.Length; i++)
-        {
-            Vector3 a = from + new Vector3(0f, yOffsets[i], 0f);
-            Vector3 b = to   + new Vector3(0f, yOffsets[i], 0f);
-            var beam = MakeBeam(parent, $"{prefix}_{i}", a, b, thickness, mat);
-            beam.gameObject.AddComponent<EnvSyncedBeam>();
-        }
-    }
-
-    // ── 수렴 레이저 (후방 상부 → 한 점으로 모이는 스포트라이트) ───
-    [MenuItem("VRBeat/Create Convergent Lasers")]
-    public static void CreateConvergentLasers()
-    {
-        var existing = GameObject.Find("ConvergentLasers");
+        var existing = GameObject.Find("ChevronLasers");
         if (existing != null) Object.DestroyImmediate(existing);
 
         var lightShow = GameObject.Find("LightShow");
         Transform parent = lightShow != null ? lightShow.transform : null;
         Material mat = GetEmissiveMaterial(LaserRedMatPath, new Color(5.8f, 0.35f, 0.35f, 1f));
 
-        var root = new GameObject("ConvergentLasers");
+        var root = new GameObject("ChevronLasers");
         if (parent != null) root.transform.SetParent(parent, true);
         root.transform.position = Vector3.zero;
 
-        Vector3 conv = new Vector3(0f, 1.0f, 32f); // 후방 바닥 부근 수렴점
-        Vector3[] sources =
+        Vector3 apex = new Vector3(0f, 14f, 28f); // 정중앙 상부
+        Vector3[] feet =
         {
-            new Vector3(-8f, 6.5f, 38f),
-            new Vector3(-4f, 8.0f, 41f),
-            new Vector3( 0f, 9.0f, 43f),
-            new Vector3( 4f, 8.0f, 41f),
-            new Vector3( 8f, 6.5f, 38f),
+            new Vector3(-12f, 5f, 38f),
+            new Vector3(-12f, 5f, 18f),
+            new Vector3( 12f, 5f, 18f),
+            new Vector3( 12f, 5f, 38f),
         };
-        for (int i = 0; i < sources.Length; i++)
+        for (int i = 0; i < feet.Length; i++)
         {
-            var beam = MakeBeam(root.transform, $"Conv_{i}", sources[i], conv, 0.045f, mat);
+            var beam = MakeBeam(root.transform, $"Chev_{i}", apex, feet[i], 0.045f, mat);
             beam.gameObject.AddComponent<EnvSyncedBeam>();
         }
         MarkDirty();
-        Debug.Log("[CreateEnvironment] ConvergentLasers — 5개 빔 후방 수렴.");
+        Debug.Log("[CreateEnvironment] ChevronLasers — apex (0,14,28) → 4방향 아래.");
     }
 
-    // ── X자 크로스 레이저 (후방 상부에서 교차) ─────────────────────
+    // ── X 크로스 (게임존 한참 위에서 교차) ─────────────────────────
     [MenuItem("VRBeat/Create Cross Lasers")]
     public static void CreateCrossLasers()
     {
@@ -401,13 +391,11 @@ public static class CreateEnvironment
         if (parent != null) root.transform.SetParent(parent, true);
         root.transform.position = Vector3.zero;
 
-        // 2쌍 X자 — 후방 상/하단 위치에 교차
+        // 두 빔이 (0, 10, 20) 부근에서 교차, 모든 점 y ≥ 8
         Vector3[][] beams =
         {
-            new[]{ new Vector3(-9f, 2.0f, 28f), new Vector3( 9f, 8.0f, 36f) }, // / 위쪽
-            new[]{ new Vector3( 9f, 2.0f, 28f), new Vector3(-9f, 8.0f, 36f) }, // \ 위쪽
-            new[]{ new Vector3(-7f, 3.5f, 33f), new Vector3( 7f, 6.5f, 30f) }, // / 작은 X
-            new[]{ new Vector3( 7f, 3.5f, 33f), new Vector3(-7f, 6.5f, 30f) }, // \ 작은 X
+            new[]{ new Vector3(-15f,  8f,  5f), new Vector3( 15f, 12f, 35f) }, // /
+            new[]{ new Vector3( 15f,  8f,  5f), new Vector3(-15f, 12f, 35f) }, // \
         };
         for (int i = 0; i < beams.Length; i++)
         {
@@ -415,7 +403,18 @@ public static class CreateEnvironment
             beam.gameObject.AddComponent<EnvSyncedBeam>();
         }
         MarkDirty();
-        Debug.Log("[CreateEnvironment] CrossLasers — 후방 상부 X자 2쌍.");
+        Debug.Log("[CreateEnvironment] CrossLasers — y=8~12 상부에서 X자 교차.");
+    }
+
+    static void BuildBeamLayers(Transform parent, string prefix, Vector3 from, Vector3 to, float[] yOffsets, float thickness, Material mat)
+    {
+        for (int i = 0; i < yOffsets.Length; i++)
+        {
+            Vector3 a = from + new Vector3(0f, yOffsets[i], 0f);
+            Vector3 b = to   + new Vector3(0f, yOffsets[i], 0f);
+            var beam = MakeBeam(parent, $"{prefix}_{i}", a, b, thickness, mat);
+            beam.gameObject.AddComponent<EnvSyncedBeam>();
+        }
     }
 
     // ── 사이드 이퀄라이저 (주변부, 어둑한 배경 음향 반응) ─────────
