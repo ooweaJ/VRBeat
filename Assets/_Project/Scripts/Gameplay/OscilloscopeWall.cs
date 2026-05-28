@@ -95,6 +95,11 @@ public class OscilloscopeWall : MonoBehaviour
 
         AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
+        var ec = EnvColorManager.Instance;
+        bool sliceActive = ec != null && ec.SliceLevel > 0.01f;
+        Color sliceTint = sliceActive ? ec.SliceTint : default;
+        float sliceLv = sliceActive ? ec.SliceLevel : 0f;
+
         for (int col = 0; col < numCols; col++)
         {
             float f   = (float)col / numCols;
@@ -112,8 +117,11 @@ public class OscilloscopeWall : MonoBehaviour
                 rends[idx].enabled = isActive;
                 if (!isActive) continue;
 
+                Color segCol = Color.Lerp(lowColor, highColor, (float)seg / segsPerCol);
+                if (sliceActive) segCol = Color.Lerp(segCol, sliceTint, sliceLv);
+
                 rends[idx].GetPropertyBlock(mpb);
-                mpb.SetColor(ColorProp, Color.Lerp(lowColor, highColor, (float)seg / segsPerCol));
+                mpb.SetColor(ColorProp, segCol);
                 rends[idx].SetPropertyBlock(mpb);
             }
         }

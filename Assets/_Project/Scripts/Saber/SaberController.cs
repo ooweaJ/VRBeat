@@ -53,6 +53,7 @@ public class SaberController : MonoBehaviour
 
             note.OnSliced(Velocity.normalized, vel, color);
             HapticFeedback.Pulse(handedness, 0.5f, 0.1f);
+            EnvColorManager.Instance?.TriggerSlice(color);
         }
     }
 }

@@ -43,10 +43,19 @@ public class HighwayFloor : MonoBehaviour
         }
 
         current = Color.Lerp(current, baseColor, Time.deltaTime * decay);
-        Apply();
+
+        // 슬라이스 색반응 — 노트 베면 그 색으로 잠깐 덮어쓰기
+        var ec = EnvColorManager.Instance;
+        Color applied = current;
+        if (ec != null && ec.SliceLevel > 0.01f)
+            applied = Color.Lerp(applied, ec.SliceTint, ec.SliceLevel);
+
+        Apply(applied);
     }
 
-    void Apply()
+    void Apply() => Apply(current);
+
+    void Apply(Color col)
     {
         if (lineRenderers == null) return;
         for (int i = 0; i < lineRenderers.Length; i++)
@@ -54,7 +63,7 @@ public class HighwayFloor : MonoBehaviour
             var r = lineRenderers[i];
             if (r == null) continue;
             r.GetPropertyBlock(mpb);
-            mpb.SetColor(ColorProp, current);
+            mpb.SetColor(ColorProp, col);
             r.SetPropertyBlock(mpb);
         }
     }

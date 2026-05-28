@@ -88,6 +88,8 @@ public static class CreateEnvironment
         Material ribBlue = GetEmissiveMaterial(RibBlueMatPath, new Color(0.28f, 1.0f, 5.2f, 1f));
         Material ribRed = GetEmissiveMaterial(RibRedMatPath, new Color(4.8f, 0.22f, 0.24f, 1f));
         var root = new GameObject("LightShow");
+        if (UnityEngine.Object.FindFirstObjectByType<EnvColorManager>() == null)
+            root.AddComponent<EnvColorManager>(); // 전역 색 동기화 + 슬라이스 색반응
 
         BuildSideLasers(root.transform, emissive);
         BuildRings(root.transform, ribDark, ribBlue, ribRed);
@@ -157,8 +159,8 @@ public static class CreateEnvironment
         {
             float u = (float)i / (count - 1);
             float z = Mathf.Lerp(zNear, zFar, u);
-            // 멀리 가도 레인(폭 2.4)보다 항상 크게 — 링 좌우 바가 레인에 안 박히게
-            float w = Mathf.Lerp(3.8f, 2.6f, u);
+            // 멀리 가도 레인(폭 2.4)보다 항상 크게. 비트세이버스럽게 넉넉히.
+            float w = Mathf.Lerp(5.0f, 3.2f, u);
             float h = w * 0.92f;
 
             var pivot = new GameObject($"Ring_{i}");
@@ -308,6 +310,114 @@ public static class CreateEnvironment
         AssetDatabase.SaveAssets();
     }
 
+    // ── 대각선 레이저 (위로 향하는 \\\ 형태, 게임존 안 침범) ───────
+    // 후방-우측 origin에서 위쪽 + 중앙 방향으로 뻗어 올라가는 3개 빔, y로 3겹 쌓임.
+    // 빔 경로는 게임 플레이 영역(x ±1.5, z 0~32, y 0~3)을 절대 통과하지 않음.
+    // EnvSyncedBeam 부착 — 박자 펄스 + 슬라이스 색반응 자동 적용.
+    [MenuItem("VRBeat/Create Diagonal Lasers")]
+    public static void CreateDiagonalLasers()
+    {
+        var existing = GameObject.Find("DiagonalLasers");
+        if (existing != null) Object.DestroyImmediate(existing);
+
+        var lightShow = GameObject.Find("LightShow");
+        Transform parent = lightShow != null ? lightShow.transform : null;
+        Material laserMat = GetEmissiveMaterial(LaserBlueMatPath, new Color(0.55f, 1.35f, 5.2f, 1f));
+
+        // 선택된 GO 있으면 그 위치 기준
+        var sel = UnityEditor.Selection.activeGameObject;
+        Vector3 origin = sel != null ? sel.transform.position : new Vector3(22f, 1.4f, 40f);
+
+        var root = new GameObject("DiagonalLasers");
+        if (parent != null) root.transform.SetParent(parent, true);
+        root.transform.position = Vector3.zero;
+
+        // 위로 + 안쪽으로 향하는 종점 — y 상승 ~10.6, 게임존 위쪽으로 통과
+        Vector3 target = new Vector3(-origin.x * 0.45f, origin.y + 10.6f, 20f);
+        float[] yOffsets = { 0f, 3f, 6f };
+
+        BuildBeamLayers(root.transform, "Diag", origin, target, yOffsets, 0.05f, laserMat);
+
+        MarkDirty();
+        Debug.Log($"[CreateEnvironment] DiagonalLasers — origin={origin}, target={target}, y층 (0, +3, +6), 위쪽 \\\\\\ 방향.");
+    }
+
+    static void BuildBeamLayers(Transform parent, string prefix, Vector3 from, Vector3 to, float[] yOffsets, float thickness, Material mat)
+    {
+        for (int i = 0; i < yOffsets.Length; i++)
+        {
+            Vector3 a = from + new Vector3(0f, yOffsets[i], 0f);
+            Vector3 b = to   + new Vector3(0f, yOffsets[i], 0f);
+            var beam = MakeBeam(parent, $"{prefix}_{i}", a, b, thickness, mat);
+            beam.gameObject.AddComponent<EnvSyncedBeam>();
+        }
+    }
+
+    // ── 수렴 레이저 (후방 상부 → 한 점으로 모이는 스포트라이트) ───
+    [MenuItem("VRBeat/Create Convergent Lasers")]
+    public static void CreateConvergentLasers()
+    {
+        var existing = GameObject.Find("ConvergentLasers");
+        if (existing != null) Object.DestroyImmediate(existing);
+
+        var lightShow = GameObject.Find("LightShow");
+        Transform parent = lightShow != null ? lightShow.transform : null;
+        Material mat = GetEmissiveMaterial(LaserRedMatPath, new Color(5.8f, 0.35f, 0.35f, 1f));
+
+        var root = new GameObject("ConvergentLasers");
+        if (parent != null) root.transform.SetParent(parent, true);
+        root.transform.position = Vector3.zero;
+
+        Vector3 conv = new Vector3(0f, 1.0f, 32f); // 후방 바닥 부근 수렴점
+        Vector3[] sources =
+        {
+            new Vector3(-8f, 6.5f, 38f),
+            new Vector3(-4f, 8.0f, 41f),
+            new Vector3( 0f, 9.0f, 43f),
+            new Vector3( 4f, 8.0f, 41f),
+            new Vector3( 8f, 6.5f, 38f),
+        };
+        for (int i = 0; i < sources.Length; i++)
+        {
+            var beam = MakeBeam(root.transform, $"Conv_{i}", sources[i], conv, 0.045f, mat);
+            beam.gameObject.AddComponent<EnvSyncedBeam>();
+        }
+        MarkDirty();
+        Debug.Log("[CreateEnvironment] ConvergentLasers — 5개 빔 후방 수렴.");
+    }
+
+    // ── X자 크로스 레이저 (후방 상부에서 교차) ─────────────────────
+    [MenuItem("VRBeat/Create Cross Lasers")]
+    public static void CreateCrossLasers()
+    {
+        var existing = GameObject.Find("CrossLasers");
+        if (existing != null) Object.DestroyImmediate(existing);
+
+        var lightShow = GameObject.Find("LightShow");
+        Transform parent = lightShow != null ? lightShow.transform : null;
+        Material mat = GetEmissiveMaterial(LaserBlueMatPath, new Color(0.55f, 1.35f, 5.2f, 1f));
+
+        var root = new GameObject("CrossLasers");
+        if (parent != null) root.transform.SetParent(parent, true);
+        root.transform.position = Vector3.zero;
+
+        // 2쌍 X자 — 후방 상/하단 위치에 교차
+        Vector3[][] beams =
+        {
+            new[]{ new Vector3(-9f, 2.0f, 28f), new Vector3( 9f, 8.0f, 36f) }, // / 위쪽
+            new[]{ new Vector3( 9f, 2.0f, 28f), new Vector3(-9f, 8.0f, 36f) }, // \ 위쪽
+            new[]{ new Vector3(-7f, 3.5f, 33f), new Vector3( 7f, 6.5f, 30f) }, // / 작은 X
+            new[]{ new Vector3( 7f, 3.5f, 33f), new Vector3(-7f, 6.5f, 30f) }, // \ 작은 X
+        };
+        for (int i = 0; i < beams.Length; i++)
+        {
+            var beam = MakeBeam(root.transform, $"Cross_{i}", beams[i][0], beams[i][1], 0.05f, mat);
+            beam.gameObject.AddComponent<EnvSyncedBeam>();
+        }
+        MarkDirty();
+        Debug.Log("[CreateEnvironment] CrossLasers — 후방 상부 X자 2쌍.");
+    }
+
     // ── 사이드 이퀄라이저 (주변부, 어둑한 배경 음향 반응) ─────────
     // 비트세이버식 클래식 EQ: 멀리 바깥에 두고 Y축 15° 안쪽으로 돌려 플레이어 방향을 향하게.
     // 세그는 가로>세로 직사각, 컬럼·세그 사이 갭 또렷.
@@ -322,11 +432,11 @@ public static class CreateEnvironment
         Material oscMaterial = GetEmissiveMaterial(OscilloscopeMatPath, Color.black);
 
         const int   columns     = 50;
-        const int   segments    = 12;
+        const int   segments    = 16;      // 위로 더 쌓아 EQ 막대 키 큼
         const float zNear       = 2.8f;
         const float zFar        = 40.5f;
         const float wallX       = 13.2f;   // 멀리 바깥 — Y회전으로 안쪽으로 수렴
-        const float wallY       = 1.10f;   // 레일/노트 라인에 맞춰 살짝 위
+        const float wallY       = 0.55f;   // 살짝 내림 — 시야 안에 더 잘 들어옴
         const float wallZ       = 1.65f;
         const float yawDeg      = 15f;     // Y축 회전 — 플레이어 방향 가시성
         const float yBase       = 0.0f;

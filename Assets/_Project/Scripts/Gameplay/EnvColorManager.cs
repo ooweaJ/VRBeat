@@ -18,10 +18,19 @@ public class EnvColorManager : MonoBehaviour
     [Range(0.3f, 2f)] public float minFlashInterval  = 0.75f; // 최소 펄스 간격(초) — 다다다 노트에서 너무 빠른 깜빡임 방지
     [Range(1f, 10f)] public float impulseDecay       = 3.2f;
 
+    [Header("Slice Reaction (Beat Saber 색반응)")]
+    [ColorUsage(true, true)] public Color sliceRedTint  = new Color(10f, 0.5f, 0.5f);
+    [ColorUsage(true, true)] public Color sliceBlueTint = new Color(0.5f, 0.9f, 12f);
+    [Range(2f, 14f)] public float sliceDecay = 6f;
+
     public Color RestColor        { get; private set; }
     public Color BeatColor        { get; private set; }
     public float ImpulseLevel     { get; private set; }
     public bool  NewBeatThisFrame { get; private set; }
+
+    public float       SliceLevel { get; private set; }
+    public SaberColor  SliceColor { get; private set; }
+    public Color       SliceTint  => SliceColor == SaberColor.Red ? sliceRedTint : sliceBlueTint;
 
     int   lastBeat       = -1;
     int   beatCount      = 0;
@@ -67,6 +76,7 @@ public class EnvColorManager : MonoBehaviour
         }
 
         ImpulseLevel *= Mathf.Exp(-impulseDecay * Time.deltaTime);
+        SliceLevel   *= Mathf.Exp(-sliceDecay   * Time.deltaTime);
     }
 
     void Refresh()
@@ -75,6 +85,20 @@ public class EnvColorManager : MonoBehaviour
         BeatColor = isRed ? redBeat : blueBeat;
     }
 
-    // 현재 임펄스 반영 최종 색
-    public Color GetCurrentColor() => Color.Lerp(RestColor, BeatColor, ImpulseLevel);
+    // 슬라이스 이벤트 — 세이버 색으로 잠깐 모든 환경 라이트 펄스
+    public void TriggerSlice(SaberColor color)
+    {
+        SliceColor   = color;
+        SliceLevel   = 1f;
+        ImpulseLevel = Mathf.Max(ImpulseLevel, 0.7f); // 동시에 펄스 임펄스도 띄움
+    }
+
+    // 현재 임펄스 + 슬라이스 반영 최종 색
+    public Color GetCurrentColor()
+    {
+        Color baseCol = Color.Lerp(RestColor, BeatColor, ImpulseLevel);
+        if (SliceLevel > 0.01f)
+            baseCol = Color.Lerp(baseCol, SliceTint, SliceLevel);
+        return baseCol;
+    }
 }

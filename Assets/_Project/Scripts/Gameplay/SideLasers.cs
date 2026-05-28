@@ -35,6 +35,7 @@ public class SideLasers : MonoBehaviour
 
         if (columns == null) return;
         float t = Time.time;
+        var ec = EnvColorManager.Instance;
         for (int i = 0; i < columns.Length; i++)
         {
             if (columns[i] == null) continue;
@@ -42,6 +43,10 @@ public class SideLasers : MonoBehaviour
             float wave  = 0.5f + 0.5f * Mathf.Sin(t * waveSpeed - i * wavePerColumn);
             float pulse = level * Mathf.Lerp(0.4f, 1f, wave);
             Color col   = Color.Lerp(baseColor, beatColor, pulse);
+
+            // 슬라이스 색반응
+            if (ec != null && ec.SliceLevel > 0.01f)
+                col = Color.Lerp(col, ec.SliceTint, ec.SliceLevel);
 
             columns[i].GetPropertyBlock(mpb);
             mpb.SetColor(ColorProp, col);

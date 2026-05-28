@@ -44,6 +44,7 @@ public class RotatingRings : MonoBehaviour
             if (beat >= 0 && beat != lastBeat) { lastBeat = beat; beatHit = true; }
         }
 
+        var ec = EnvColorManager.Instance;
         for (int i = 0; i < rings.Length; i++)
         {
             var r = rings[i];
@@ -65,6 +66,11 @@ public class RotatingRings : MonoBehaviour
             // 발광 펄스
             r.level = Mathf.Lerp(r.level, 0f, Time.deltaTime * glowDecay);
             Color col = Color.Lerp(r.color * idleGlow, r.color, r.level);
+
+            // 슬라이스 색반응 — 세이버 색으로 전체 링 잠깐 덮어쓰기
+            if (ec != null && ec.SliceLevel > 0.01f)
+                col = Color.Lerp(col, ec.SliceTint, ec.SliceLevel);
+
             if (r.renderers != null)
                 for (int k = 0; k < r.renderers.Length; k++)
                 {
