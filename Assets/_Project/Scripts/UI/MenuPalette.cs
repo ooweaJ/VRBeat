@@ -4,10 +4,11 @@ using UnityEngine;
 public static class MenuPalette
 {
     // 배경/패널 — 어두운 코발트
-    public static readonly Color Background     = new Color(0.020f, 0.025f, 0.040f, 1f);
-    public static readonly Color PanelDark      = new Color(0.040f, 0.055f, 0.090f, 0.92f);
-    public static readonly Color PanelMid       = new Color(0.080f, 0.110f, 0.180f, 0.92f);
-    public static readonly Color PanelDeep      = new Color(0.015f, 0.020f, 0.035f, 0.95f);
+    public static readonly Color Background     = new Color(0.010f, 0.014f, 0.026f, 0.68f);
+    public static readonly Color PanelDark      = new Color(0.020f, 0.035f, 0.070f, 0.74f);
+    public static readonly Color PanelMid       = new Color(0.045f, 0.075f, 0.130f, 0.78f);
+    public static readonly Color PanelDeep      = new Color(0.008f, 0.014f, 0.028f, 0.84f);
+    public static readonly Color PanelGlass     = new Color(0.018f, 0.030f, 0.055f, 0.52f);
 
     // 강조 — HDR
     public static readonly Color AccentCyan     = new Color(0.30f, 1.60f, 6.80f, 1f);
@@ -31,4 +32,5 @@ public static class MenuPalette
     // 아웃라인/글로우
     public static readonly Color OutlineCyan    = new Color(0.50f, 1.50f, 5.0f, 0.85f);
     public static readonly Color OutlineRed     = new Color(4.0f, 0.45f, 0.55f, 0.85f);
+    public static readonly Color OutlineDim     = new Color(0.18f, 0.45f, 1.6f, 0.65f);
 }

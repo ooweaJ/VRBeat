@@ -17,6 +17,7 @@ public static class SetupVRUI
         "Assets/_Project/Scenes/Result.unity",
         "Assets/_Project/Scenes/Calibration.unity",
         "Assets/_Project/Scenes/Settings.unity",
+        "Assets/_Project/Scenes/Tutorial.unity",
     };
 
     [MenuItem("VRBeat/Setup VR UI Interaction")]

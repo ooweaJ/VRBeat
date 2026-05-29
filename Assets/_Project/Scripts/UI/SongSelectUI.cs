@@ -14,12 +14,12 @@ public class SongSelectUI : MonoBehaviour
     [SerializeField] Transform    difficultyParent;
     [SerializeField] GameObject   difficultyButtonPrefab;
 
-    static readonly Color SongColorSelected     = new Color(1f, 0.85f, 0.2f);
-    static readonly Color SongColorNormal       = new Color(0.18f, 0.18f, 0.22f);
-    static readonly Color TextColorSelected     = Color.black;
-    static readonly Color TextColorNormal       = Color.white;
-    static readonly Color DiffColorSelected     = new Color(1f, 0.85f, 0.2f);
-    static readonly Color DiffColorNormal       = new Color(0.10f, 0.35f, 0.75f);
+    static readonly Color SongColorSelected = new Color(0.95f, 0.68f, 0.16f, 0.96f);
+    static readonly Color SongColorNormal   = new Color(0.07f, 0.12f, 0.20f, 0.92f);
+    static readonly Color TextColorSelected = new Color(0.05f, 0.04f, 0.02f, 1f);
+    static readonly Color TextColorNormal   = MenuPalette.TextBright;
+    static readonly Color DiffColorSelected = new Color(0.95f, 0.68f, 0.16f, 0.96f);
+    static readonly Color DiffColorNormal   = new Color(0.08f, 0.22f, 0.42f, 0.92f);
 
     List<SongData> songs;
     SongData selectedSong;
@@ -50,6 +50,7 @@ public class SongSelectUI : MonoBehaviour
             if (img != null) { img.color = SongColorNormal; songButtons.Add((s, img, txt)); }
             btn?.onClick.AddListener(() => SelectSong(s));
         }
+        RestyleDynamicButtons();
     }
 
     void SelectSong(SongData song)
@@ -58,14 +59,8 @@ public class SongSelectUI : MonoBehaviour
         if (titleText   != null) titleText.text  = song.info.title;
         if (artistText  != null) artistText.text = song.info.artist;
 
-        foreach (var (s, img, txt2) in songButtons)
-        {
-            bool sel = s == song;
-            img.color = sel ? SongColorSelected : SongColorNormal;
-            if (txt2 != null) txt2.color = sel ? TextColorSelected : TextColorNormal;
-        }
-
         PopulateDifficulties(song);
+        RefreshSongButtonSelection(song);
         if (song.coverSprite != null && coverImage != null)
             coverImage.sprite = song.coverSprite;
     }
@@ -88,6 +83,7 @@ public class SongSelectUI : MonoBehaviour
             b?.onClick.AddListener(() => SelectDifficulty(d));
         }
 
+        RestyleDynamicButtons();
         if (song.info.difficulties.Length > 0) SelectDifficulty(song.info.difficulties[0]);
     }
 
@@ -96,7 +92,14 @@ public class SongSelectUI : MonoBehaviour
         selectedDiff = diff;
 
         foreach (var (d, img) in diffButtons)
-            img.color = d == diff ? DiffColorSelected : DiffColorNormal;
+        {
+            bool sel = d == diff;
+            if (img != null)
+            {
+                img.color = sel ? DiffColorSelected : DiffColorNormal;
+                MenuStyleApplier.StyleSelectableGraphic(img.gameObject, sel);
+            }
+        }
 
         var record = SaveSystem.LoadRecord(selectedSong?.info.songId, diff.name);
         if (highScoreText != null)
@@ -112,4 +115,21 @@ public class SongSelectUI : MonoBehaviour
     public void GoToSettings()    => SceneLoader.Load("Settings");
     public void GoToCalibration() => SceneLoader.Load("Calibration");
     public void GoToTutorial()    => SceneLoader.Load("Tutorial");
+
+    void RefreshSongButtonSelection(SongData song)
+    {
+        foreach (var (s, img, txt2) in songButtons)
+        {
+            bool sel = s == song;
+            img.color = sel ? SongColorSelected : SongColorNormal;
+            MenuStyleApplier.StyleSelectableGraphic(img.gameObject, sel);
+            if (txt2 != null) txt2.color = sel ? TextColorSelected : TextColorNormal;
+        }
+    }
+
+    static void RestyleDynamicButtons()
+    {
+        var applier = FindFirstObjectByType<MenuStyleApplier>();
+        if (applier != null) applier.Apply();
+    }
 }
